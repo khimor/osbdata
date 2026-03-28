@@ -885,8 +885,18 @@ export async function getStateOperatorTable(stateCode, targetPeriod = null, chan
   const periodIdx = periods.indexOf(latestPeriod);
   const prevPeriod = periodIdx > 0 ? periods[periodIdx - 1] : null;
 
+  // YoY period (same month, prior year)
+  let yoyPeriod = null;
+  if (latestPeriod) {
+    const d = new Date(latestPeriod + 'T00:00:00');
+    const yoyMonth = `${d.getFullYear() - 1}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+    const yoyMatch = periods.filter(p => p.startsWith(yoyMonth));
+    if (yoyMatch.length) yoyPeriod = yoyMatch[yoyMatch.length - 1];
+  }
+
   const latest = useRows.filter(r => r.period_end === latestPeriod);
   const prev = prevPeriod ? useRows.filter(r => r.period_end === prevPeriod) : [];
+  const yoyRows = yoyPeriod ? useRows.filter(r => r.period_end === yoyPeriod) : [];
 
   const opMap = {};
   for (const row of latest) {
@@ -931,12 +941,20 @@ export async function getStateOperatorTable(stateCode, targetPeriod = null, chan
     prevMap[op].handle += row.handle || 0;
   }
 
+  const yoyMap = {};
+  for (const row of yoyRows) {
+    const op = row.operator_standard;
+    if (!yoyMap[op]) yoyMap[op] = { handle: 0 };
+    yoyMap[op].handle += row.handle || 0;
+  }
+
   const operators = Object.values(opMap)
     .map(o => ({
       ...o,
       hold_pct: o.handle > 0 ? o.standard_ggr / o.handle : null,
       market_share: totalHandle > 0 ? o.handle / totalHandle : 0,
       prev_handle: prevMap[o.operator]?.handle || null,
+      yoy_handle: yoyMap[o.operator]?.handle || null,
     }))
     .sort((a, b) => b.handle - a.handle);
 

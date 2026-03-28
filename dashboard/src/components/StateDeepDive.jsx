@@ -363,12 +363,12 @@ export default function StateDeepDive({ stateCode: initialState }) {
                       <th>Std GGR <MetricInfo stateCode={stateCode} metric="standard_ggr" /></th>
                       <th>Hold %</th>
                       <th>Market Share</th>
-                      <th>MoM Handle</th>
+                      <th>YoY Handle</th>
                     </tr>
                   </thead>
                   <tbody>
                     {opTableData.operators.map(op => {
-                      const mom = formatChange(op.handle, op.prev_handle);
+                      const yoy = formatChange(op.handle, op.yoy_handle);
                       return (
                         <tr key={op.operator}>
                           <td style={{ textAlign: 'left' }}>
@@ -380,9 +380,9 @@ export default function StateDeepDive({ stateCode: initialState }) {
                           <td><SourceableValue value={op.hold_pct} formattedValue={formatPct(op.hold_pct)} row={op} metric="Hold %" /></td>
                           <td>{formatPct(op.market_share)}</td>
                           <td>
-                            {mom ? (
-                              <span className={mom.direction === 'up' ? 'cell-positive' : 'cell-negative'}>
-                                {mom.label}
+                            {yoy ? (
+                              <span className={yoy.direction === 'up' ? 'cell-positive' : 'cell-negative'}>
+                                {yoy.label}
                               </span>
                             ) : '-'}
                           </td>
