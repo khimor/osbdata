@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+
 concurrency:
   group: scrape-full
   cancel-in-progress: false
@@ -36,9 +37,30 @@ jobs:
       - name: Sync data to dashboard
         run: python scripts/sync_to_dashboard.py
 
+      - name: Generate summary
+        run: python scripts/generate_summary.py
+
       - name: Commit and push
         run: |
           git config user.name "OSB Bot"
           git config user.email "bot@osbtracker.com"
           git add data/processed/ dashboard/public/data/ .source_hashes.json .source_check_times.json
           git diff --cached --quiet || (git commit -m "data: weekly full sweep $(date +%Y-%m-%d)" && git pull --rebase origin main && git push)
+
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "OSB Tracker - Weekly Full Sweep Complete"
+          to: nosherzapoo@gmail.com
+          from: OSB Tracker Bot
+          body: |
+            Weekly full backfill sweep completed for all states.
+
+            $(cat /tmp/scrape_summary.txt 2>/dev/null || echo "Summary not available")
+
+            View dashboard: https://osbdata.vercel.app
+            View run: https://github.com/khimor/osbdata/actions/runs/${{ github.run_id }}
