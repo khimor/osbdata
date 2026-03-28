@@ -4,6 +4,8 @@ on:
     - cron: '0 */4 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
 concurrency:
   group: scrape-tier45
   cancel-in-progress: true

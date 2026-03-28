@@ -4,7 +4,15 @@
       "Bash(rm dashboard/public/data)",
       "Bash(mkdir dashboard/public/data)",
       "Bash(cp data/processed/??.csv dashboard/public/data/)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh workflow:*)",
+      "Bash(gh run:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(git stash:*)",
+      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch -f --env-filter ':*)"
     ]
   }
 }

@@ -32,23 +32,24 @@ def timeout_handler(signum, frame):
     raise TimeoutError("Scraper timed out")
 
 
-def get_row_count(state_code):
-    """Count rows in state CSV."""
+def get_csv_fingerprint(state_code):
+    """Get latest period_end and row count from state CSV."""
     csv_path = PROCESSED_DIR / f"{state_code}.csv"
     if not csv_path.exists():
-        return 0
+        return None, 0
     try:
-        return sum(1 for _ in open(csv_path)) - 1  # exclude header
+        df = pd.read_csv(csv_path, usecols=['period_end'], low_memory=False)
+        return df['period_end'].max() if not df.empty else None, len(df)
     except Exception:
-        return 0
+        return None, 0
 
 
 def run_state(state_code, backfill=False):
-    """Run a single state scraper. Returns (rows_before, rows_after, elapsed, error)."""
+    """Run a single state scraper. Returns (latest_before, latest_after, elapsed, error, changed)."""
     module_name = f"scrapers.{state_code.lower()}_scraper"
     class_name = f"{state_code}Scraper"
 
-    rows_before = get_row_count(state_code)
+    latest_before, rows_before = get_csv_fingerprint(state_code)
     start = time.time()
 
     try:
@@ -63,11 +64,11 @@ def run_state(state_code, backfill=False):
 
         signal.alarm(0)  # Cancel timeout
 
-        rows_after = get_row_count(state_code)
+        latest_after, rows_after = get_csv_fingerprint(state_code)
         elapsed = time.time() - start
-        new_rows = rows_after - rows_before
+        changed = (latest_after != latest_before) or (rows_after != rows_before)
 
-        return (rows_before, rows_after, elapsed, None, new_rows)
+        return (latest_before, latest_after, elapsed, None, changed)
 
     except TimeoutError:
         signal.alarm(0)
@@ -94,7 +95,7 @@ def main():
         print("  Mode: backfill")
     print()
 
-    total_new = 0
+    any_changed = False
     failures = []
 
     for sc in states:
@@ -105,21 +106,21 @@ def main():
         name = STATE_REGISTRY[sc].get('name', sc)
         print(f"  {sc} ({name})...", end=' ', flush=True)
 
-        before, after, elapsed, error, new_rows = run_state(sc, backfill)
+        latest_before, latest_after, elapsed, error, changed = run_state(sc, backfill)
 
         if error:
             print(f"FAIL ({elapsed:.0f}s): {error}")
             failures.append(sc)
-        elif new_rows > 0:
-            print(f"OK +{new_rows} rows ({elapsed:.0f}s)")
-            total_new += new_rows
+        elif changed:
+            print(f"NEW DATA: {latest_before} -> {latest_after} ({elapsed:.0f}s)")
+            any_changed = True
         else:
             print(f"OK no new data ({elapsed:.0f}s)")
 
     # Summary
     print()
-    if total_new > 0:
-        print(f"NEW DATA: {total_new} new rows across {len(states)} states")
+    if any_changed:
+        print("NEW DATA DETECTED - dashboard update needed")
     else:
         print("No new data found.")
 
@@ -127,8 +128,7 @@ def main():
         print(f"FAILURES: {', '.join(failures)}")
 
     # Set GitHub Actions output
-    _set_output('new_data', 'true' if total_new > 0 else 'false')
-    _set_output('new_rows', str(total_new))
+    _set_output('new_data', 'true' if any_changed else 'false')
 
 
 def _set_output(name, value):
