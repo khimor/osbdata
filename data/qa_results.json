@@ -1,0 +1,7529 @@
+[
+  {
+    "state_code": "AR",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "No positive handle rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 83 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "No valid monthly handle data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "1/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: D (1/8 money fields populated)",
+        "details": "Populated: tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "AZ",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 99% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "22 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "1 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~14 per month",
+        "actual": "1 months below threshold"
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 7.9%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 52 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $608,889,026 within Tier 2 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "8/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: A (8/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, promo_credits, net_revenue, payouts, tax_paid, federal_excise_tax",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 2,
+        "warn": 1,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "CO",
+    "score": "C",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "No periods with both combined and split channel data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 99% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sports_exist",
+        "message": "13 sport categories found",
+        "details": "baseball, basketball, boxing, cricket, esports, football, golf, hockey, mma, other",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "expected_categories",
+        "message": "No expected sport_categories in config",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sport_channel_split",
+        "message": "Sport data has per-channel breakdown",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "sport_handle_sum",
+        "message": "No comparable periods between sport and total data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 7.8%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "1 missing months in reporting sequence",
+        "details": "2022-12",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $38,136,949 below Tier 2 min",
+        "details": "Handle lower than expected for tier",
+        "expected": "$50,000,000 - $1,000,000,000",
+        "actual": "$38,136,949"
+      },
+      {
+        "level": "WARN",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "1 expected fields at <50% coverage: gross_revenue",
+        "details": "",
+        "expected": "All expected fields >50% populated",
+        "actual": "1/8 at >50%"
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: D (1/8 money fields populated)",
+        "details": "Populated: handle",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 2
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 0,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 1,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "CT",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Data has channel split beyond config expectation",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 95% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "4 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Operator count stable (~4 per month)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 9.8%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 53 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $160,266,050 within Tier 3 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "8/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: A (8/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, promo_credits, net_revenue, payouts, tax_paid, federal_excise_tax",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "DC",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "No periods with both combined and split channel data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 99% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "13 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "25 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~7 per month",
+        "actual": "25 months below threshold"
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 12.0%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "4 missing months in reporting sequence",
+        "details": "2020-10, 2021-02, 2021-06, 2021-07",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $12,418,281 within Tier 5 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 2,
+        "warn": 1,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "DE",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "4 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Operator count stable (~4 per month)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 8 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $22,958,553 within Tier 5 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, net_revenue, payouts",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "IA",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 95% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 8 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $268,967,748 within Tier 3 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "6/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (6/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, net_revenue, payouts, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "IL",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "No handle data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "15 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "12 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~15 per month",
+        "actual": "12 months below threshold"
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "No positive handle rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 71 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "No valid monthly handle data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "2 expected fields at <50% coverage: handle, gross_revenue",
+        "details": "",
+        "expected": "All expected fields >50% populated",
+        "actual": "2/8 at >50%"
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: D (2/8 money fields populated)",
+        "details": "Populated: net_revenue, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 2
+      },
+      "operators": {
+        "pass": 2,
+        "warn": 1,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "completeness": {
+        "pass": 1,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "IN",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 93% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "32 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "2 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~23 per month",
+        "actual": "2 months below threshold"
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 9.2%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 78 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $351,890,697 within Tier 2 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "4/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (4/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, net_revenue",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 2,
+        "warn": 1,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "KS",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 96% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "10 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Operator count stable (~4 per month)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 7.1%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "3 missing months in reporting sequence",
+        "details": "2025-04, 2025-05, 2025-06",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $171,626,743 within Tier 3 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "3/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (3/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "KY",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 96% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 16 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $260,585,937 within Tier 3 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "1 expected fields at <50% coverage: handle",
+        "details": "",
+        "expected": "All expected fields >50% populated",
+        "actual": "4/8 at >50%"
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (4/8 money fields populated)",
+        "details": "Populated: gross_revenue, standard_ggr, net_revenue, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 1,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "LA",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 90% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 12.5%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "3 missing months in reporting sequence",
+        "details": "2021-09, 2022-05, 2022-06",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $256,659,997 within Tier 3 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "6/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (6/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, promo_credits, net_revenue, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "MA",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 98% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "10 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "2 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~10 per month",
+        "actual": "2 months below threshold"
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 8.3%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "1 missing months in reporting sequence",
+        "details": "2025-07",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $619,905,414 within Tier 2 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, net_revenue, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 2,
+        "warn": 1,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "MD",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 96% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "31 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "7 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~30 per month",
+        "actual": "7 months below threshold"
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "Operator sum matches TOTAL across 34 periods",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 10.3%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 42 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $362,694,370 within Tier 2 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "7/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: A (7/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, promo_credits, net_revenue, payouts, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "ME",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 99% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "4 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Operator count stable (~3 per month)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 10.7%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 27 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $46,145,139 within Tier 4 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, net_revenue, federal_excise_tax",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "MI",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 99% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "16 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Operator count stable (~15 per month)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 8.2%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 62 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $396,845,710 within Tier 1 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, net_revenue, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "MO",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 99% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "12 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Not enough periods for stability check",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 15.0%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 2 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $463,336,305 within Tier 3 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "8/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: A (8/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, promo_credits, net_revenue, payouts, tax_paid, federal_excise_tax",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 2
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "MS",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sports_exist",
+        "message": "2 sport categories found",
+        "details": "other, parlay",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "expected_categories",
+        "message": "No expected sport_categories in config",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "sport_channel_split",
+        "message": "N/A (no channel split for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "sport_handle_sum",
+        "message": "No comparable periods between sport and total data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "No positive handle rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No monthly data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "No valid monthly handle data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, net_revenue, payouts",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "financials": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "magnitude": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "MT",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sports_exist",
+        "message": "11 sport categories found",
+        "details": "baseball, basketball, boxing, football, golf, hockey, mma, other, soccer, table_tennis",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "expected_categories",
+        "message": "No expected sport_categories in config",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "sport_channel_split",
+        "message": "N/A (no channel split for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sport_handle_sum",
+        "message": "Sport handle sum within expected range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 13.1%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 15 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $5,561,307 within Tier 5 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "4/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (4/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 2
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "NC",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 11.5%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 24 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $604,091,851 within Tier 2 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "6/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (6/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, promo_credits, payouts, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "NE",
+    "score": "C",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "2 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "6 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~2 per month",
+        "actual": "6 months below threshold"
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "No positive handle rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "7 missing months in reporting sequence",
+        "details": "2024-06, 2024-07, 2024-08, 2024-09, 2024-10",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "No valid monthly handle data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "1 expected fields at <50% coverage: handle",
+        "details": "",
+        "expected": "All expected fields >50% populated",
+        "actual": "3/8 at >50%"
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (3/8 money fields populated)",
+        "details": "Populated: gross_revenue, standard_ggr, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 2,
+        "warn": 1,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "completeness": {
+        "pass": 1,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "NH",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 85% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 9.2%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 75 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $63,260,876 within Tier 4 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "4/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (4/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "NJ",
+    "score": "C",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "No handle data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "18 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "1 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~12 per month",
+        "actual": "1 months below threshold"
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "2 operators missing parent_company",
+        "details": "RESORTS CASINO - DGMB, BOARDWALK REGENCY",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "No positive handle rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 92 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "No valid monthly handle data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "1 expected fields at <50% coverage: handle",
+        "details": "",
+        "expected": "All expected fields >50% populated",
+        "actual": "3/8 at >50%"
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (3/8 money fields populated)",
+        "details": "Populated: gross_revenue, net_revenue, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 2
+      },
+      "operators": {
+        "pass": 1,
+        "warn": 2,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "completeness": {
+        "pass": 1,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "NV",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sports_exist",
+        "message": "5 sport categories found",
+        "details": "baseball, basketball, football, other, parlay",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "expected_categories",
+        "message": "No expected sport_categories in config",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "sport_channel_split",
+        "message": "N/A (no channel split for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "sport_handle_sum",
+        "message": "No comparable periods between sport and total data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "No positive handle rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 2 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "No valid monthly handle data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "3/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (3/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "financials": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "NY",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "9 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Operator count stable (~8 per month)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "Operator sum != TOTAL in 20/50 periods",
+        "details": "",
+        "expected": "<1% difference",
+        "actual": "40% of periods mismatch"
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 7.9%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "72 rows before launch date 2022-01-08",
+        "details": "",
+        "expected": ">= 2022-01-08",
+        "actual": "2021-04-30"
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 59 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $1,779,628,004 within Tier 1 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "4/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (4/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "OH",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 96% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "25 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Operator count stable (~18 per month)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 8.8%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 37 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $807,890,451 within Tier 1 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, promo_credits, net_revenue",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "OR",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sports_exist",
+        "message": "14 sport categories found",
+        "details": "baseball, basketball, boxing, cricket, football, golf, hockey, mma, motorsports, other",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "expected_categories",
+        "message": "All expected sport categories present",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "sport_channel_split",
+        "message": "N/A (no channel split for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sport_handle_sum",
+        "message": "Sport handle sum within expected range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 10.5%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "1 missing months in reporting sequence",
+        "details": "2021-01",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $49,441,060 within Tier 5 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "4/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (4/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "PA",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 93% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "20 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "8 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~17 per month",
+        "actual": "8 months below threshold"
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "No rows with both handle and payouts",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 9.0%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 88 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $520,624,675 within Tier 1 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, net_revenue, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 2,
+        "warn": 1,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "RI",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 64% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "3 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "1 months with <60% of expected operator count",
+        "details": "",
+        "expected": "~3 per month",
+        "actual": "1 months below threshold"
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 9.2%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 87 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $34,704,413 within Tier 4 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "4/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (4/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 2,
+        "warn": 1,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "SD",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sports_exist",
+        "message": "13 sport categories found",
+        "details": "baseball, basketball, basketball_college, boxing, football, football_college, golf, hockey, mma, motorsports",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "expected_categories",
+        "message": "No expected sport_categories in config",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "sport_channel_split",
+        "message": "N/A (no channel split for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "sports",
+        "check": "sport_handle_sum",
+        "message": "Sport handle sum within expected range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 10.9%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Negative gross_revenue in 16% of rows with positive handle",
+        "details": "",
+        "expected": "<10%",
+        "actual": "16%"
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 37 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $868,815 within Tier 5 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 2
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "TN",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 10.0%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 64 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $367,965,002 within Tier 3 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "VA",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 99% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 10.6%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 61 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $477,848,533 within Tier 2 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "7/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: A (7/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, promo_credits, net_revenue, payouts, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "VT",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "all",
+        "message": "N/A (no operator breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Not enough valid hold% values",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "Not enough monthly periods for gap check",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $17,083,302 within Tier 5 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "4/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: C (4/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "WV",
+    "score": "A",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Data has channel split beyond config expectation",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "Online is 84% of total handle",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "No data leakage between channels",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "5 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Operator count stable (~5 per month)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No TOTAL rows",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 10.4%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "No gaps across 69 months",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $45,538,666 within Tier 4 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 4,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  },
+  {
+    "state_code": "WY",
+    "score": "B",
+    "passed": true,
+    "findings": [
+      {
+        "level": "PASS",
+        "category": "channels",
+        "check": "config_mismatch",
+        "message": "Channel config matches data",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_sum",
+        "message": "N/A (no combined+split coexistence)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "channel_magnitude",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "channels",
+        "check": "data_leakage",
+        "message": "N/A (single channel)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operators_exist",
+        "message": "5 operators found",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "operator_stability",
+        "message": "Operator count stable (~5 per month)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "operators",
+        "check": "sum_to_total",
+        "message": "No comparable TOTAL+operator periods",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "operators",
+        "check": "parent_company",
+        "message": "All operators have parent_company",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "SKIP",
+        "category": "sports",
+        "check": "all",
+        "message": "N/A (no sport breakdown for this state)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "standard_ggr_coverage",
+        "message": "standard_ggr populated (100% coverage)",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "median_hold",
+        "message": "Median hold% is 11.3%",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "financials",
+        "check": "revenue_sign",
+        "message": "Revenue sign consistency OK",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "future_dates",
+        "message": "No future dates",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "pre_launch",
+        "message": "All dates after launch",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "WARN",
+        "category": "temporal",
+        "check": "date_gaps",
+        "message": "12 missing months in reporting sequence",
+        "details": "2022-01, 2022-03, 2022-04, 2022-05, 2022-06",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "temporal",
+        "check": "stale_data",
+        "message": "No stale data detected",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "magnitude",
+        "check": "handle_magnitude",
+        "message": "Median monthly handle $11,938,087 within Tier 4 range",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "field_coverage",
+        "message": "5/8 money fields at >50% coverage",
+        "details": "",
+        "expected": "",
+        "actual": ""
+      },
+      {
+        "level": "PASS",
+        "category": "completeness",
+        "check": "completeness_grade",
+        "message": "Data richness: B (5/8 money fields populated)",
+        "details": "Populated: handle, gross_revenue, standard_ggr, payouts, tax_paid",
+        "expected": "",
+        "actual": ""
+      }
+    ],
+    "summary_stats": {
+      "channels": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 3
+      },
+      "operators": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "sports": {
+        "pass": 0,
+        "warn": 0,
+        "fail": 0,
+        "skip": 1
+      },
+      "financials": {
+        "pass": 3,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "temporal": {
+        "pass": 3,
+        "warn": 1,
+        "fail": 0,
+        "skip": 0
+      },
+      "magnitude": {
+        "pass": 1,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      },
+      "completeness": {
+        "pass": 2,
+        "warn": 0,
+        "fail": 0,
+        "skip": 0
+      }
+    }
+  }
+]

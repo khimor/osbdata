@@ -1,0 +1,357 @@
+AR ── A (7 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ─ sports: N/A (no sport breakdown for this state)
+  ─ financials: No rows with both handle and payouts
+  ✓ temporal: No future dates
+  ─ magnitude: No valid monthly handle data
+  ✓ completeness: 1/8 money fields at >50% coverage
+
+AZ ── B (15 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 1 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $608,889,026 within Tier 2 range
+  ✓ completeness: 8/8 money fields at >50% coverage
+
+CO ── C (12 pass, 3 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ✓ sports: 13 sport categories found
+  ✓ financials: standard_ggr populated (100% coverage)
+  ⚠ temporal: 1 missing months in reporting sequence
+  ⚠ magnitude: Median monthly handle $38,136,949 below Tier 2 min
+  ⚠ completeness: 1 expected fields at <50% coverage: gross_revenue
+
+CT ── A (16 pass, 0 warn, 0 fail)
+  ✓ channels: Data has channel split beyond config expectation
+  ✓ operators: 4 operators found
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $160,266,050 within Tier 3 range
+  ✓ completeness: 8/8 money fields at >50% coverage
+
+DC ── B (14 pass, 2 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 25 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ⚠ temporal: 4 missing months in reporting sequence
+  ✓ magnitude: Median monthly handle $12,418,281 within Tier 5 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+DE ── A (13 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ✓ operators: 4 operators found
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $22,958,553 within Tier 5 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+IA ── A (12 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $268,967,748 within Tier 3 range
+  ✓ completeness: 6/8 money fields at >50% coverage
+
+IL ── B (9 pass, 2 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 12 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ─ financials: No rows with both handle and payouts
+  ✓ temporal: No future dates
+  ─ magnitude: No valid monthly handle data
+  ⚠ completeness: 2 expected fields at <50% coverage: handle, gross_revenue
+
+IN ── B (14 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 2 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: Median hold% is 9.2%
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $351,890,697 within Tier 2 range
+  ✓ completeness: 4/8 money fields at >50% coverage
+
+KS ── B (14 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ✓ operators: 10 operators found
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: Median hold% is 7.1%
+  ⚠ temporal: 3 missing months in reporting sequence
+  ✓ magnitude: Median monthly handle $171,626,743 within Tier 3 range
+  ✓ completeness: 3/8 money fields at >50% coverage
+
+KY ── B (11 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $260,585,937 within Tier 3 range
+  ⚠ completeness: 1 expected fields at <50% coverage: handle
+
+LA ── B (11 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: Median hold% is 12.5%
+  ⚠ temporal: 3 missing months in reporting sequence
+  ✓ magnitude: Median monthly handle $256,659,997 within Tier 3 range
+  ✓ completeness: 6/8 money fields at >50% coverage
+
+MA ── B (13 pass, 2 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 2 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: Median hold% is 8.3%
+  ⚠ temporal: 1 missing months in reporting sequence
+  ✓ magnitude: Median monthly handle $619,905,414 within Tier 2 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+MD ── B (16 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 7 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $362,694,370 within Tier 2 range
+  ✓ completeness: 7/8 money fields at >50% coverage
+
+ME ── A (15 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ✓ operators: 4 operators found
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: Median hold% is 10.7%
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $46,145,139 within Tier 4 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+MI ── A (15 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ✓ operators: 16 operators found
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: Median hold% is 8.2%
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $396,845,710 within Tier 1 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+MO ── A (15 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ✓ operators: 12 operators found
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $463,336,305 within Tier 3 range
+  ✓ completeness: 8/8 money fields at >50% coverage
+
+MS ── A (7 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ✓ sports: 2 sport categories found
+  ─ financials: No rows with both handle and payouts
+  ✓ temporal: No future dates
+  ─ magnitude: No valid monthly handle data
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+MT ── A (13 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ✓ sports: 11 sport categories found
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $5,561,307 within Tier 5 range
+  ✓ completeness: 4/8 money fields at >50% coverage
+
+NC ── A (11 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $604,091,851 within Tier 2 range
+  ✓ completeness: 6/8 money fields at >50% coverage
+
+NE ── C (7 pass, 3 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 6 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ─ financials: No rows with both handle and payouts
+  ⚠ temporal: 7 missing months in reporting sequence
+  ─ magnitude: No valid monthly handle data
+  ⚠ completeness: 1 expected fields at <50% coverage: handle
+
+NH ── A (12 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: Median hold% is 9.2%
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $63,260,876 within Tier 4 range
+  ✓ completeness: 4/8 money fields at >50% coverage
+
+NJ ── C (8 pass, 3 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 1 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ─ financials: No rows with both handle and payouts
+  ✓ temporal: No future dates
+  ─ magnitude: No valid monthly handle data
+  ⚠ completeness: 1 expected fields at <50% coverage: handle
+
+NV ── A (8 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ✓ sports: 5 sport categories found
+  ─ financials: No rows with both handle and payouts
+  ✓ temporal: No future dates
+  ─ magnitude: No valid monthly handle data
+  ✓ completeness: 3/8 money fields at >50% coverage
+
+NY ── B (13 pass, 2 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: Operator sum != TOTAL in 20/50 periods
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ⚠ temporal: 72 rows before launch date 2022-01-08
+  ✓ magnitude: Median monthly handle $1,779,628,004 within Tier 1 range
+  ✓ completeness: 4/8 money fields at >50% coverage
+
+OH ── A (15 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ✓ operators: 25 operators found
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: Median hold% is 8.8%
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $807,890,451 within Tier 1 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+OR ── B (13 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ✓ sports: 14 sport categories found
+  ✓ financials: standard_ggr populated (100% coverage)
+  ⚠ temporal: 1 missing months in reporting sequence
+  ✓ magnitude: Median monthly handle $49,441,060 within Tier 5 range
+  ✓ completeness: 4/8 money fields at >50% coverage
+
+PA ── B (14 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 8 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: Median hold% is 9.0%
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $520,624,675 within Tier 1 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+RI ── B (15 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ⚠ operators: 1 months with <60% of expected operator count
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $34,704,413 within Tier 4 range
+  ✓ completeness: 4/8 money fields at >50% coverage
+
+SD ── B (12 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ✓ sports: 13 sport categories found
+  ⚠ financials: Negative gross_revenue in 16% of rows with positive handle
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $868,815 within Tier 5 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+TN ── A (11 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $367,965,002 within Tier 3 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+VA ── A (13 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $477,848,533 within Tier 2 range
+  ✓ completeness: 7/8 money fields at >50% coverage
+
+VT ── A (9 pass, 0 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ─ operators: N/A (no operator breakdown for this state)
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $17,083,302 within Tier 5 range
+  ✓ completeness: 4/8 money fields at >50% coverage
+
+WV ── A (16 pass, 0 warn, 0 fail)
+  ✓ channels: Data has channel split beyond config expectation
+  ✓ operators: 5 operators found
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ✓ temporal: No future dates
+  ✓ magnitude: Median monthly handle $45,538,666 within Tier 4 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+WY ── B (13 pass, 1 warn, 0 fail)
+  ✓ channels: Channel config matches data
+  ✓ operators: 5 operators found
+  ─ sports: N/A (no sport breakdown for this state)
+  ✓ financials: standard_ggr populated (100% coverage)
+  ⚠ temporal: 12 missing months in reporting sequence
+  ✓ magnitude: Median monthly handle $11,938,087 within Tier 4 range
+  ✓ completeness: 5/8 money fields at >50% coverage
+
+========================================================
+  QA CHECK SUMMARY
+========================================================
+  Total: 35  |  A: 17  |  B: 15  |  C: 3  |  D: 0  |  F: 0
+
+  State  Score  Pass   Warn   Fail   Skip  
+  ────── ───── ───── ───── ───── ─────
+  AR     A      7      0      0      9     
+  AZ     B      15     1      0      3     
+  CO     C      12     3      0      4     
+  CT     A      16     0      0      3     
+  DC     B      14     2      0      3     
+  DE     A      13     0      0      6     
+  IA     A      12     0      0      4     
+  IL     B      9      2      0      8     
+  IN     B      14     1      0      4     
+  KS     B      14     1      0      4     
+  KY     B      11     1      0      4     
+  LA     B      11     1      0      4     
+  MA     B      13     2      0      4     
+  MD     B      16     1      0      2     
+  ME     A      15     0      0      4     
+  MI     A      15     0      0      4     
+  MO     A      15     0      0      4     
+  MS     A      7      0      0      12    
+  MT     A      13     0      0      6     
+  NC     A      11     0      0      5     
+  NE     C      7      3      0      9     
+  NH     A      12     0      0      4     
+  NJ     C      8      3      0      8     
+  NV     A      8      0      0      11    
+  NY     B      13     2      0      4     
+  OH     A      15     0      0      4     
+  OR     B      13     1      0      5     
+  PA     B      14     1      0      4     
+  RI     B      15     1      0      3     
+  SD     B      12     1      0      6     
+  TN     A      11     0      0      5     
+  VA     A      13     0      0      3     
+  VT     A      9      0      0      7     
+  WV     A      16     0      0      3     
+  WY     B      13     1      0      5     

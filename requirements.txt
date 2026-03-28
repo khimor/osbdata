@@ -1,0 +1,11 @@
+playwright
+pdfplumber
+openpyxl
+pandas
+requests
+beautifulsoup4
+python-dotenv
+supabase
+tabula-py
+lxml
+tenacity

@@ -1,0 +1,5 @@
+Terminal 1 Phase A — Foundation Complete
+========================================
+Date: 2026-03-21
+NY reference implementation: 2,426 rows, 10 operators, 2022-01 to 2026-03
+Infrastructure: base_scraper, operator_mapping, config, scraper_utils, pipeline modules, scripts

@@ -1,0 +1,195 @@
+state,year,rg_handle,rg_ggr,our_handle,our_ggr,handle_diff_pct,ggr_diff_pct,analysis,primary_diff
+AR,2019,,,0.0,0.0,,,Differs — needs investigation,no_comparison
+AR,2020,,,0.0,0.0,,,Differs — needs investigation,no_comparison
+AR,2021,,,0.0,0.0,,,Differs — needs investigation,no_comparison
+AR,2022,,,0.0,0.0,,,Differs — needs investigation,no_comparison
+AR,2023,,,0.0,0.0,,,Differs — needs investigation,no_comparison
+AR,2024,,,0.0,0.0,,,Differs — needs investigation,no_comparison
+AR,2025,,,0.0,0.0,,,Differs — needs investigation,no_comparison
+AR,2026,,,0.0,0.0,,,Differs — needs investigation,no_comparison
+AR,February,9543904.0,1240707.0,,,,,We have no handle data for this period,no_comparison
+AR,January,10459315.0,1359710.0,,,,,We have no handle data for this period,no_comparison
+AZ,2021,1743249640.0,59552840.0,1743249641.0,156823848.0,0.0,163.3,Handle matches but GGR differs,ggr
+AZ,2022,6036844930.0,289146940.0,6032414314.0,472097265.0,-0.1,63.3,Handle matches but GGR differs,ggr
+AZ,2023,6573800272.0,348185390.0,6560686762.0,544202318.0,-0.2,56.3,Handle matches but GGR differs,ggr
+AZ,2024,7959647194.0,427397087.0,7951271966.0,693460200.0,-0.1,62.3,Handle matches but GGR differs,ggr
+AZ,2025,9127994532.0,622816672.0,9127989473.0,819608033.0,-0.0,31.6,Handle matches but GGR differs,ggr
+DC,2020,80483898.0,13493278.0,,,,,We have no handle data for this period,no_comparison
+DC,2021,203294161.0,26874974.0,,,,,We have no handle data for this period,no_comparison
+DC,2022,216232122.0,23209854.0,110922921.0,12836265.0,-48.7,-44.7,Our data likely incomplete (missing months or operators),handle
+DC,2023,169771690.0,19048327.0,103366226.0,11733605.0,-39.1,-38.4,Our data likely incomplete (missing months or operators),handle
+DC,2024,461560894.0,53717642.0,355869172.0,38122434.0,-22.9,-29.0,Our GGR data likely incomplete,ggr
+DC,2025,855597166.0,94671771.0,855596777.0,94488149.0,-0.0,-0.2,MATCH,ggr
+DC,2026,,,143735888.0,14639399.0,,,Differs — needs investigation,no_comparison
+DE,2022,82472393.0,8884122.0,,,,,We have no handle data for this period,no_comparison
+DE,2023,65326809.0,10003849.0,,,,,We have no handle data for this period,no_comparison
+DE,2024,216240459.0,14585100.0,,,,,We have no handle data for this period,no_comparison
+DE,2025,253316571.0,20654759.0,139772937.0,13579653.0,-44.8,-34.3,Our data likely incomplete (missing months or operators),handle
+DE,2026,,,39159514.0,3450241.0,,,Differs — needs investigation,no_comparison
+IA,2019,212225668.0,19283690.0,,,,,We have no handle data for this period,no_comparison
+IA,2020,575248472.0,41623877.0,,,,,We have no handle data for this period,no_comparison
+IA,2021,2053708513.0,125512412.0,,,,,We have no handle data for this period,no_comparison
+IA,2022,2348065964.0,165551990.0,,,,,We have no handle data for this period,no_comparison
+IA,2023,2420464385.0,198810523.0,,,,,We have no handle data for this period,no_comparison
+IA,2024,2770339580.0,218482781.0,,,,,We have no handle data for this period,no_comparison
+IA,2025,2916351368.0,274451146.0,1536044933.0,153212042.0,-47.3,-44.2,Our data likely incomplete (missing months or operators),handle
+IA,2026,,,475977285.0,47621405.0,,,Differs — needs investigation,no_comparison
+IN,2019,435996520.0,41576946.0,435998649.0,41575773.0,0.0,-0.0,MATCH,ggr
+IN,2020,1769270606.0,136395416.0,1767628242.0,136269570.0,-0.1,-0.1,MATCH,handle
+IN,2021,3829411987.0,308304353.0,3799552373.0,306300688.0,-0.8,-0.6,MATCH,handle
+IN,2022,4467882215.0,386888311.0,4460852806.0,386710799.0,-0.2,-0.0,MATCH,handle
+IN,2023,4337817508.0,404363766.0,4277371535.0,398051023.0,-1.4,-1.6,MATCH,ggr
+IN,2024,5212332663.0,484278307.0,5099356254.0,477342788.0,-2.2,-1.4,MATCH,handle
+IN,2025,5721806542.0,567547928.0,5721806551.0,570454167.0,0.0,0.5,MATCH,ggr
+IN,2026,,,954212341.0,90557929.0,,,Differs — needs investigation,no_comparison
+KS,2022,718777570.0,76505901.0,,,,,We have no handle data for this period,no_comparison
+KS,2023,2121564412.0,182415461.0,1761559962.0,90336776.0,-17.0,-50.5,KS had channel labeling issues (fixed). May need re-scrape for older months,ggr
+KS,2024,2546011854.0,177344811.0,2201206843.0,115227752.0,-13.5,-35.0,KS had channel labeling issues (fixed). May need re-scrape for older months,ggr
+KS,2025,2851455014.0,193558588.0,1856083310.0,123894870.0,-34.9,-36.0,KS had channel labeling issues (fixed). May need re-scrape for older months,ggr
+KS,2026,,,242206015.0,16394772.0,,,Differs — needs investigation,no_comparison
+KY,2023,885464502.0,109824864.0,892370163.0,110199075.0,0.8,0.3,MATCH,handle
+KY,2024,2626962943.0,272086697.0,465483832.0,275197825.0,-82.3,1.1,Our KY data starts later or is incomplete,handle
+KY,2025,2998539716.0,305406065.0,,,,,We have no handle data for this period,no_comparison
+LA,2021,67388583.0,6710940.0,114567867.0,12885591.0,70.0,92.0,Possible double-counting or different reporting scope,ggr
+LA,2022,2302509284.0,228038413.0,1998955703.0,182959441.0,-13.2,-19.8,Differs — needs investigation,ggr
+LA,2023,2905138040.0,289778947.0,2905138042.0,368415627.0,0.0,27.1,Handle matches but GGR differs,ggr
+LA,2024,3699647883.0,461224426.0,3688740094.0,468761465.0,-0.3,1.6,MATCH,ggr
+LA,2025,4240327018.0,516663935.0,4245075099.0,557414897.0,0.1,7.9,Handle matches but GGR differs,ggr
+LA,2026,,,686634852.0,93195889.0,,,Differs — needs investigation,no_comparison
+MA,2023,4967511977.0,483666398.0,4829682465.0,475137415.0,-2.8,-1.8,MATCH,handle
+MA,2024,7401117705.0,670694019.0,7365041046.0,669278137.0,-0.5,-0.2,MATCH,handle
+MA,2025,8529219335.0,843206089.0,8526435002.0,864928908.0,-0.0,2.6,MATCH,ggr
+MA,2026,,,1428825877.0,162018988.0,,,Differs — needs investigation,no_comparison
+MD,2021,16552430.0,3170001.0,,,,,We have no handle data for this period,no_comparison
+MD,2022,979584836.0,149480586.0,787232687.0,127738555.0,-19.6,-14.5,Differs — needs investigation,handle
+MD,2023,4617323134.0,514081188.0,4617323133.0,514081190.0,-0.0,0.0,MATCH,ggr
+MD,2024,5940586770.0,629812059.0,987529027.0,123446116.0,-83.4,-80.4,Our data likely incomplete (missing months or operators),handle
+MD,2025,6647370686.0,962717261.0,,,,,We have no handle data for this period,no_comparison
+ME,2023,82091923.0,9020360.0,44486835.0,4486321.0,-45.8,-50.3,Our data likely incomplete (missing months or operators),ggr
+ME,2024,523013468.0,55388488.0,524408448.0,56630762.0,0.3,2.2,MATCH,ggr
+ME,2025,601889619.0,66782585.0,601889619.0,68196870.0,0.0,2.1,MATCH,ggr
+ME,2026,,,102492467.0,12543555.0,,,Differs — needs investigation,no_comparison
+MI,2020,130763498.0,18276857.0,,,,,We have no handle data for this period,no_comparison
+MI,2021,3965906303.0,319522216.0,3655278366.0,292172413.0,-7.8,-8.6,Differs — needs investigation,ggr
+MI,2022,4814088969.0,418647137.0,4550355781.0,399576873.0,-5.5,-4.6,Differs — needs investigation,handle
+MI,2023,4810903877.0,434438031.0,4629222748.0,420375991.0,-3.8,-3.2,MATCH,handle
+MI,2024,5511011493.0,481495654.0,5511011495.0,470314022.0,0.0,-2.3,MATCH,ggr
+MI,2025,5544144824.0,529618270.0,5544144822.0,685591923.0,-0.0,29.5,Handle matches but GGR differs,ggr
+MI,2026,,,893719129.0,99266371.0,,,Differs — needs investigation,no_comparison
+MO,2025,,,542307095.0,103951259.0,,,Differs — needs investigation,no_comparison
+MO,2026,,,384365515.0,53078354.0,,,Differs — needs investigation,no_comparison
+MO,December 2025,543039131.0,20758443.0,,,,,We have no handle data for this period,no_comparison
+MO,January 2026,385138867.0,6703555.0,,,,,We have no handle data for this period,no_comparison
+MS,2018,158565586.0,15175668.0,,,,,We have no handle data for this period,no_comparison
+MS,2019,369173582.0,44451372.0,,,,,We have no handle data for this period,no_comparison
+MS,2020,363775649.0,43865991.0,,,,,We have no handle data for this period,no_comparison
+MS,2021,586086026.0,65868087.0,,,,,We have no handle data for this period,no_comparison
+MS,2022,531951766.0,60816325.0,,,,,We have no handle data for this period,no_comparison
+MS,2023,474275130.0,51224141.0,,,,,We have no handle data for this period,no_comparison
+MS,2024,452409770.0,43344188.0,,,,,We have no handle data for this period,no_comparison
+MS,2025,234480579.0,26434453.0,,,,,We have no handle data for this period,no_comparison
+MT,2020,18770480.0,2369041.0,,,,,We have no handle data for this period,no_comparison
+MT,2021,47215732.0,6406223.0,,,,,We have no handle data for this period,no_comparison
+MT,2022,50918515.0,7173449.0,,,,,We have no handle data for this period,no_comparison
+MT,2023,62258820.0,8446611.0,,,,,We have no handle data for this period,no_comparison
+MT,2024,66469999.0,7186894.0,656116.0,58846.0,-99.0,-99.2,Our MT data pre-2025 was from commission meetings (sparse). New scraper only covers 2025+,ggr
+MT,2025,66849766.0,10211147.0,66780345.0,9968382.0,-0.1,-2.4,MATCH,ggr
+MT,2026,,,13236407.0,1033984.0,,,Differs — needs investigation,no_comparison
+NC,2024,5357547407.0,583645811.0,5417556359.0,583645838.0,1.1,0.0,MATCH,handle
+NC,2025,7273412518.0,737650456.0,7273412518.0,1499078493.0,0.0,103.2,Handle matches but GGR differs,ggr
+NC,2026,,,1283060142.0,138397099.0,,,Differs — needs investigation,no_comparison
+NC,Feb 2026,581686288.0,58058337.0,,,,,We have no handle data for this period,no_comparison
+NC,Jan 2026,686922931.0,80338762.0,,,,,We have no handle data for this period,no_comparison
+NE,2024,,,0.0,320700.0,,,Differs — needs investigation,no_comparison
+NE,2025,,,0.0,4724076.0,,,Differs — needs investigation,no_comparison
+NE,2026,,,0.0,766205.0,,,Differs — needs investigation,no_comparison
+NE,January 2026,1021266.0,204253.0,,,,,We have no handle data for this period,no_comparison
+NH,2019,360726.0,44759.0,360726.0,44759.0,0.0,0.0,MATCH,ggr
+NH,2020,292550269.0,23638791.0,292550269.0,23638791.0,0.0,0.0,MATCH,ggr
+NH,2021,703899047.0,43827560.0,703899047.0,43827560.0,0.0,0.0,MATCH,ggr
+NH,2022,891727580.0,66714384.0,891727580.0,66714384.0,0.0,0.0,MATCH,ggr
+NH,2023,821707403.0,80288654.0,821707403.0,80288654.0,0.0,0.0,MATCH,ggr
+NH,2024,784944454.0,78996303.0,793382689.0,79068326.0,1.1,0.1,MATCH,handle
+NH,2025,880649152.0,103637023.0,880649153.0,103552417.0,0.0,-0.1,MATCH,ggr
+NH,2026,,,161320700.0,21108707.0,,,Differs — needs investigation,no_comparison
+NJ,2018,1247307720.0,94022393.0,0.0,90563724.0,-100.0,-3.7,We have no handle data for this period,handle
+NJ,2019,4582898150.0,299398035.0,0.0,298604353.0,-100.0,-0.3,We have no handle data for this period,handle
+NJ,2020,6012531987.0,398231302.0,0.0,398522935.0,-100.0,0.1,We have no handle data for this period,handle
+NJ,2021,10927585885.0,814981641.0,0.0,812589990.0,-100.0,-0.3,We have no handle data for this period,handle
+NJ,2022,10944593978.0,762954971.0,0.0,750962804.0,-100.0,-1.6,We have no handle data for this period,handle
+NJ,2023,11972320289.0,1006681602.0,0.0,1002053510.0,-100.0,-0.5,We have no handle data for this period,handle
+NJ,2024,12774039219.0,1094630610.0,0.0,1094717408.0,-100.0,0.0,We have no handle data for this period,handle
+NJ,2025,12161297924.0,1177166130.0,0.0,1174728704.0,-100.0,-0.2,We have no handle data for this period,handle
+NJ,2026,,,0.0,180409249.0,,,Differs — needs investigation,no_comparison
+NV,2020*,3130026063.0,203182700.0,,,,,We have no handle data for this period,no_comparison
+NV,2021,8143085452.0,445145000.0,,,,,We have no handle data for this period,no_comparison
+NV,2022,7943488293.0,415794100.0,,,,,We have no handle data for this period,no_comparison
+NV,2023,8261046989.0,481393000.0,,,,,We have no handle data for this period,no_comparison
+NV,2024,8737578317.0,482121000.0,,,,,We have no handle data for this period,no_comparison
+NV,2025,8072520724.0,601422000.0,0.0,-4000.0,-100.0,-100.0,We have no handle data for this period,ggr
+NY,2022,16192562923.0,1359067098.0,16192562923.0,1359067099.0,0.0,0.0,MATCH,ggr
+NY,2023,19103521572.0,1689883800.0,19103521573.0,1689883800.0,0.0,-0.0,MATCH,ggr
+NY,2024,22624505165.0,2044005839.0,22873496733.0,2059297238.0,1.1,0.7,MATCH,handle
+NY,2025,26329486608.0,2548999414.0,26275491293.0,2548318181.0,-0.2,-0.0,MATCH,handle
+NY,2026,,,4450880979.0,426458583.0,,,Differs — needs investigation,no_comparison
+OH,2023,7659959744.0,934946881.0,7992956591.0,841755262.0,4.3,-10.0,Handle matches but GGR differs,ggr
+OH,2024,8880965221.0,904187897.0,10678874685.0,702792833.0,20.2,-22.3,Our OH may double-count retail+online if TOTAL rows coexist with channel rows,ggr
+OH,2025,,,10281119510.0,1041287770.0,,,Differs — needs investigation,no_comparison
+OH,2026,,,930617584.0,99686071.0,,,Differs — needs investigation,no_comparison
+OR,2020,,,218246341.0,20072419.0,,,Differs — needs investigation,no_comparison
+OR,2021,,,296663625.0,26525402.0,,,Differs — needs investigation,no_comparison
+OR,2022,,,497985676.0,49519355.0,,,Differs — needs investigation,no_comparison
+OR,2023,213069000.0,21429000.0,675040247.0,75663579.0,216.8,253.1,"RG may use fiscal year totals, our monthly data covers calendar year differently",ggr
+OR,2024,837222000.0,80932000.0,864688484.0,94436590.0,3.3,16.7,Handle matches but GGR differs,ggr
+OR,2025,912515000.0,101298454.0,926930836.0,115882505.0,1.6,14.4,Handle matches but GGR differs,ggr
+OR,2026,,,82150853.0,11109938.0,,,Differs — needs investigation,no_comparison
+PA,2018,17587677.0,2516589.0,12006123.0,1450432.0,-31.7,-42.4,Our data likely incomplete (missing months or operators),ggr
+PA,2019,1490167111.0,111726711.0,1437437882.0,107021510.0,-3.5,-4.2,MATCH,ggr
+PA,2020,3580864477.0,269903946.0,3580864476.0,269903944.0,-0.0,-0.0,MATCH,ggr
+PA,2021,6552109118.0,505523748.0,6552109118.0,505523749.0,0.0,0.0,MATCH,ggr
+PA,2022,7251428758.0,597364960.0,7251428759.0,597364960.0,0.0,-0.0,MATCH,ggr
+PA,2023,7682694849.0,686915514.0,7680264636.0,686552375.0,-0.0,-0.1,MATCH,ggr
+PA,2024,8421417830.0,778420570.0,8421417829.0,778420695.0,-0.0,0.0,MATCH,ggr
+PA,2025,8858467927.0,762436514.0,8858467927.0,883657091.0,-0.0,15.9,Handle matches but GGR differs,ggr
+PA,2026,,,1374886245.0,150094183.0,,,Differs — needs investigation,no_comparison
+RI,2018,13770713.0,1030910.0,13770713.0,1030910.0,0.0,0.0,MATCH,ggr
+RI,2019,245811496.0,17806694.0,245811496.0,17806696.0,0.0,0.0,MATCH,ggr
+RI,2020,221916076.0,24067477.0,241916076.0,24067448.0,9.0,-0.0,Differs — needs investigation,handle
+RI,2021,454457990.0,38751495.0,454457989.0,38751493.0,-0.0,-0.0,MATCH,ggr
+RI,2022,532609814.0,49298062.0,532609814.0,49298062.0,0.0,0.0,MATCH,ggr
+RI,2023,461283426.0,40277816.0,461283426.0,40277816.0,0.0,0.0,MATCH,ggr
+RI,2024,483686264.0,38051914.0,483686264.0,38051914.0,0.0,0.0,MATCH,ggr
+RI,2025,443702026.0,40750057.0,443702026.0,40750057.0,0.0,0.0,MATCH,ggr
+RI,2026,,,40721129.0,3428425.0,,,Differs — needs investigation,no_comparison
+SD,2021,2651489.0,254582.0,,,,,We have no handle data for this period,no_comparison
+SD,2022,7192828.0,898981.0,,,,,We have no handle data for this period,no_comparison
+SD,2023,9034691.0,1028440.0,9034691.0,1009931.0,-0.0,-1.8,MATCH,ggr
+SD,2024,9236714.0,920918.0,9236714.0,776042.0,0.0,-15.7,Handle matches but GGR differs,ggr
+SD,2025,10797823.0,1104832.0,10797823.0,1019998.0,0.0,-7.7,Handle matches but GGR differs,ggr
+SD,2026,,,1079320.0,36853.0,,,Differs — needs investigation,no_comparison
+TN,2020,312344523.0,27219590.0,312344523.0,27124908.0,0.0,-0.3,MATCH,ggr
+TN,2021,2730459000.0,196500000.0,2730400000.0,239400000.0,-0.0,21.8,Handle matches but GGR differs,ggr
+TN,2022,3850547906.0,340264805.0,3850547906.0,379409891.0,0.0,11.5,Handle matches but GGR differs,ggr
+TN,2023,4292352235.0,417787565.0,4285956058.0,450388678.0,-0.1,7.8,Handle matches but GGR differs,ggr
+TN,2024,5271379978.0,485802815.0,5264751077.0,526475108.0,-0.1,8.4,Handle matches but GGR differs,ggr
+TN,2025,5840194564.0,537964725.0,5086999757.0,508699976.0,-12.9,-5.4,Our TN GGR post-Jul 2023 is ESTIMATED at 10% hold (state stopped reporting GGR),handle
+TN,2026,,,994585199.0,99458520.0,,,Differs — needs investigation,no_comparison
+VA,2021,3221791416.0,135600220.0,3221790713.0,285895558.0,-0.0,110.8,Handle matches but GGR differs,ggr
+VA,2022,4914954449.0,345104567.0,4914954449.0,481233605.0,0.0,39.4,Handle matches but GGR differs,ggr
+VA,2023,5590022862.0,481978027.0,5590022863.0,560201506.0,0.0,16.2,Handle matches but GGR differs,ggr
+VA,2024,6925832328.0,615044067.0,6925832327.0,684952271.0,-0.0,11.4,Handle matches but GGR differs,ggr
+VA,2025,7683803893.0,787305971.0,7683803896.0,846050207.0,0.0,7.5,Handle matches but GGR differs,ggr
+VA,2026,,,687946666.0,79541568.0,,,Differs — needs investigation,no_comparison
+VT,2024,198754297.0,27347988.0,17083302.0,1658884.0,-91.4,-93.9,Our VT data is sparse (few rows),ggr
+VT,2025,235089458.0,22827897.0,,,,,We have no handle data for this period,no_comparison
+WV,2020,279635041.0,21065181.0,291704946.0,22283055.0,4.3,5.8,Handle matches but GGR differs,ggr
+WV,2021,544509147.0,45463827.0,546940860.0,45127956.0,0.4,-0.7,MATCH,ggr
+WV,2022,585819465.0,51704386.0,571317848.0,50822382.0,-2.5,-1.7,MATCH,handle
+WV,2023,372215086.0,34268729.0,478986333.0,47337813.0,28.7,38.1,WV prorating cross-month weeks may shift $ between years,ggr
+WV,2024,592642728.0,65866101.0,505414815.0,55997649.0,-14.7,-15.0,WV prorating cross-month weeks may shift $ between years,ggr
+WV,2025,635774515.0,73863130.0,493445952.0,60444246.0,-22.4,-18.2,WV prorating cross-month weeks may shift $ between years,handle
+WV,2026,,,81144350.0,9307586.0,,,WV prorating cross-month weeks may shift $ between years,no_comparison
+WY,2021,,,12285012.0,813504.0,,,Differs — needs investigation,no_comparison
+WY,2022,,,10301603.0,722631.0,,,Differs — needs investigation,no_comparison
+WY,2023,,,69399779.0,7288823.0,,,Differs — needs investigation,no_comparison
+WY,2025,,26.0,,,,,We have no GGR data for this period,no_comparison

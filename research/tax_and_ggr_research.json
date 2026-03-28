@@ -1,0 +1,454 @@
+{
+  "_metadata": {
+    "research_date": "2026-03-20",
+    "sources": [
+      "Tax Foundation - Online Sports Betting Taxes 2025",
+      "American Gaming Association - State of the States 2025",
+      "Legal Sports Report - State-by-state trackers",
+      "RG.org - State revenue insights",
+      "State gaming commission publications",
+      "BettingUSA.com - Tax rates and licensing fees",
+      "Various state-specific news sources"
+    ],
+    "notes": "Tax rates and rules current as of early 2026. Several states changed rates in 2025 (IL, NJ, MD, LA, CO promo rules). Always verify with official state gaming commission for latest."
+  },
+  "NY": {
+    "online_tax_rate": "51%",
+    "retail_tax_rate": "8.5%",
+    "tax_basis": "GGR (Gross Gaming Revenue)",
+    "ggr_term_used": "Gross Gaming Revenue (GGR)",
+    "ggr_formula": "Total Wagers - Payouts = GGR",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Promos are NOT deductible for tax purposes. Operators cannot deduct any promotional wagers from GGR. Accepting promotional wagers causes effective tax rate on NGR to exceed 51%.",
+    "launch_date": "January 2022 (online), July 2019 (retail)",
+    "special_notes": "51% is the highest online tax rate in the US (tied with NH, OR, RI). No promo deductions makes it uniquely punitive for operators. Overseen by NY State Gaming Commission. Multi-operator model (9 licensed operators). Despite high tax rate, market size makes it impossible for national brands to ignore."
+  },
+  "IL": {
+    "online_tax_rate": "20%-40% graduated (effective July 1, 2024)",
+    "retail_tax_rate": "15% (retail at casinos)",
+    "tax_basis": "Adjusted Gross Revenue (AGR)",
+    "ggr_term_used": "Adjusted Gross Revenue (AGR)",
+    "ggr_formula": "Total Wagers - Payouts - Federal Excise Tax = AGR, then graduated tiers apply",
+    "graduated_tiers": {
+      "tier_1": "20% on first $30M AGR",
+      "tier_2": "25% on $30M-$50M AGR",
+      "tier_3": "30% on $50M-$100M AGR",
+      "tier_4": "35% on $100M-$200M AGR",
+      "tier_5": "40% on AGR above $200M"
+    },
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Promotional credits are deductible from AGR before tax calculation. Adjusted gross revenue reflects deductions.",
+    "launch_date": "March 2020 (online), March 2020 (retail)",
+    "special_notes": "Changed from flat 15% to graduated 20%-40% structure effective July 1, 2024. Additionally, a per-bet assessment took effect July 1, 2025: $0.25 per wager on first 20M wagers, $0.50 per wager beyond that. Generated 114% revenue increase vs old 15% flat rate. Chicago pursuing additional city-level levy."
+  },
+  "PA": {
+    "online_tax_rate": "36% (34% state + 2% local)",
+    "retail_tax_rate": "36% (34% state + 2% local)",
+    "tax_basis": "Adjusted Gross Revenue",
+    "ggr_term_used": "Gross Revenue / Adjusted Gross Revenue",
+    "ggr_formula": "Total Wagers - Payouts = Gross Revenue, then promotional deductions applied to get taxable base",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Operators can deduct 100% of promotional wagers from gross revenue before tax is applied. This reduces the effective tax rate significantly - statutory 36% rate results in effective rate of approximately 23-25% after promo deductions.",
+    "launch_date": "November 2018 (retail), May 2019 (online)",
+    "special_notes": "One of the highest flat tax rates in the US. Legalized in 2017. Despite 36% statutory rate, full promo deductions bring effective rate to ~23-25%. Funds support General Fund, property tax relief, and public programs. Lawmakers considering reducing or eliminating promo deductions."
+  },
+  "NJ": {
+    "online_tax_rate": "19.75% (increased from 13% on July 1, 2025)",
+    "retail_tax_rate": "19.75% (increased from 8.5% on July 1, 2025)",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Revenue",
+    "ggr_formula": "Total Wagers - Payouts = Gross Revenue",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "NJ does NOT provide operators with generous deductions to GGR. Promotional credits are not broadly deductible. Governor Murphy previously vetoed a bill that would have permitted sports betting promo deductions.",
+    "launch_date": "June 2018 (retail), August 2018 (online)",
+    "previous_rates": {
+      "online": "13%",
+      "retail": "8.5%",
+      "effective_until": "June 30, 2025"
+    },
+    "special_notes": "Rate increased from 13%/8.5% to unified 19.75% on July 1, 2025. Original proposal was 25%, negotiated down to 19.75%. NJ was the state that brought the Supreme Court case (Murphy v. NCAA) that legalized sports betting nationally. One of the largest and most mature markets."
+  },
+  "OH": {
+    "online_tax_rate": "20%",
+    "retail_tax_rate": "20%",
+    "tax_basis": "Net Revenue (Sports Gaming Revenue)",
+    "ggr_term_used": "Sports Gaming Revenue",
+    "ggr_formula": "Handle - Winnings Paid - Voided Wagers = Sports Gaming Revenue",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Promotional deductions are NOT allowed currently. Legislators chose not to let operators deduct promotional costs from taxable revenue. Starting in 2027, operators will be able to deduct up to 10% of promotional credits wagered, increasing to 20% from 2032 onward.",
+    "launch_date": "January 2023 (online and retail)",
+    "special_notes": "Tax rate was doubled from original 10% to 20% effective July 1, 2023. Governor DeWine proposed doubling again in 2025 budget. Promo deductions banned until 2027, then phased in at 10% (2027) and 20% (2032). One of the fastest-growing markets."
+  },
+  "MI": {
+    "online_tax_rate": "8.4%",
+    "retail_tax_rate": "8.4%",
+    "tax_basis": "Adjusted Gross Sports Betting Receipts",
+    "ggr_term_used": "Adjusted Gross Sports Betting Receipts",
+    "ggr_formula": "Total Wagers - Payouts - Free Play Incentives = Adjusted Gross Receipts",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Operators can deduct the monetary value of free play incentives provided to and wagered by bettors from gross receipts. Unlimited promotional deductions currently allowed. BetMGM notably claimed $48.2M deduction in one month (June 2024).",
+    "launch_date": "March 2020 (retail), January 2021 (online)",
+    "special_notes": "One of the lowest online tax rates in the US. Governor Whitmer proposed ending unlimited promotional deductions in 2026 budget. Removing promo deductions estimated to add $21.1M to fiscal 2027 budget. Legalized December 2019."
+  },
+  "AZ": {
+    "online_tax_rate": "10%",
+    "retail_tax_rate": "8%",
+    "tax_basis": "Gross Event Wagering Revenue",
+    "ggr_term_used": "Gross Wagering Receipts / Event Wagering Revenue",
+    "ggr_formula": "Total Wagers - Payouts = Gross Wagering Receipts, then promotional deductions applied on sliding scale",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Sliding scale promotional deductions: Years 1-2: up to 20% of gross wagering receipts. Year 3: up to 15%. Years 4-5: up to 10%. Year 6+: 0% (no deductions). Arizona launched in Sept 2021, so from Sept 2026 forward, no promo deductions allowed.",
+    "launch_date": "September 2021 (online and retail)",
+    "special_notes": "Separate rates for event wagering (10% online, 8% retail) and fantasy sports (different structure). Governor Hobbs proposed increasing to 45% for operators earning $75M+ per month. Sliding scale promo deductions phase out entirely by year 6 (2027). Both tribal and commercial operators participate."
+  },
+  "IN": {
+    "online_tax_rate": "9.5%",
+    "retail_tax_rate": "9.5%",
+    "tax_basis": "Adjusted Gross Revenue (AGR)",
+    "ggr_term_used": "Adjusted Gross Revenue (AGR)",
+    "ggr_formula": "Total Wagers - Payouts - Applicable Adjustments = AGR",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Promotional deductions are reflected in AGR calculation. Adjusted gross revenue includes adjustments for promotional play and free bets.",
+    "launch_date": "September 2019 (retail and online)",
+    "special_notes": "One of the lower tax rates, making Indiana competitive. Below neighboring states Ohio (20%) and Illinois (20-40%). Stable regulatory environment. Tax rate has remained at 9.5% since launch. Strong market due to proximity to Chicago metro area."
+  },
+  "MA": {
+    "online_tax_rate": "20%",
+    "retail_tax_rate": "15%",
+    "tax_basis": "Gross Sports Wagering Revenue",
+    "ggr_term_used": "Gross Sports Wagering Revenue",
+    "ggr_formula": "Total Wagers - Payouts = Gross Sports Wagering Revenue",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Promotional credits can be deducted from gross revenue. Category 1 & 2 licensees (retail) taxed at 15%, Category 3 licensees (online) taxed at 20%.",
+    "launch_date": "January 31, 2023 (retail), March 10, 2023 (online)",
+    "special_notes": "Massachusetts Gaming Commission oversees. Three license categories with different tax rates. Legislature considered bill to increase online tax rate but it remained at 20%. Strong market growth particularly around March Madness."
+  },
+  "MD": {
+    "online_tax_rate": "20% (increased from 15% on July 1, 2025)",
+    "retail_tax_rate": "15%",
+    "tax_basis": "Taxable Win (Hold minus promotional wagers and deductions)",
+    "ggr_term_used": "Taxable Win",
+    "ggr_formula": "Hold (Handle - Payouts) - Promotional Wagers - Other Specified Deductions = Taxable Win",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Currently operators can deduct promotional credits up to 20% of total gross gaming revenue. Maryland Lottery and Gaming Control Commission provisionally approved amendments to sharply reduce this to 5% of previous year's GGR for online, potentially eliminating deductions.",
+    "previous_rates": {
+      "online": "15%",
+      "effective_until": "June 30, 2025"
+    },
+    "launch_date": "December 2021 (retail), November 2022 (online)",
+    "special_notes": "Online rate increased from 15% to 20% under HB 352, signed by Gov. Moore. Original proposal was to double to 30%, negotiated to 20%. Retail remains at 15%. Revenue allocation: 5% to General Fund, 95% to public education. Promo deduction rules being tightened significantly."
+  },
+  "VA": {
+    "online_tax_rate": "15%",
+    "retail_tax_rate": "15%",
+    "tax_basis": "Adjusted Gross Revenue (AGR)",
+    "ggr_term_used": "Adjusted Gross Revenue (AGR)",
+    "ggr_formula": "Total Wagers - Payouts = Gross Revenue, limited promo deductions for first 12 months only",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Promotional deductions limited to first 12 months of each operator's activity only. After 12 months, promos are NOT deductible. Rule change took effect July 2022. Designed to give new licensees establishment period, then phase out. A bill was introduced to end loss-carryover and promotional deductions entirely.",
+    "launch_date": "January 2021 (online)",
+    "special_notes": "Online-only model (no standalone retail sportsbooks, though some retail locations exist at casinos). Promo deduction phase-out after 12 months was a pioneer policy adopted by other states. Virginia Lottery oversees sports betting."
+  },
+  "CO": {
+    "online_tax_rate": "10%",
+    "retail_tax_rate": "10%",
+    "tax_basis": "Net Sports Betting Proceeds",
+    "ggr_term_used": "Net Sports Betting Proceeds",
+    "ggr_formula": "Total Wagers - Payouts = Gross Proceeds, then free bet deductions (being phased out)",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Promotional deductions being phased out under HB25-1311: July 1, 2025 to Dec 31, 2025: max 2% of total free bets deductible. Jan 1 to June 30, 2026: max 1% deductible. July 1, 2026 onward: ALL promotional deductions eliminated. Signed by Governor Polis May 15, 2025.",
+    "launch_date": "May 2020 (online and retail)",
+    "special_notes": "Tax rate of 10% approved by voters in 2019 via ballot measure (Proposition DD). Promo deductions caused effective tax rate to be well below 10%. HB25-1311 phases out promo deductions completely by July 2026. Revenue directed to Water Plan Implementation Cash Fund. Projected $13M additional revenue from promo deduction elimination."
+  },
+  "CT": {
+    "online_tax_rate": "13.75%",
+    "retail_tax_rate": "13.75%",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Gaming Revenue",
+    "ggr_formula": "Total Wagers - Payouts = GGR, then promotional deductions on declining scale",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Promotional deductions allowed on declining schedule: Year 1: up to 25% of monthly sales. Year 2: declining further. Year 3: up to 15%. Gradual decrease by 5% annually until full elimination. Promotional deductions cost the state approximately $7M in foregone revenue in early operation period (Jan-Jul 2022).",
+    "launch_date": "September 30, 2021 (retail at Mohegan Sun and Foxwoods), October 19, 2021 (online full launch)",
+    "special_notes": "Tribal-compact model. Only three operators: FanDuel (via Mohegan Sun/Mohegan Tribe), DraftKings (via Foxwoods/Mashantucket Pequot), and Fanatics Sportsbook. 13.75% rate applies to both tribal operators. Revenue split between tribes and state per tribal compacts. Limited operator competition compared to open-market states."
+  },
+  "KY": {
+    "online_tax_rate": "14.25%",
+    "retail_tax_rate": "9.75%",
+    "tax_basis": "Adjusted Gross Revenue (AGR)",
+    "ggr_term_used": "Adjusted Gross Revenue",
+    "ggr_formula": "Total Sum of Wagers - Winnings Paid - Federal Excise Taxes = AGR",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Promotional wagers, free bets, and credits constitute wagers and are included in the total sum of wagers calculation. They are NOT deductible from AGR.",
+    "launch_date": "September 7, 2023 (retail at racetracks), September 28, 2023 (online/mobile)",
+    "special_notes": "Legalized via House Bill 551 (effective June 29, 2023). Separate rates for retail (9.75% at licensed tracks) and online (14.25%). Kentucky Horse Racing Commission oversees. Promotional wagers treated as regular wagers - not deductible. Racetracks and satellite facilities serve as retail locations."
+  },
+  "TN": {
+    "online_tax_rate": "1.85% of handle (NOT GGR)",
+    "retail_tax_rate": "N/A (online only state)",
+    "tax_basis": "Handle (total amount wagered) - unique among US states",
+    "ggr_term_used": "Handle / Gross Wagering Amount (taxed on handle, not revenue)",
+    "ggr_formula": "Handle (total wagers) - 0.25% federal excise tax = taxable handle, then 1.85% applied",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Tax is on handle (total wagers), not GGR, so promotional deductions are not relevant in the traditional sense. All wagers including promotional bets are part of the handle.",
+    "launch_date": "November 2020 (online only)",
+    "special_notes": "UNIQUE: Tennessee is the ONLY state that taxes sports betting based on handle (total wagers) rather than operator revenue/GGR. The 1.85% handle tax replaced an earlier structure that had a 20% GGR tax with minimum hold requirements. Online-only state (no retail). Overseen by Tennessee Sports Wagering Advisory Council (replaced Education Lottery). High hold percentage nationally (9.23%).",
+    "previous_structure": {
+      "old_rate": "20% of adjusted gross income with minimum 10% hold requirement",
+      "changed_to": "1.85% of handle",
+      "effective_date": "July 2023"
+    }
+  },
+  "LA": {
+    "online_tax_rate": "21.5% (increased from 15% on August 1, 2025)",
+    "retail_tax_rate": "10%",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Gaming Revenue / Net Gaming Revenue",
+    "ggr_formula": "Total Wagers - Payouts = GGR",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Promotional play is permitted and credits can be deducted from taxable revenue. Operators handed out $44.4M in promo credits during 2023-24 fiscal year. Proposals to end promo deductions have been discussed but deductions remain in place.",
+    "previous_rates": {
+      "online": "15%",
+      "effective_until": "July 31, 2025"
+    },
+    "launch_date": "October 2021 (retail), January 2022 (online)",
+    "special_notes": "Online rate increased from 15% to 21.5% under HB 639 (Act No. 298), signed by Gov. Landry. Retail remains at 10%. Revenue partly earmarked for SPORT Fund supporting NCAA Division I athletic departments at public universities. Parish-by-parish legalization model (55 of 64 parishes approved). A separate bill attempted to increase to 51% but did not pass."
+  },
+  "NC": {
+    "online_tax_rate": "18%",
+    "retail_tax_rate": "18% (tribal retail existed prior)",
+    "tax_basis": "Adjusted Gross Wagering Revenue",
+    "ggr_term_used": "Gross Wagering Revenue / Adjusted Gross Gaming Revenue",
+    "ggr_formula": "Total Wagers (paid + promotional) - Payouts = Gross Wagering Revenue, then promotional deductions applied",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Promotional deductions are accounted for in tax calculation. Tax is applied to adjusted gross gaming revenue after promotional deductions.",
+    "launch_date": "March 11, 2024 (online, 8 operators launched simultaneously)",
+    "special_notes": "One of the newest online markets (launched March 2024). Senate proposed doubling tax to 36% in 2025 budget, but House kept at 18% and rate remains at 18% pending budget agreement. Tribal sports betting existed before statewide online launch. Market exceeded revenue expectations in first year."
+  },
+  "KS": {
+    "online_tax_rate": "10%",
+    "retail_tax_rate": "10%",
+    "tax_basis": "Gross Gaming Revenue (with promotional deductions)",
+    "ggr_term_used": "Taxable Revenue / Gross Gaming Revenue",
+    "ggr_formula": "Total Wagers - Payouts - Promotional Credits = Taxable Revenue",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Operators can deduct promotional credits (free bets) from taxable revenue. This has significantly reduced effective tax rate to approximately 6.5%, well below the intended 10%. Lawmakers expected to revisit promo deductions in 2026.",
+    "launch_date": "September 1, 2022 (online and retail)",
+    "special_notes": "Statutory 10% rate reduced to effective 6.5% due to generous promotional deductions. 80% of tax revenue directed to fund for attracting major league sports teams. Kansas Lottery oversees. Lawmakers argue eliminating promo deductions could boost effective rate without changing statutory rate."
+  },
+  "IA": {
+    "online_tax_rate": "6.75% (increasing to 9% on July 1, 2026)",
+    "retail_tax_rate": "6.75% (increasing to 9% on July 1, 2026)",
+    "tax_basis": "Net Sports Wagering Receipts",
+    "ggr_term_used": "Net Receipts / Net Sports Wagering Receipts",
+    "ggr_formula": "Total Wagers - Payouts = Net Receipts",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Promotional deductions appear to be included in net receipts calculation, though specific rules are less documented than other states.",
+    "launch_date": "August 15, 2019 (retail and online)",
+    "upcoming_changes": {
+      "new_rate": "9%",
+      "effective_date": "July 1, 2026"
+    },
+    "special_notes": "Currently tied with Nevada for lowest tax rate at 6.75%. Rate increasing to 9% effective July 1, 2026 (FY 2027). Iowa Racing and Gaming Commission oversees. In-person registration requirement was removed in 2021. One of the earlier states to launch."
+  },
+  "WV": {
+    "online_tax_rate": "10%",
+    "retail_tax_rate": "10%",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Gaming Revenue",
+    "ggr_formula": "Total Wagers - Payouts = GGR",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Promotional deductions are NOT allowed. Tax applies to GGR without any deductions for promotional spending. This benefits state revenue compared to states allowing promo deductions.",
+    "launch_date": "August 30, 2018 (retail, first bets at Hollywood Casino), December 2018 (online)",
+    "special_notes": "One of the earliest states to launch post-PASPA. No promo deductions, straightforward GGR-based tax. First $15M in tax revenue goes to state lottery fund, excess goes to state pensions. A bill (HB 4398) proposed increasing to 25% but has not passed. West Virginia Lottery Commission oversees."
+  },
+  "ME": {
+    "online_tax_rate": "10%",
+    "retail_tax_rate": "10%",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Gaming Revenue",
+    "ggr_formula": "Total Wagers - Payouts = GGR",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Details on promotional deduction rules are limited. Tax applies to gross gaming revenue.",
+    "launch_date": "November 3, 2023 (online, Caesars and DraftKings)",
+    "special_notes": "Unique tribal partnership model. Caesars launched by partnering with three Wabanaki Nations: Houlton Band of Maliseet Indians, Mi'kmaq Nation, and Penobscot Nation. DraftKings also launched on the same date. One of the newer and smaller markets."
+  },
+  "NH": {
+    "online_tax_rate": "51% (revenue share with DraftKings monopoly)",
+    "retail_tax_rate": "40% (retail revenue share)",
+    "tax_basis": "Gross Gaming Revenue (revenue share model)",
+    "ggr_term_used": "Gross Gaming Revenue / Net Revenue",
+    "ggr_formula": "Total Wagers - Payouts = Revenue, state receives 51% of mobile revenue and 40% of retail revenue",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "A 40% promotional deduction cap was recently introduced to support retail sportsbook infrastructure growth. Promo deductions exist within the revenue share model.",
+    "launch_date": "December 2019 (online and retail)",
+    "special_notes": "Single-operator monopoly model with DraftKings. DraftKings pays 51% of mobile revenues in exchange for exclusive online license. If NH adds 1-2 additional online licenses, rate drops to 21%. Contract recently renewed through 2028. NH Lottery Commission oversees. First state in New England to legalize."
+  },
+  "RI": {
+    "online_tax_rate": "51% (state revenue share)",
+    "retail_tax_rate": "51% (state revenue share)",
+    "tax_basis": "Net Revenue (lottery/state-run model)",
+    "ggr_term_used": "Sports Betting Revenue / Net Revenue",
+    "ggr_formula": "Total Wagers - Payouts - Operator Costs = Net Revenue, then state takes 51%",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "State-run lottery model. Revenue split is prescribed: state gets 51%, casino operator (Twin River/Bally's) gets 32%, technology partner gets 17%. Not a traditional tax/deduction model.",
+    "launch_date": "November 2018 (retail), September 2019 (online)",
+    "special_notes": "State-run model through Rhode Island Lottery in partnership with IGT and Caesars (formerly William Hill). Not a competitive open market. Second sportsbook expected to launch by end of 2026 per RFQ issued December 2025. Legalized June 22, 2018. Revenue split: State 51%, Casino 32%, IGT 17%."
+  },
+  "WY": {
+    "online_tax_rate": "10%",
+    "retail_tax_rate": "N/A (online only)",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Revenue / Sportsbook Revenue",
+    "ggr_formula": "Total Wagers - Payouts = GGR",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Limited information on specific promo deduction rules. Tax applies to GGR.",
+    "launch_date": "September 2021 (online only)",
+    "special_notes": "Online-only state (no retail sportsbooks). Small market. Lawmakers proposed doubling tax rate from 10% to 20% in 2025 but bill did not pass. Wyoming Gaming Commission oversees. Handle has quadrupled since launch."
+  },
+  "MO": {
+    "online_tax_rate": "10%",
+    "retail_tax_rate": "10%",
+    "tax_basis": "Adjusted Gross Revenue",
+    "ggr_term_used": "Adjusted Gross Revenue / Adjusted Gross Receipts",
+    "ggr_formula": "Total Wagers - Payouts - Promotional Credits = Adjusted Gross Revenue",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Licensed operators can deduct promotional credits (bonus bets, free play) up to 25% of total wagers. Months with negative adjusted revenue can be carried forward to offset future profits. This has drastically reduced actual tax collections - $928M wagered in first two months but only ~$700K in tax revenue.",
+    "launch_date": "December 1, 2025 (online and retail)",
+    "special_notes": "Newest legal market (launched Dec 2025). Legalized via constitutional amendment in 2024. Generous promo deductions (25% of wagers) + loss carryforward have resulted in minimal tax revenue in early months. HB 3533 proposes adding 24% tax on adjusted gross receipts on top of existing 10%. Major concern about promo deduction impact on state revenue."
+  },
+  "MT": {
+    "online_tax_rate": "N/A (lottery-run, on-premise mobile only)",
+    "retail_tax_rate": "Revenue retained by state (lottery model)",
+    "tax_basis": "State retains all revenue minus expenses (lottery model)",
+    "ggr_term_used": "Adjusted Gross Sports Betting Revenue",
+    "ggr_formula": "Total Wagers - Payouts - Retailer Commission (6%) - Operating Expenses = State Revenue",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Not applicable in traditional sense. State-run model where Montana Lottery retains all revenue minus expenses and retailer commissions.",
+    "launch_date": "March 2020 (Sports Bet Montana via Montana Lottery)",
+    "special_notes": "State-run monopoly through Montana Lottery. Must be physically at a licensed location to bet via mobile (on-premise mobile only, not statewide). Retailers receive 6% commission for hosting kiosks. First $12.4M annually goes to state general fund, excess to STEM scholarship fund. Major sportsbooks like DraftKings and FanDuel not available. Legalized May 2019."
+  },
+  "OR": {
+    "online_tax_rate": "51% (revenue share with DraftKings)",
+    "retail_tax_rate": "Tribal casinos operate separately",
+    "tax_basis": "Net Revenue (lottery/revenue share model)",
+    "ggr_term_used": "Net Revenue / Sports Betting Proceeds",
+    "ggr_formula": "Total Wagers - Payouts - DraftKings Share = State Revenue (51% to state)",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Not a traditional tax model. Oregon Lottery receives 51% of net revenue under revenue-sharing agreement with DraftKings.",
+    "launch_date": "August 2019 (retail at Chinook Winds Casino), October 2019 (Scoreboard app), January 2022 (DraftKings replaced original platform)",
+    "special_notes": "Oregon Lottery granted DraftKings exclusive monopoly for online sports betting in exchange for 51% revenue share. Replaced original SBTech platform in January 2022. Tribal casinos offer separate retail sports betting. One of the fastest-growing lottery sports betting revenue streams in the state."
+  },
+  "SD": {
+    "online_tax_rate": "N/A (retail only, no online)",
+    "retail_tax_rate": "9%",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Gaming Revenue",
+    "ggr_formula": "Total Wagers - Payouts = GGR",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Retail-only market. Limited information on promo deductions; retail-focused markets typically have minimal promotional activity compared to online.",
+    "launch_date": "September 9, 2021 (retail in Deadwood casinos)",
+    "special_notes": "Retail only - no statewide online/mobile betting. Betting available at commercial casinos in Deadwood and at two tribal casinos (Sisseton-Wahpeton Oyate). Approved by voters in November 2020. Senate passed resolution to put online sports betting on 2026 ballot. South Dakota Commission on Gaming oversees."
+  },
+  "DE": {
+    "online_tax_rate": "50% state share (revenue sharing model)",
+    "retail_tax_rate": "50% state share (revenue sharing model)",
+    "tax_basis": "Net Revenue after technology partner share (lottery/revenue share model)",
+    "ggr_term_used": "Sports Betting Revenue / Net Proceeds",
+    "ggr_formula": "Total Wagers - Payouts = Gross Revenue. Then: Scientific Games gets 12.5%, remaining split: State 50%, Casinos 40%, Racing Purses 10%",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Centralized lottery-managed system. Not a traditional tax with operator deductions. Revenue share is prescribed by statute.",
+    "launch_date": "June 5, 2018 (retail - first state post-PASPA besides NV), January 2024 (online via BetRivers)",
+    "revenue_split": {
+      "scientific_games": "12.5% of gross revenue",
+      "state_general_fund": "50% of remainder",
+      "casino_commission": "40% of remainder",
+      "racing_purses": "10% of remainder"
+    },
+    "special_notes": "First state (besides Nevada) to offer single-game sports betting post-PASPA repeal, launching June 5, 2018. Lottery-managed model through Delaware Lottery. Online sports betting only launched January 2024 (nearly 6 years after retail). Only BetRivers available online. Three casino properties: Delaware Park, Dover Downs, Harrington Raceway."
+  },
+  "DC": {
+    "online_tax_rate": "10% (Class B), 20% (Class A), 30% (Class C - proposed)",
+    "retail_tax_rate": "10% (kiosks at retail locations)",
+    "tax_basis": "Gross Sports Wagering Revenue",
+    "ggr_term_used": "Gross Sports Wagering Revenue",
+    "ggr_formula": "Total Wagers - Payouts = Gross Sports Wagering Revenue",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Details vary by license class. The tax structure distinguishes between different operator classes with varying rates.",
+    "license_classes": {
+      "Class_A": "Stadium/arena-tied operators - 20% tax (increased from 10% on Aug 1, 2024)",
+      "Class_B": "Smaller local sportsbooks - 10% tax",
+      "Class_C": "District-wide mobile operators - 30% tax (proposed under Sports Wagering Amendment Act of 2024)"
+    },
+    "launch_date": "May 2020 (GambetDC via DC Lottery), late 2020 (private operators at venues)",
+    "special_notes": "Complex multi-class license system. GambetDC (lottery-run app) was replaced by FanDuel in 2024. Class A (stadium/arena) rate increased from 10% to 20% on Aug 1, 2024. Council considering expanding to 8 district-wide mobile platforms under Class C at 30%. William Hill at Capital One Arena (Caesars) is primary retail operator. DC Council legalized December 2018."
+  },
+  "AR": {
+    "online_tax_rate": "13% (on first $150M), 20% (above $150M)",
+    "retail_tax_rate": "13% (on first $150M), 20% (above $150M)",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Receipts / Revenue",
+    "ggr_formula": "Total Wagers - Payouts = GGR",
+    "graduated_tiers": {
+      "tier_1": "13% on first $150M in revenue",
+      "tier_2": "20% on revenue above $150M"
+    },
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Limited information on specific promo deduction rules for Arkansas.",
+    "launch_date": "July 1, 2019 (retail at Oaklawn Casino), March 6, 2022 (online)",
+    "special_notes": "Two-tier graduated tax structure. Retail launched at Oaklawn Casino Racing Resort. Online legalized February 28, 2022. Relatively small market. Arkansas Racing Commission oversees. Four casinos authorized for sports betting."
+  },
+  "VT": {
+    "online_tax_rate": "20% minimum (actual revenue share is higher: 31-33%)",
+    "retail_tax_rate": "N/A (online only)",
+    "tax_basis": "Adjusted Gross Revenue (revenue share model)",
+    "ggr_term_used": "Adjusted Gross Revenue",
+    "ggr_formula": "Total Wagers - Payouts = Gross Revenue, then revenue share percentage applied",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Tax/revenue share is on adjusted gross revenue. Specifics of promotional deduction rules not well documented.",
+    "launch_date": "January 11, 2024 (online only)",
+    "special_notes": "Online-only state. Legislation set minimum 20% revenue share, but competitive bidding drove rates higher: DraftKings/Fanatics agreed to 31%, FanDuel committed to 33%. One of the newest and smallest markets. Vermont Department of Liquor and Lottery oversees. Legislature considered per-bet tax and even prohibition of sports betting contracts."
+  },
+  "MS": {
+    "online_tax_rate": "N/A (retail/on-premise only, no statewide online)",
+    "retail_tax_rate": "12%",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Revenue / Gross Gaming Revenue",
+    "ggr_formula": "Total Wagers - Payouts = GGR",
+    "promo_deduction_allowed": false,
+    "promo_deduction_details": "Retail-only market. Limited promotional activity. Tax applies straightforwardly to GGR.",
+    "launch_date": "August 1, 2018 (retail at casinos)",
+    "special_notes": "Retail/on-premise only. No statewide mobile/online betting. 26 brick-and-mortar sportsbooks operating. Bettors must be physically present at casino. Mobile betting allowed only on casino premises (geo-fenced). Online expansion efforts have stalled. Mississippi Gaming Commission oversees. One of earliest post-PASPA states but no online expansion."
+  },
+  "NV": {
+    "online_tax_rate": "6.75%",
+    "retail_tax_rate": "6.75%",
+    "tax_basis": "Gross Gaming Revenue (GGR)",
+    "ggr_term_used": "Gross Gaming Revenue (GGR) / Gaming Win",
+    "ggr_formula": "Total Wagers - Payouts = GGR (Gaming Win)",
+    "promo_deduction_allowed": true,
+    "promo_deduction_details": "Nevada's mature market allows standard deductions. Specific promo deduction rules are less restrictive given Nevada's long history of regulated sports betting. Nevada Gaming Control Board oversees.",
+    "launch_date": "Pre-PASPA (sports betting legal since 1949, modern era since 1970s)",
+    "special_notes": "Tied with Iowa for lowest tax rate at 6.75%. The original and longest-running legal sports betting market in the US. Nevada was exempt from PASPA (1992). In-person registration required to open online account. Nevada Gaming Control Board is the gold standard for gaming regulation. A 2022 ballot initiative to increase tax on revenue above $250K/month failed."
+  },
+  "_summary": {
+    "highest_online_tax_rates": ["NY (51%)", "NH (51%)", "OR (51%)", "RI (51%)", "DE (~50%)", "IL (20-40% graduated)"],
+    "lowest_online_tax_rates": ["NV (6.75%)", "IA (6.75%, rising to 9%)", "MI (8.4%)", "IN (9.5%)", "SD (9% retail only)"],
+    "handle_based_tax": ["TN (1.85% of handle - unique)"],
+    "no_promo_deductions": ["NY", "OH (until 2027)", "WV", "KY", "NJ"],
+    "promo_deductions_being_phased_out": ["CO (eliminated July 2026)", "AZ (eliminated year 6, ~2027)", "CT (declining annually)", "VA (first 12 months only)", "MD (being tightened)"],
+    "generous_promo_deductions": ["MO (25% of wagers)", "PA (100% deductible)", "MI (unlimited currently)", "KS (significant, effective rate ~6.5%)", "LA"],
+    "lottery_monopoly_models": ["NH (DraftKings)", "OR (DraftKings)", "RI (IGT/Caesars)", "MT (Montana Lottery)", "DE (Delaware Lottery)"],
+    "online_only_states": ["TN", "WY", "VT"],
+    "retail_only_states": ["MS", "SD"],
+    "on_premise_mobile_only": ["MT"],
+    "states_that_raised_rates_in_2024_2025": {
+      "IL": "15% flat to 20-40% graduated (July 2024)",
+      "NJ": "13%/8.5% to 19.75% unified (July 2025)",
+      "MD": "15% to 20% online (July 2025)",
+      "LA": "15% to 21.5% online (August 2025)",
+      "OH": "10% to 20% (July 2023)",
+      "DC": "10% to 20% Class A (August 2024)"
+    },
+    "newest_markets": ["MO (Dec 2025)", "NC (Mar 2024)", "VT (Jan 2024)", "ME (Nov 2023)", "KY (Sep 2023)"]
+  }
+}

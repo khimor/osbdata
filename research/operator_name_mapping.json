@@ -1,0 +1,1004 @@
+{
+  "standardized_names": {
+    "FanDuel": {
+      "aliases": [
+        "BetFair Interactive US, LLC d/b/a FanDuel Sportsbook",
+        "Blue Chip Casino (Michigan City) - FanDuel (in.sportsbook.FanDuel.com)",
+        "FanDuel",
+        "FanDuel (MotorCity Casino Hotel)",
+        "FanDuel (Phoenix Suns / NBA)",
+        "FanDuel (partnered with Oaklawn, approved Feb 2026, launched Mar 2026)",
+        "FanDuel (partnered with The Greenbrier Casino Club)",
+        "FanDuel (replaced GambetDC in 2024)",
+        "FanDuel Sportsbook (Betfair Interactive US LLC)"
+      ],
+      "parent_company": "Flutter Entertainment",
+      "active_states": [
+        "AR",
+        "AZ",
+        "CO",
+        "DC",
+        "IL",
+        "IN",
+        "LA",
+        "MI",
+        "NC",
+        "NY",
+        "TN",
+        "VA",
+        "VT",
+        "WV",
+        "WY"
+      ],
+      "notes": "Largest US sportsbook by market share (~40%+). Flutter Entertainment plc (LSE: FLTR)."
+    },
+    "DraftKings": {
+      "aliases": [
+        "Ameristar Casino (East Chicago) - DraftKings (Sportsbook.DraftKings.com)",
+        "DK Crown Holdings, Inc. d/b/a DraftKings",
+        "DraftKings",
+        "DraftKings (Bay Mills Indian Community)",
+        "DraftKings (Crown TN Gaming LLC)",
+        "DraftKings (TPC Scottsdale / PGA)",
+        "DraftKings (exclusive sole operator under state contract)",
+        "DraftKings (partnered with Hollywood Casino at Charles Town Races)",
+        "DraftKings (partnered with Southland, approved Feb 2026, launched Mar 2026)",
+        "DraftKings (sole operator via Oregon Lottery Scoreboard platform)",
+        "DraftKings Sport Book",
+        "Passamaquoddy Tribe (DraftKings Sportsbook - online)"
+      ],
+      "parent_company": "DraftKings Inc.",
+      "active_states": [
+        "AR",
+        "AZ",
+        "CO",
+        "DC",
+        "IL",
+        "IN",
+        "LA",
+        "ME",
+        "MI",
+        "NC",
+        "NH",
+        "NY",
+        "OR",
+        "TN",
+        "VA",
+        "VT",
+        "WV",
+        "WY"
+      ],
+      "notes": "Second-largest US sportsbook (~25%+ market share). NASDAQ: DKNG."
+    },
+    "BetMGM": {
+      "aliases": [
+        "Belterra Casino (Florence) - BetMGM (Sports.IN.BetMGM.com)",
+        "BetMGM",
+        "BetMGM (Arizona Cardinals / NFL)",
+        "BetMGM (MGM Grand Detroit)",
+        "BetMGM (Roar Digital)",
+        "BetMGM (on-premises mobile)",
+        "BetMGM (partnered with The Greenbrier Casino Club)",
+        "BetMGM, LLC d/b/a BetMGM"
+      ],
+      "parent_company": "Entain/MGM Resorts (50/50 JV)",
+      "active_states": [
+        "AZ",
+        "CO",
+        "DC",
+        "IL",
+        "IN",
+        "LA",
+        "MI",
+        "MS",
+        "NC",
+        "NV",
+        "NY",
+        "TN",
+        "VA",
+        "WV",
+        "WY"
+      ],
+      "notes": "Joint venture between Entain plc and MGM Resorts International."
+    },
+    "Caesars Sportsbook": {
+      "aliases": [
+        "American Wagering, Inc. d/b/a Caesars Sportsbook",
+        "Caesars",
+        "Caesars Southern Indiana (Elizabeth) - Retail only",
+        "Caesars Sport Book",
+        "Caesars Sportsbook",
+        "Caesars Sportsbook (Arizona Diamondbacks / MLB)",
+        "Caesars Sportsbook (Hannahville Indian Community)",
+        "Caesars Sportsbook (on-premises mobile)",
+        "Caesars Sportsbook (partnered with Mountaineer Casino Racetrack & Resort)",
+        "First Tracks Investments, LLC (Oddfellahs - retail, powered by Caesars Sportsbook)",
+        "Harrah's Hoosier Park (Anderson) - Caesars/WilliamHill (WilliamHill.com) + OTBs in Indianapolis and New Haven",
+        "Penobscot, Maliseet & Micmac Tribes (Caesars Sportsbook - online)",
+        "William Hill"
+      ],
+      "parent_company": "Caesars Entertainment",
+      "active_states": [
+        "AZ",
+        "CO",
+        "DC",
+        "IL",
+        "IN",
+        "LA",
+        "ME",
+        "MI",
+        "MS",
+        "NC",
+        "NV",
+        "NY",
+        "TN",
+        "VA",
+        "WV",
+        "WY"
+      ],
+      "notes": "Acquired William Hill in 2021. NASDAQ: CZR."
+    },
+    "ESPN Bet": {
+      "aliases": [
+        "Barstool/ESPN BET (Greektown Casino-Hotel)",
+        "ESPN BET",
+        "ESPN BET (Phoenix Speedway / NASCAR)",
+        "ESPN Bet",
+        "ESPN Bet (theScore Bet)",
+        "Penn Sports Interactive, LLC d/b/a theScore Bet (formerly ESPN Bet)",
+        "WynnBET (Sault Ste. Marie Tribe of Chippewa Indians)",
+        "theScore Bet (formerly ESPN BET, rebranded Dec 2025)"
+      ],
+      "parent_company": "PENN Entertainment",
+      "active_states": [
+        "AZ",
+        "CO",
+        "DC",
+        "LA",
+        "MI",
+        "NC",
+        "WV"
+      ],
+      "notes": "Formerly Barstool Sportsbook (2020-2023), then rebranded ESPN Bet (Nov 2023). Also absorbed WynnBET license in some states."
+    },
+    "BetRivers": {
+      "aliases": [
+        "BetRivers",
+        "BetRivers (Arizona Rattlers / AFL)",
+        "BetRivers (Little Traverse Bay Bands of Odawa Indians)",
+        "BetRivers (online-only partnership with Mountaineer Casino Racetrack)",
+        "BetRivers (sole online operator, launched Dec 2023, operated by Rush Street Interactive)",
+        "French Lick Resort - bet365 (bet365.com) and BetRivers (IN.betrivers.com)",
+        "RSI LA, LLC d/b/a BetRivers Sportsbook",
+        "Rivers - Philadelphia",
+        "Rivers - Pittsburgh",
+        "Rush Street Interactive",
+        "Tribal casinos (4 retail locations: Chinook Winds, Spirit Mountain, Three Rivers, Wildhorse Resort)"
+      ],
+      "parent_company": "Rush Street Interactive",
+      "active_states": [
+        "AZ",
+        "CO",
+        "DE",
+        "IL",
+        "IN",
+        "LA",
+        "MI",
+        "NY",
+        "OR",
+        "PA",
+        "VA",
+        "WV"
+      ],
+      "notes": "Also operates as SugarHouse in some markets. NYSE: RSI."
+    },
+    "Fanatics Sportsbook": {
+      "aliases": [
+        "FBG Enterprises Opco, LLC d/b/a Fanatics Sportsbook",
+        "Fanatics",
+        "Fanatics Sportsbook",
+        "Fanatics Sportsbook (FBG Enterprises Opco, LLC)",
+        "Fanatics Sportsbook (Tonto Apache Tribe)",
+        "Hollywood Lawrenceburg - theScore (theScore.com) and Fanatics (Sportsbook.Fanatics.com)",
+        "PointsBet/Fanatics (Lac Vieux Desert Band of Lake Superior Chippewa Indians)"
+      ],
+      "parent_company": "Fanatics Betting & Gaming",
+      "active_states": [
+        "AZ",
+        "CO",
+        "DC",
+        "IL",
+        "IN",
+        "LA",
+        "MI",
+        "NC",
+        "NY",
+        "TN",
+        "VA",
+        "VT",
+        "WV",
+        "WY"
+      ],
+      "notes": "Acquired PointsBet US operations in 2023. Rebranded from PointsBet to Fanatics."
+    },
+    "bet365": {
+      "aliases": [
+        "Bet365",
+        "Hillside (Louisiana) LLC d/b/a bet365",
+        "bet365",
+        "bet365 (Hillside Tennessee LLC)",
+        "bet365 (Match-e-be-nash-she-wish Band/Gun Lake Tribe)"
+      ],
+      "parent_company": "bet365 Group Ltd",
+      "active_states": [
+        "AZ",
+        "CO",
+        "IL",
+        "LA",
+        "MI",
+        "NC",
+        "TN",
+        "VA"
+      ],
+      "notes": "UK-based, largest online bookmaker globally. Limited US presence expanding."
+    },
+    "Hard Rock Bet": {
+      "aliases": [
+        "Hard Rock Bet",
+        "Hard Rock Bet (Keweenaw Bay Indian Community)",
+        "Hard Rock Bet (Seminole Hard Rock Digital, LLC)",
+        "Hard Rock Casino Northern Indiana (Gary) - Hard Rock Sportsbook (HardRockSportsbook.com)"
+      ],
+      "parent_company": "Seminole Tribe of Florida / Hard Rock Digital",
+      "active_states": [
+        "AZ",
+        "IL",
+        "IN",
+        "MI",
+        "TN",
+        "VA"
+      ],
+      "notes": "Primarily Florida-based with expanding US footprint."
+    },
+    "Bally Bet": {
+      "aliases": [
+        "Bally Bet",
+        "Bally Bet (Bally's Interactive, LLC)",
+        "Bally Bet (Phoenix Mercury / WNBA)",
+        "Bally's Dover (formerly Dover Downs)",
+        "Bally's Evansville - Bally Bet (Play.BallyBet.com)",
+        "Bally's Interactive, LLC d/b/a Bally Bet",
+        "Sportsbook Rhode Island (operated by IGT in partnership with Bally's Corporation, managed by Rhode Island Lottery)"
+      ],
+      "parent_company": "Bally's Corporation",
+      "active_states": [
+        "AZ",
+        "CO",
+        "DE",
+        "IN",
+        "LA",
+        "NY",
+        "RI",
+        "TN",
+        "VA"
+      ],
+      "notes": "Smaller market share. NYSE: BALY."
+    },
+    "Circa Sports": {
+      "aliases": [
+        "Circa Sports"
+      ],
+      "parent_company": "Circa Resort & Casino",
+      "active_states": [
+        "CO",
+        "IL",
+        "NV"
+      ],
+      "notes": "Nevada-based, expanding to select markets (IL, CO, IA)."
+    },
+    "theScore Bet": {
+      "aliases": [
+        "theScore Bet",
+        "theScore Bet (Penn Sports Interactive, LLC)"
+      ],
+      "parent_company": "PENN Entertainment",
+      "active_states": [
+        "IL",
+        "NY",
+        "TN",
+        "VA"
+      ],
+      "notes": "Acquired by PENN in 2021. Now being phased into ESPN Bet brand."
+    },
+    "Resorts Digital": {
+      "aliases": [
+        "Resorts Digital"
+      ],
+      "parent_company": "Resorts Casino Hotel / DGC (PokerStars)",
+      "active_states": [],
+      "notes": "Limited to NJ/PA. Affiliated with PokerStars brand."
+    },
+    "Golden Nugget": {
+      "aliases": [
+        "Golden Nugget",
+        "Golden Nugget Online Sportsbook"
+      ],
+      "parent_company": "Tilman Fertitta / DraftKings",
+      "active_states": [
+        "AZ",
+        "WV"
+      ],
+      "notes": "Golden Nugget Online Gaming acquired by DraftKings in 2022."
+    },
+    "Parx": {
+      "aliases": [
+        "Parx Casino",
+        "Parx Shippensburg"
+      ],
+      "parent_company": "Greenwood Racing Inc.",
+      "active_states": [
+        "PA"
+      ],
+      "notes": "PA-based casino operator. Online branded as betPARX."
+    },
+    "Betly": {
+      "aliases": [
+        "Betly (Southland Casino Racing / Delaware North)",
+        "Betly (retail at Wheeling Island and Mardi Gras casinos)"
+      ],
+      "parent_company": "Delaware North",
+      "active_states": [
+        "AR",
+        "WV"
+      ],
+      "notes": "Operates in AR, WV. Small regional operator."
+    },
+    "BetSaracen": {
+      "aliases": [
+        "BetSaracen"
+      ],
+      "parent_company": "Saracen Casino Resort",
+      "active_states": [],
+      "notes": "Arkansas-only operator."
+    },
+    "Oaklawn": {
+      "aliases": [
+        "Oaklawn"
+      ],
+      "parent_company": "Oaklawn Racing Casino Resort",
+      "active_states": [],
+      "notes": "Arkansas-only, historic racetrack & casino."
+    },
+    "GambetDC": {
+      "aliases": [
+        "GambetDC"
+      ],
+      "parent_company": "Intralot / DC Lottery",
+      "active_states": [],
+      "notes": "Replaced by FanDuel in 2024."
+    },
+    "Sports Bet Montana": {
+      "aliases": [
+        "Sports Bet Montana"
+      ],
+      "parent_company": "Intralot / Montana Lottery",
+      "active_states": [],
+      "notes": "Sole operator monopoly in Montana."
+    },
+    "Sportsbook RI": {
+      "aliases": [
+        "Sportsbook RI"
+      ],
+      "parent_company": "IGT / Bally's Corporation / RI Lottery",
+      "active_states": [],
+      "notes": "State-controlled monopoly through Rhode Island Lottery."
+    },
+    "Scoreboard (OR)": {
+      "aliases": [
+        "Scoreboard (OR)"
+      ],
+      "parent_company": "DraftKings / Oregon Lottery",
+      "active_states": [],
+      "notes": "Oregon Lottery's sports betting platform operated by DraftKings."
+    },
+    "And many more (hundreds of nonrestricted gaming licensees)": {
+      "aliases": [
+        "And many more (hundreds of nonrestricted gaming licensees)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "NV"
+      ],
+      "notes": ""
+    },
+    "Approximately 7 Deadwood casinos reporting sports wagering revenue (individual casinos not named in public reports)": {
+      "aliases": [
+        "Approximately 7 Deadwood casinos reporting sports wagering revenue (individual casinos not named in public reports)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "SD"
+      ],
+      "notes": ""
+    },
+    "Atlantis Sports Nevada": {
+      "aliases": [
+        "Atlantis Sports Nevada"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "NV"
+      ],
+      "notes": ""
+    },
+    "B-Connected Sports": {
+      "aliases": [
+        "B-Connected Sports"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "NV"
+      ],
+      "notes": ""
+    },
+    "BetCris": {
+      "aliases": [
+        "BetCris"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "AZ"
+      ],
+      "notes": ""
+    },
+    "BetMonarch": {
+      "aliases": [
+        "BetMonarch"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "CO"
+      ],
+      "notes": ""
+    },
+    "BetSaracen (Saracen Casino Resort)": {
+      "aliases": [
+        "BetSaracen (Saracen Casino Resort)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "AR"
+      ],
+      "notes": ""
+    },
+    "CT Lottery Corp": {
+      "aliases": [
+        "CT Lottery Corp"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "CT"
+      ],
+      "notes": ""
+    },
+    "Delaware Park": {
+      "aliases": [
+        "Delaware Park"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "DE"
+      ],
+      "notes": ""
+    },
+    "Desert Diamond Sports (Tohono O'odham Tribe)": {
+      "aliases": [
+        "Desert Diamond Sports (Tohono O'odham Tribe)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "AZ"
+      ],
+      "notes": ""
+    },
+    "FireKeepers (Nottawaseppi Huron Band of the Potawatomi)": {
+      "aliases": [
+        "FireKeepers (Nottawaseppi Huron Band of the Potawatomi)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "MI"
+      ],
+      "notes": ""
+    },
+    "Four Winds (Pokagon Band of Potawatomi Indians)": {
+      "aliases": [
+        "Four Winds (Pokagon Band of Potawatomi Indians)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "MI"
+      ],
+      "notes": ""
+    },
+    "Harrah's": {
+      "aliases": [
+        "Harrah's"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Harrington Raceway": {
+      "aliases": [
+        "Harrington Raceway"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "DE"
+      ],
+      "notes": ""
+    },
+    "Hollywood Casino": {
+      "aliases": [
+        "Hollywood Casino"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Hollywood Casino Morgantown": {
+      "aliases": [
+        "Hollywood Casino Morgantown"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Hollywood Casino York": {
+      "aliases": [
+        "Hollywood Casino York"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Hollywood Casino at the Meadows": {
+      "aliases": [
+        "Hollywood Casino at the Meadows"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Horseshoe Hammond - Retail only": {
+      "aliases": [
+        "Horseshoe Hammond - Retail only"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "IN"
+      ],
+      "notes": ""
+    },
+    "Horseshoe Indianapolis - Retail + OTB Clarksville": {
+      "aliases": [
+        "Horseshoe Indianapolis - Retail + OTB Clarksville"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "IN"
+      ],
+      "notes": ""
+    },
+    "Live! Casino Philadelphia": {
+      "aliases": [
+        "Live! Casino Philadelphia"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Live! Casino Pittsburgh": {
+      "aliases": [
+        "Live! Casino Pittsburgh"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "MPI Master Wagering License CT, LLC": {
+      "aliases": [
+        "MPI Master Wagering License CT, LLC"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "CT"
+      ],
+      "notes": ""
+    },
+    "Mohegan": {
+      "aliases": [
+        "Mohegan"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Mohegan - Lehigh Valley": {
+      "aliases": [
+        "Mohegan - Lehigh Valley"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Mohegan Digital, LLC": {
+      "aliases": [
+        "Mohegan Digital, LLC"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "CT"
+      ],
+      "notes": ""
+    },
+    "Mount Airy": {
+      "aliases": [
+        "Mount Airy"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Multiple casino-based retail sportsbooks across 3 regions": {
+      "aliases": [
+        "Multiple casino-based retail sportsbooks across 3 regions"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "MS"
+      ],
+      "notes": ""
+    },
+    "Nevada Sports Books": {
+      "aliases": [
+        "Nevada Sports Books"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "NV"
+      ],
+      "notes": ""
+    },
+    "Oaklawn Sports (Oaklawn Racing Casino Resort)": {
+      "aliases": [
+        "Oaklawn Sports (Oaklawn Racing Casino Resort)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "AR"
+      ],
+      "notes": ""
+    },
+    "Oxford Sportsbook (Oxford Casino - new entrant as of late 2025)": {
+      "aliases": [
+        "Oxford Sportsbook (Oxford Casino - new entrant as of late 2025)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "ME"
+      ],
+      "notes": ""
+    },
+    "Pearl River Sports (Choctaw Casinos, on-premises mobile)": {
+      "aliases": [
+        "Pearl River Sports (Choctaw Casinos, on-premises mobile)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "MS"
+      ],
+      "notes": ""
+    },
+    "Presque Isle": {
+      "aliases": [
+        "Presque Isle"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Resorts World Bet": {
+      "aliases": [
+        "Resorts World Bet"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "NY"
+      ],
+      "notes": ""
+    },
+    "Retailers (Sports Lottery retail channel)": {
+      "aliases": [
+        "Retailers (Sports Lottery retail channel)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "DE"
+      ],
+      "notes": ""
+    },
+    "Rising Star Casino - SBK (getsbk.com)": {
+      "aliases": [
+        "Rising Star Casino - SBK (getsbk.com)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "IN"
+      ],
+      "notes": ""
+    },
+    "SBK": {
+      "aliases": [
+        "SBK"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "CO"
+      ],
+      "notes": ""
+    },
+    "SI Sportsbook": {
+      "aliases": [
+        "SI Sportsbook"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "CO"
+      ],
+      "notes": ""
+    },
+    "STN Sports (Station Casinos)": {
+      "aliases": [
+        "STN Sports (Station Casinos)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "NV"
+      ],
+      "notes": ""
+    },
+    "Sports Bet Montana (sole operator, run by Intralot via Montana Lottery)": {
+      "aliases": [
+        "Sports Bet Montana (sole operator, run by Intralot via Montana Lottery)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "MT"
+      ],
+      "notes": ""
+    },
+    "Sporttrade": {
+      "aliases": [
+        "Sporttrade"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "AZ",
+        "CO",
+        "VA"
+      ],
+      "notes": ""
+    },
+    "SuperBook (Westgate)": {
+      "aliases": [
+        "SuperBook (Westgate)"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "NV"
+      ],
+      "notes": ""
+    },
+    "Terre Haute Casino - Retail only": {
+      "aliases": [
+        "Terre Haute Casino - Retail only"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "IN"
+      ],
+      "notes": ""
+    },
+    "Tribal casinos may also report separately": {
+      "aliases": [
+        "Tribal casinos may also report separately"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "SD"
+      ],
+      "notes": ""
+    },
+    "Underdog Sportsbook": {
+      "aliases": [
+        "Underdog Sportsbook"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "NC"
+      ],
+      "notes": ""
+    },
+    "Valley Forge Casino": {
+      "aliases": [
+        "Valley Forge Casino"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Wind Creek": {
+      "aliases": [
+        "Wind Creek"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "PA"
+      ],
+      "notes": ""
+    },
+    "Wynn Sports": {
+      "aliases": [
+        "Wynn Sports"
+      ],
+      "parent_company": "Unknown",
+      "active_states": [
+        "NV"
+      ],
+      "notes": ""
+    }
+  },
+  "state_specific_mappings": {
+    "AR": {
+      "Betly (Southland Casino Racing / Delaware North)": "Betly",
+      "DraftKings (partnered with Southland, approved Feb 2026, launched Mar 2026)": "DraftKings",
+      "FanDuel (partnered with Oaklawn, approved Feb 2026, launched Mar 2026)": "FanDuel"
+    },
+    "AZ": {
+      "BetMGM (Arizona Cardinals / NFL)": "BetMGM",
+      "Caesars Sportsbook (Arizona Diamondbacks / MLB)": "Caesars Sportsbook",
+      "FanDuel (Phoenix Suns / NBA)": "FanDuel",
+      "DraftKings (TPC Scottsdale / PGA)": "DraftKings",
+      "Fanatics Sportsbook (Tonto Apache Tribe)": "Fanatics Sportsbook",
+      "BetRivers (Arizona Rattlers / AFL)": "BetRivers",
+      "Bally Bet (Phoenix Mercury / WNBA)": "Bally Bet",
+      "ESPN BET (Phoenix Speedway / NASCAR)": "ESPN Bet"
+    },
+    "DC": {
+      "FanDuel (replaced GambetDC in 2024)": "FanDuel"
+    },
+    "DE": {
+      "Bally's Dover (formerly Dover Downs)": "Bally Bet",
+      "BetRivers (sole online operator, launched Dec 2023, operated by Rush Street Interactive)": "BetRivers"
+    },
+    "IN": {
+      "Ameristar Casino (East Chicago) - DraftKings (Sportsbook.DraftKings.com)": "DraftKings",
+      "Bally's Evansville - Bally Bet (Play.BallyBet.com)": "Bally Bet",
+      "Belterra Casino (Florence) - BetMGM (Sports.IN.BetMGM.com)": "BetMGM",
+      "Blue Chip Casino (Michigan City) - FanDuel (in.sportsbook.FanDuel.com)": "FanDuel",
+      "Caesars Southern Indiana (Elizabeth) - Retail only": "Caesars Sportsbook",
+      "French Lick Resort - bet365 (bet365.com) and BetRivers (IN.betrivers.com)": "BetRivers",
+      "Hard Rock Casino Northern Indiana (Gary) - Hard Rock Sportsbook (HardRockSportsbook.com)": "Hard Rock Bet",
+      "Harrah's Hoosier Park (Anderson) - Caesars/WilliamHill (WilliamHill.com) + OTBs in Indianapolis and New Haven": "Caesars Sportsbook",
+      "Hollywood Lawrenceburg - theScore (theScore.com) and Fanatics (Sportsbook.Fanatics.com)": "Fanatics Sportsbook"
+    },
+    "LA": {
+      "American Wagering, Inc. d/b/a Caesars Sportsbook": "Caesars Sportsbook",
+      "BetMGM, LLC d/b/a BetMGM": "BetMGM",
+      "BetFair Interactive US, LLC d/b/a FanDuel Sportsbook": "FanDuel",
+      "DK Crown Holdings, Inc. d/b/a DraftKings": "DraftKings",
+      "RSI LA, LLC d/b/a BetRivers Sportsbook": "BetRivers",
+      "Hillside (Louisiana) LLC d/b/a bet365": "bet365",
+      "Penn Sports Interactive, LLC d/b/a theScore Bet (formerly ESPN Bet)": "ESPN Bet",
+      "FBG Enterprises Opco, LLC d/b/a Fanatics Sportsbook": "Fanatics Sportsbook",
+      "Bally's Interactive, LLC d/b/a Bally Bet": "Bally Bet"
+    },
+    "ME": {
+      "First Tracks Investments, LLC (Oddfellahs - retail, powered by Caesars Sportsbook)": "Caesars Sportsbook",
+      "Passamaquoddy Tribe (DraftKings Sportsbook - online)": "DraftKings",
+      "Penobscot, Maliseet & Micmac Tribes (Caesars Sportsbook - online)": "Caesars Sportsbook"
+    },
+    "MI": {
+      "BetMGM (MGM Grand Detroit)": "BetMGM",
+      "Barstool/ESPN BET (Greektown Casino-Hotel)": "ESPN Bet",
+      "FanDuel (MotorCity Casino Hotel)": "FanDuel",
+      "DraftKings (Bay Mills Indian Community)": "DraftKings",
+      "BetRivers (Little Traverse Bay Bands of Odawa Indians)": "BetRivers",
+      "Caesars Sportsbook (Hannahville Indian Community)": "Caesars Sportsbook",
+      "PointsBet/Fanatics (Lac Vieux Desert Band of Lake Superior Chippewa Indians)": "Fanatics Sportsbook",
+      "WynnBET (Sault Ste. Marie Tribe of Chippewa Indians)": "ESPN Bet",
+      "bet365 (Match-e-be-nash-she-wish Band/Gun Lake Tribe)": "bet365",
+      "Hard Rock Bet (Keweenaw Bay Indian Community)": "Hard Rock Bet"
+    },
+    "MS": {
+      "BetMGM (on-premises mobile)": "BetMGM",
+      "Caesars Sportsbook (on-premises mobile)": "Caesars Sportsbook"
+    },
+    "NC": {
+      "Fanatics": "Fanatics Sportsbook",
+      "ESPN Bet (theScore Bet)": "ESPN Bet",
+      "Caesars": "Caesars Sportsbook"
+    },
+    "NH": {
+      "DraftKings (exclusive sole operator under state contract)": "DraftKings"
+    },
+    "NV": {
+      "William Hill": "Caesars Sportsbook"
+    },
+    "NY": {
+      "Caesars Sport Book": "Caesars Sportsbook",
+      "DraftKings Sport Book": "DraftKings",
+      "Fanatics": "Fanatics Sportsbook",
+      "Rush Street Interactive": "BetRivers"
+    },
+    "OR": {
+      "DraftKings (sole operator via Oregon Lottery Scoreboard platform)": "DraftKings",
+      "Tribal casinos (4 retail locations: Chinook Winds, Spirit Mountain, Three Rivers, Wildhorse Resort)": "BetRivers"
+    },
+    "PA": {
+      "Rivers - Pittsburgh": "BetRivers",
+      "Rivers - Philadelphia": "BetRivers",
+      "Parx Casino": "Parx",
+      "Parx Shippensburg": "Parx"
+    },
+    "RI": {
+      "Sportsbook Rhode Island (operated by IGT in partnership with Bally's Corporation, managed by Rhode Island Lottery)": "Bally Bet"
+    },
+    "TN": {
+      "Bally Bet (Bally's Interactive, LLC)": "Bally Bet",
+      "FanDuel Sportsbook (Betfair Interactive US LLC)": "FanDuel",
+      "BetMGM (Roar Digital)": "BetMGM",
+      "DraftKings (Crown TN Gaming LLC)": "DraftKings",
+      "Fanatics Sportsbook (FBG Enterprises Opco, LLC)": "Fanatics Sportsbook",
+      "bet365 (Hillside Tennessee LLC)": "bet365",
+      "theScore Bet (Penn Sports Interactive, LLC)": "theScore Bet",
+      "Hard Rock Bet (Seminole Hard Rock Digital, LLC)": "Hard Rock Bet"
+    },
+    "WV": {
+      "DraftKings (partnered with Hollywood Casino at Charles Town Races)": "DraftKings",
+      "FanDuel (partnered with The Greenbrier Casino Club)": "FanDuel",
+      "BetMGM (partnered with The Greenbrier Casino Club)": "BetMGM",
+      "Caesars Sportsbook (partnered with Mountaineer Casino Racetrack & Resort)": "Caesars Sportsbook",
+      "BetRivers (online-only partnership with Mountaineer Casino Racetrack)": "BetRivers",
+      "theScore Bet (formerly ESPN BET, rebranded Dec 2025)": "ESPN Bet",
+      "Betly (retail at Wheeling Island and Mardi Gras casinos)": "Betly",
+      "Golden Nugget Online Sportsbook": "Golden Nugget"
+    }
+  }
+}

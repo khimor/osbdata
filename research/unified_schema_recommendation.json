@@ -1,0 +1,115 @@
+{
+  "description": "Recommended database schema that accommodates all US state sports betting revenue data",
+  "tables": {
+    "states": {
+      "description": "Reference table for state-level configuration",
+      "columns": {
+        "state_code": "VARCHAR(2) PRIMARY KEY",
+        "state_name": "VARCHAR(50) NOT NULL",
+        "regulatory_body": "VARCHAR(100)",
+        "source_url": "TEXT",
+        "launch_date": "DATE",
+        "reporting_frequency": "VARCHAR(20) -- 'weekly', 'monthly', 'quarterly'",
+        "online_tax_rate": "DECIMAL(5,4)",
+        "retail_tax_rate": "DECIMAL(5,4)",
+        "tax_basis": "VARCHAR(20) -- 'ggr', 'handle', 'agr', 'revenue_share'",
+        "promo_deduction_allowed": "BOOLEAN",
+        "promo_deduction_cap": "TEXT -- description of any cap/limit",
+        "ggr_definition": "TEXT -- how this state defines GGR",
+        "data_format": "VARCHAR(50) -- 'xlsx', 'csv', 'pdf', 'html'",
+        "has_operator_breakdown": "BOOLEAN",
+        "has_sport_breakdown": "BOOLEAN",
+        "has_channel_split": "BOOLEAN"
+      }
+    },
+    "monthly_data": {
+      "description": "Main data table \u2014 one row per state/period/operator/channel/sport combination",
+      "columns": {
+        "id": "BIGSERIAL PRIMARY KEY",
+        "state_code": "VARCHAR(2) NOT NULL REFERENCES states(state_code)",
+        "period_start": "DATE NOT NULL",
+        "period_end": "DATE NOT NULL",
+        "period_type": "VARCHAR(10) NOT NULL -- 'weekly', 'monthly'",
+        "operator_raw": "VARCHAR(200) -- name exactly as reported by state",
+        "operator_standard": "VARCHAR(100) -- normalized name from mapping table",
+        "channel": "VARCHAR(20) NOT NULL DEFAULT 'combined' -- 'online', 'retail', 'kiosk', 'combined'",
+        "sport_category": "VARCHAR(50) -- NULL if state doesn't break down by sport",
+        "handle": "BIGINT -- total wagers in cents",
+        "gross_revenue": "BIGINT -- handle minus payouts, before promo deductions, in cents",
+        "promo_credits": "BIGINT -- free bets / promotional credits in cents, NULL if not reported",
+        "net_revenue": "BIGINT -- after promo deductions (taxable base in most states), in cents",
+        "payouts": "BIGINT -- winnings paid to bettors, NULL if not reported, in cents",
+        "hold_pct": "DECIMAL(6,4) -- gross_revenue / handle, NULL if not calculable",
+        "tax_paid": "BIGINT -- actual tax remitted, in cents",
+        "num_bets": "INTEGER -- number of wagers, NULL if not reported",
+        "federal_excise_tax": "BIGINT -- NULL if not reported separately, in cents",
+        "created_at": "TIMESTAMP NOT NULL DEFAULT NOW()",
+        "source_file": "TEXT -- filename/URL of source report"
+      },
+      "indexes": [
+        "CREATE UNIQUE INDEX idx_monthly_unique ON monthly_data(state_code, period_end, COALESCE(operator_standard,''), channel, COALESCE(sport_category,''))",
+        "CREATE INDEX idx_monthly_state_period ON monthly_data(state_code, period_end)",
+        "CREATE INDEX idx_monthly_operator ON monthly_data(operator_standard, period_end)"
+      ],
+      "notes": "Store currency as cents (BIGINT) to avoid floating point issues. Convert to dollars in application layer. Use COALESCE in unique index for nullable sport_category."
+    },
+    "operators": {
+      "description": "Operator name normalization reference table",
+      "columns": {
+        "id": "SERIAL PRIMARY KEY",
+        "standard_name": "VARCHAR(100) UNIQUE NOT NULL",
+        "parent_company": "VARCHAR(100)",
+        "notes": "TEXT"
+      }
+    },
+    "operator_aliases": {
+      "description": "Maps raw operator names to standardized names",
+      "columns": {
+        "id": "SERIAL PRIMARY KEY",
+        "state_code": "VARCHAR(2) NOT NULL",
+        "raw_name": "VARCHAR(200) NOT NULL",
+        "standard_name": "VARCHAR(100) NOT NULL REFERENCES operators(standard_name)",
+        "UNIQUE": "(state_code, raw_name)"
+      }
+    },
+    "scrape_log": {
+      "description": "Audit log for data collection runs",
+      "columns": {
+        "id": "SERIAL PRIMARY KEY",
+        "state_code": "VARCHAR(2) NOT NULL",
+        "scrape_timestamp": "TIMESTAMP NOT NULL DEFAULT NOW()",
+        "status": "VARCHAR(20) NOT NULL -- 'success', 'partial', 'failed'",
+        "rows_inserted": "INTEGER DEFAULT 0",
+        "rows_updated": "INTEGER DEFAULT 0",
+        "date_range_start": "DATE",
+        "date_range_end": "DATE",
+        "error_message": "TEXT",
+        "source_file": "TEXT",
+        "duration_seconds": "INTEGER"
+      }
+    }
+  },
+  "derived_views": {
+    "v_hold_pct": "gross_revenue::NUMERIC / NULLIF(handle, 0) AS hold_pct",
+    "v_yoy_handle_change": "\n                handle - LAG(handle) OVER (\n                    PARTITION BY state_code, operator_standard, channel\n                    ORDER BY period_end\n                ) AS handle_change_vs_prior_period\n            ",
+    "v_market_share": "handle::NUMERIC / NULLIF(SUM(handle) OVER (PARTITION BY state_code, period_end), 0) AS market_share",
+    "v_effective_tax_rate": "tax_paid::NUMERIC / NULLIF(net_revenue, 0) AS effective_tax_rate",
+    "v_promo_pct_of_gross": "promo_credits::NUMERIC / NULLIF(gross_revenue, 0) AS promo_pct"
+  },
+  "columns_that_vary_by_state": [
+    "promo_credits -- some states don't report this at all (TN, SD, MT)",
+    "payouts -- only ~60% of states report raw payouts separately",
+    "sport_category -- only IL, NJ, LA, MO, CO, SD, MT, MS, MD have sport breakdown",
+    "num_bets -- very few states (none in standard reports)",
+    "federal_excise_tax -- only AZ, ME, KY break this out",
+    "channel -- some states are online-only (TN, NC, WY, VT), some don't split"
+  ],
+  "data_quality_notes": [
+    "TN taxes handle (not GGR), so gross_revenue field will be NULL for TN",
+    "NY promo credits are NOT deductible, so net_revenue = gross_revenue for NY",
+    "RI/NH/MT/OR are lottery monopolies - single operator per state",
+    "NV embeds sports in broader gaming report - sports data isolation may be approximate",
+    "MO allows 25% promo deduction, causing negative AGR in early months",
+    "IL graduated tax tiers (20-40%) + per-wager surcharge starting July 2025"
+  ]
+}

@@ -1,0 +1,361 @@
+state,period_end,operator,channel,issue_type,severity,current_value,expected_value,notes,row_index
+AZ,2022-06-30,Betway,online,suspicious_hold,LOW,51.02%,Typically 5-15%,May be legitimate for small retail venues,348
+AZ,2022-11-30,Fubo Sportsbook (defunct),online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-18,307.65",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,534
+AZ,2024-10-31,SuperBook,online,suspicious_hold,LOW,61.10%,Typically 5-15%,May be legitimate for small retail venues,1315
+AZ,2024-11-30,SuperBook,online,suspicious_hold,LOW,76.17%,Typically 5-15%,May be legitimate for small retail venues,1343
+AZ,2025-06-30,BetMGM,retail,suspicious_hold,LOW,82.69%,Typically 5-15%,May be legitimate for small retail venues,1522
+AZ,2025-08-31,FanDuel,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-63.75",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,1588
+AZ,2025-09-30,FanDuel,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-5,089.75",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,1616
+AZ,2025-10-31,FanDuel,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-9,028.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,1640
+AZ,2025-11-30,FanDuel,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-44,359.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,1658
+AZ,2025-12-31,FanDuel,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-29,136.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,1680
+CO,2024-10-31,TOTAL,retail,suspicious_hold,LOW,54.71%,Typically 5-15%,May be legitimate for small retail venues,1789
+CO,2022-12-31,TOTAL,retail,negative_handle,HIGH,"$-366,418,081.07",>= $0,"Handle is negative: $-366,418,081.07",2034
+DC,2020-07-31,Caesars,combined,suspicious_hold,LOW,95.08%,Typically 5-15%,May be legitimate for small retail venues,2564
+DC,2023-09-30,Cloakbook,retail,suspicious_hold,LOW,-61.84%,Typically 5-15%,May be legitimate for small retail venues,2673
+DC,2023-10-31,Cloakbook,retail,suspicious_hold,LOW,-87.33%,Typically 5-15%,May be legitimate for small retail venues,2678
+DC,2024-04-30,Ugly Mug,retail,extreme_hold,HIGH,-137.25%,Between -100% and 100%,Hold of -137.25% is likely erroneous,2713
+DC,2024-06-30,Cloakbook,retail,suspicious_hold,LOW,-52.03%,Typically 5-15%,May be legitimate for small retail venues,2725
+DC,2024-08-31,Cloakbook,retail,suspicious_hold,LOW,-61.49%,Typically 5-15%,May be legitimate for small retail venues,2737
+DC,2024-11-30,Sports & Social,retail,suspicious_hold,LOW,54.72%,Typically 5-15%,May be legitimate for small retail venues,2757
+DC,2025-02-28,Cloakbook,retail,extreme_hold,HIGH,-302.84%,Between -100% and 100%,Hold of -302.84% is likely erroneous,2777
+IA,2024-01-31,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-4,431.25",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,2906
+IA,2024-02-29,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-42,406.70",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,2939
+IA,2024-01-31,SCE Partners (defunct),online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-8,556.41",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,2964
+IA,2023-11-30,Lakeside Casino,retail,suspicious_hold,LOW,-74.53%,Typically 5-15%,May be legitimate for small retail venues,2993
+IA,2023-12-31,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-3,688.92",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3029
+IA,2023-11-30,Elite Hospitality Group,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-22,717.52",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3049
+IA,2024-05-31,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,357.41",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3076
+IA,2024-05-31,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-2,617.25",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3086
+IA,2024-06-30,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-400.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3094
+IA,2024-06-30,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-409.38",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3122
+IA,2024-02-29,SCE Partners (defunct),online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,158.13",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3159
+IA,2024-03-31,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,902.30",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3164
+IA,2024-04-30,SCE Partners (defunct),online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-4,458.09",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3189
+IA,2024-04-30,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,586.65",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3207
+IA,2022-11-30,BlueBet (defunct),online,suspicious_hold,LOW,51.91%,Typically 5-15%,May be legitimate for small retail venues,3215
+IA,2022-10-31,Casino Queen Marquette,retail,suspicious_hold,LOW,57.34%,Typically 5-15%,May be legitimate for small retail venues,3219
+IA,2022-11-30,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-18,903,392.09",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3222
+IA,2022-11-30,BetMGM,online,suspicious_hold,LOW,95.48%,Typically 5-15%,May be legitimate for small retail venues,3231
+IA,2022-11-30,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-4,512.79",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3236
+IA,2022-09-30,BetMGM,online,suspicious_hold,LOW,98.01%,Typically 5-15%,May be legitimate for small retail venues,3267
+IA,2022-09-30,BlueBet (defunct),online,suspicious_hold,LOW,77.47%,Typically 5-15%,May be legitimate for small retail venues,3268
+IA,2022-10-31,BetMGM,online,suspicious_hold,LOW,96.15%,Typically 5-15%,May be legitimate for small retail venues,3281
+IA,2022-10-31,BlueBet (defunct),online,suspicious_hold,LOW,64.61%,Typically 5-15%,May be legitimate for small retail venues,3282
+IA,2023-02-28,UNKNOWN,online,suspicious_hold,LOW,-57.91%,Typically 5-15%,May be legitimate for small retail venues,3299
+IA,2023-01-31,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-29.32",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3301
+IA,2022-12-31,BlueBet (defunct),online,suspicious_hold,LOW,71.59%,Typically 5-15%,May be legitimate for small retail venues,3337
+IA,2022-12-31,BetMGM,online,suspicious_hold,LOW,96.17%,Typically 5-15%,May be legitimate for small retail venues,3356
+IA,2022-12-31,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-67.27",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3358
+IA,2023-08-31,Casino Queen Marquette,retail,extreme_hold,HIGH,-118.53%,Between -100% and 100%,Hold of -118.53% is likely erroneous,3398
+IA,2023-08-31,Riverside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-4,354.37",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3412
+IA,2022-08-31,BetMGM,online,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,3495
+IA,2022-08-31,BlueBet (defunct),online,suspicious_hold,LOW,80.54%,Typically 5-15%,May be legitimate for small retail venues,3496
+IA,2022-07-31,DraftKings,online,suspicious_hold,LOW,59.82%,Typically 5-15%,May be legitimate for small retail venues,3499
+IA,2022-07-31,UNKNOWN,online,suspicious_hold,LOW,93.31%,Typically 5-15%,May be legitimate for small retail venues,3522
+IA,2023-07-31,Lakeside Casino,retail,suspicious_hold,LOW,-64.88%,Typically 5-15%,May be legitimate for small retail venues,3534
+IA,2024-08-31,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-907.60",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3644
+IA,2024-08-31,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-95.45",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3653
+IA,2024-07-31,Wild Rose Jefferson,retail,suspicious_hold,LOW,53.81%,Typically 5-15%,May be legitimate for small retail venues,3672
+IA,2024-07-31,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-47.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3677
+IA,2024-07-31,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-55.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3686
+IA,2024-07-31,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,977.50",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3696
+IA,2025-09-30,DraftKings,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-633.26",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3738
+IA,2025-11-30,DraftKings,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-433.96",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3799
+IA,2025-03-31,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-69.74",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3890
+IA,2025-02-28,Betfred,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-3,531.38",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,3912
+IA,2025-01-31,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-659.55",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4031
+IA,2024-11-30,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-625.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4070
+IA,2024-10-31,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-86.25",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4106
+IA,2024-09-30,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-216.65",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4109
+IA,2024-12-31,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-226.90",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4123
+IA,2025-01-31,Betfred,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-9,095.15",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4142
+IA,2024-11-30,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-2,260.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4169
+IA,2023-02-28,Lakeside Casino,retail,suspicious_hold,LOW,-57.89%,Typically 5-15%,May be legitimate for small retail venues,4191
+IA,2019-08-31,Q Casino,retail,suspicious_hold,LOW,58.68%,Typically 5-15%,May be legitimate for small retail venues,4333
+IA,2019-08-31,Diamond Jo Worth,retail,suspicious_hold,LOW,66.82%,Typically 5-15%,May be legitimate for small retail venues,4359
+IA,2019-08-31,Grand Falls Casino,retail,suspicious_hold,LOW,82.99%,Typically 5-15%,May be legitimate for small retail venues,4361
+IA,2020-04-30,Wild Rose Clinton,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-242.96",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4545
+IA,2020-04-30,Wild Rose Emmetsburg,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-155.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4547
+IA,2020-04-30,Wild Rose Jefferson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-81.05",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4549
+IA,2020-04-30,TOTAL,retail,extreme_hold,HIGH,-12558.59%,Between -100% and 100%,Hold of -12558.59% is likely erroneous,4551
+IA,2020-04-30,Riverside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-737.45",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4554
+IA,2020-04-30,Isle of Capri Bettendorf,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-206.80",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4566
+IA,2020-04-30,Hard Rock Sioux City,retail,extreme_hold,HIGH,-901.57%,Between -100% and 100%,Hold of -901.57% is likely erroneous,4569
+IA,2020-04-30,Harrah's Council Bluffs,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-336.82",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4571
+IA,2020-04-30,Horseshoe Council Bluffs,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-120.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4573
+IA,2020-04-30,Isle Waterloo,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-20.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4577
+IA,2020-04-30,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,920.95",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4579
+IA,2020-04-30,Prairie Meadows,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,882.50",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4581
+IA,2020-04-30,Q Casino,retail,extreme_hold,HIGH,-595.68%,Between -100% and 100%,Hold of -595.68% is likely erroneous,4583
+IA,2020-06-30,Lakeside Casino,retail,suspicious_hold,LOW,-53.99%,Typically 5-15%,May be legitimate for small retail venues,4642
+IA,2020-06-30,Wild Rose Emmetsburg,retail,extreme_hold,HIGH,-296.76%,Between -100% and 100%,Hold of -296.76% is likely erroneous,4643
+IA,2020-06-30,Isle Waterloo,retail,extreme_hold,HIGH,-235.47%,Between -100% and 100%,Hold of -235.47% is likely erroneous,4664
+IA,2020-06-30,Harrah's Council Bluffs,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-14,277.30",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4667
+IA,2020-05-31,Wild Rose Jefferson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-12.43",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4676
+IA,2020-05-31,Wild Rose Clinton,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-252.39",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4681
+IA,2020-05-31,Wild Rose Emmetsburg,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-4.85",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4683
+IA,2020-05-31,TOTAL,retail,extreme_hold,HIGH,-27481.55%,Between -100% and 100%,Hold of -27481.55% is likely erroneous,4687
+IA,2020-04-30,Catfish Bend Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,312.75",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4693
+IA,2020-05-31,Harrah's Council Bluffs,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,648.86",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4698
+IA,2020-05-31,Prairie Meadows,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-455.50",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4708
+IA,2020-05-31,Horseshoe Council Bluffs,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-3,105.57",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4709
+IA,2020-05-31,Isle of Capri Bettendorf,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-8.85",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4711
+IA,2020-05-31,Isle Waterloo,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-297.95",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4713
+IA,2020-05-31,Lakeside Casino,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-248.20",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,4715
+IA,2020-02-29,Lakeside Casino,retail,suspicious_hold,LOW,-65.49%,Typically 5-15%,May be legitimate for small retail venues,4835
+IA,2021-10-31,BetMGM,online,suspicious_hold,LOW,94.32%,Typically 5-15%,May be legitimate for small retail venues,4895
+IA,2021-10-31,DraftKings,online,suspicious_hold,LOW,94.82%,Typically 5-15%,May be legitimate for small retail venues,4904
+IA,2021-11-30,Betfred,online,suspicious_hold,LOW,-68.21%,Typically 5-15%,May be legitimate for small retail venues,4919
+IA,2021-11-30,BetMGM,online,suspicious_hold,LOW,82.09%,Typically 5-15%,May be legitimate for small retail venues,4920
+IA,2021-11-30,DraftKings,online,suspicious_hold,LOW,87.96%,Typically 5-15%,May be legitimate for small retail venues,4921
+IA,2021-09-30,Betfred,online,suspicious_hold,LOW,67.53%,Typically 5-15%,May be legitimate for small retail venues,4969
+IA,2022-01-31,DraftKings,online,suspicious_hold,LOW,83.35%,Typically 5-15%,May be legitimate for small retail venues,4997
+IA,2022-02-28,Betfred,online,suspicious_hold,LOW,-73.64%,Typically 5-15%,May be legitimate for small retail venues,5013
+IA,2022-02-28,DraftKings,online,suspicious_hold,LOW,-69.38%,Typically 5-15%,May be legitimate for small retail venues,5014
+IA,2021-12-31,DraftKings,online,suspicious_hold,LOW,80.48%,Typically 5-15%,May be legitimate for small retail venues,5023
+IA,2021-12-31,Betfred,online,suspicious_hold,LOW,-72.56%,Typically 5-15%,May be legitimate for small retail venues,5030
+IA,2021-12-31,SuperBook,online,suspicious_hold,LOW,-72.34%,Typically 5-15%,May be legitimate for small retail venues,5039
+IA,2023-03-31,Casino Queen Marquette,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-111.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,5078
+IA,2023-04-30,Casino Queen Marquette,retail,suspicious_hold,LOW,81.95%,Typically 5-15%,May be legitimate for small retail venues,5084
+IA,2023-06-30,Lakeside Casino,retail,suspicious_hold,LOW,50.80%,Typically 5-15%,May be legitimate for small retail venues,5156
+IA,2022-05-31,DraftKings,online,suspicious_hold,LOW,66.62%,Typically 5-15%,May be legitimate for small retail venues,5410
+IA,2022-05-31,BetMGM,online,suspicious_hold,LOW,74.29%,Typically 5-15%,May be legitimate for small retail venues,5420
+IA,2022-04-30,DraftKings,online,suspicious_hold,LOW,74.92%,Typically 5-15%,May be legitimate for small retail venues,5468
+IA,2022-06-30,DraftKings,online,suspicious_hold,LOW,67.79%,Typically 5-15%,May be legitimate for small retail venues,5545
+IA,2020-07-31,Wild Rose Emmetsburg,retail,suspicious_hold,LOW,76.09%,Typically 5-15%,May be legitimate for small retail venues,5561
+IL,2024-12-31,Caesars,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,6378
+IL,2024-10-31,Caesars,retail,suspicious_hold,LOW,85.18%,Typically 5-15%,May be legitimate for small retail venues,6752
+IL,2024-06-30,Caesars,retail,suspicious_hold,LOW,50.36%,Typically 5-15%,May be legitimate for small retail venues,8345
+IL,2026-01-31,DraftKings,retail,suspicious_hold,LOW,-58.32%,Typically 5-15%,May be legitimate for small retail venues,9626
+IL,2025-03-31,Caesars,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,10477
+IL,2025-04-30,Caesars,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,10721
+IL,2025-02-28,Caesars,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,10831
+IL,2025-07-31,Caesars,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,11455
+IL,2025-05-31,Caesars,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,11568
+IL,2021-10-31,Par-A-Dice,online,suspicious_hold,LOW,57.03%,Typically 5-15%,May be legitimate for small retail venues,12084
+IL,2021-11-30,Par-A-Dice,online,suspicious_hold,LOW,66.66%,Typically 5-15%,May be legitimate for small retail venues,12251
+IL,2021-08-31,Par-A-Dice,online,extreme_hold,HIGH,-176.53%,Between -100% and 100%,Hold of -176.53% is likely erroneous,12353
+IL,2021-09-30,Par-A-Dice,online,suspicious_hold,LOW,67.55%,Typically 5-15%,May be legitimate for small retail venues,12562
+IL,2020-12-31,Par-A-Dice,retail,suspicious_hold,LOW,68.06%,Typically 5-15%,May be legitimate for small retail venues,13619
+IL,2020-04-30,BetRivers,retail,suspicious_hold,LOW,-57.41%,Typically 5-15%,May be legitimate for small retail venues,14079
+IL,2021-07-31,Par-A-Dice,online,suspicious_hold,LOW,61.56%,Typically 5-15%,May be legitimate for small retail venues,14593
+IN,2023-02-28,TwinSpires,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,860.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,19232
+IN,2021-04-30,Caesars,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-2,166.50",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,19411
+IN,2021-05-31,Betway,online,suspicious_hold,LOW,-64.52%,Typically 5-15%,May be legitimate for small retail venues,19416
+IN,2021-06-30,Caesars,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-450.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,19422
+IN,2019-12-31,TwinSpires,online,suspicious_hold,LOW,-55.10%,Typically 5-15%,May be legitimate for small retail venues,19533
+IN,2020-04-30,TwinSpires,online,suspicious_hold,LOW,90.56%,Typically 5-15%,May be legitimate for small retail venues,19641
+IN,2020-06-30,Blue Chip Casino,retail,extreme_hold,HIGH,-130.68%,Between -100% and 100%,Hold of -130.68% is likely erroneous,19643
+IN,2020-06-30,Caesars,retail,extreme_hold,HIGH,-143.45%,Between -100% and 100%,Hold of -143.45% is likely erroneous,19645
+IN,2020-06-30,Belterra Casino,retail,suspicious_hold,LOW,-69.05%,Typically 5-15%,May be legitimate for small retail venues,19670
+IN,2022-06-30,TwinSpires,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-3,136.66",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,19735
+IN,2023-01-31,TwinSpires,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-64.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,19834
+IN,2022-10-31,TwinSpires,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-48.79",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,19857
+IN,2022-11-30,TwinSpires,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-2.20",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,19886
+KY,2023-11-30,Sandy's Racing & Gaming,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,20494
+LA,2021-10-31,TOTAL,retail,suspicious_hold,LOW,53.78%,Typically 5-15%,May be legitimate for small retail venues,21609
+MA,2023-01-31,ESPN Bet,retail,suspicious_hold,LOW,64.90%,Typically 5-15%,May be legitimate for small retail venues,21868
+MD,2026-01-31,Canton Gaming,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-822.09",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22018
+MD,2024-11-30,Long Shot's,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,270.53",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22066
+MD,2024-11-30,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-983.52",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22084
+MD,2025-10-31,Canton Gaming Towson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-10.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22127
+MD,2025-11-30,Canton Gaming Towson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-438.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22209
+MD,2023-08-31,Canton Gaming,retail,suspicious_hold,LOW,99.75%,Typically 5-15%,May be legitimate for small retail venues,22268
+MD,2023-08-31,Whitman Gaming,retail,suspicious_hold,LOW,99.41%,Typically 5-15%,May be legitimate for small retail venues,22278
+MD,2024-02-29,Riverboat Potomac,online,negative_handle,MEDIUM,$-240.51,>= $0,Handle is negative: $-240.51,22496
+MD,2025-03-31,Canton Gaming Towson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-436.57",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22513
+MD,2025-03-31,Betfred,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,242.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22518
+MD,2024-08-31,Long Shot's,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-5,879.89",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22632
+MD,2024-08-31,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-6,770.51",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22650
+MD,2024-06-30,Veterans Services,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-17.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22726
+MD,2025-02-28,Betfred,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-8,793.50",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22746
+MD,2025-02-28,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,714.62",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22765
+MD,2024-07-31,Long Shot's,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-275.71",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22786
+MD,2025-04-30,Canton Gaming Towson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-3,261.44",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22820
+MD,2025-04-30,Betfred,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-55.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22825
+MD,2024-12-31,Betfred,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-300.93",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22865
+MD,2024-12-31,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-9,200.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22884
+MD,2025-07-31,Canton Gaming Towson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-2,548.74",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22900
+MD,2026-02-28,Canton Gaming,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,436.67",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22927
+MD,2025-05-31,Canton Gaming Towson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,650.90",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22970
+MD,2025-05-31,Betfred,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-45.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,22975
+MD,2024-10-31,Long Shot's,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-660.20",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,23015
+MD,2024-10-31,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-2,356.75",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,23033
+MD,2025-01-31,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,874.75",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,23136
+MD,2025-06-30,Canton Gaming Towson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,896.62",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,23152
+MD,2024-09-30,Long Shot's,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-840.74",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,23197
+MD,2024-09-30,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-30,102.50",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,23215
+MD,2025-08-31,Canton Gaming Towson,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-647.83",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,23231
+MD,2025-08-31,Betfred,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-300.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,23236
+ME,2025-12-31,TwinSpires,retail,suspicious_hold,LOW,53.50%,Typically 5-15%,May be legitimate for small retail venues,23509
+MI,2023-08-31,FanDuel,online,negative_handle,MEDIUM,"$-1,419.34",>= $0,"Handle is negative: $-1,419.34",23581
+MI,2023-08-31,FanDuel,online,extreme_hold,HIGH,6874.89%,Between -100% and 100%,Hold of 6874.89% is likely erroneous,23581
+MI,2024-04-30,ESPN Bet,online,extreme_hold,HIGH,-1348.97%,Between -100% and 100%,Hold of -1348.97% is likely erroneous,24308
+MS,2020-05-31,Central Region,retail,suspicious_hold,LOW,86.75%,Typically 5-15%,May be legitimate for small retail venues,24902
+MS,2020-05-31,Northern Region,retail,suspicious_hold,LOW,53.90%,Typically 5-15%,May be legitimate for small retail venues,24904
+NC,2025-04-30,TOTAL,online,suspicious_hold,LOW,81.23%,Typically 5-15%,May be legitimate for small retail venues,26889
+NC,2025-03-31,TOTAL,online,suspicious_hold,LOW,55.68%,Typically 5-15%,May be legitimate for small retail venues,26890
+NC,2024-12-31,TOTAL,online,suspicious_hold,LOW,56.74%,Typically 5-15%,May be legitimate for small retail venues,26893
+NC,2024-11-30,TOTAL,online,extreme_hold,HIGH,118.57%,Between -100% and 100%,Hold of 118.57% is likely erroneous,26894
+NC,2024-11-30,TOTAL,online,ggr_exceeds_handle,HIGH,"GGR $780,573,353.00 vs Handle $658,310,883.00",GGR <= Handle,GGR is 118.6% of handle (impossible without accounting adjustments),26894
+NC,2024-09-30,TOTAL,online,extreme_hold,HIGH,121.76%,Between -100% and 100%,Hold of 121.76% is likely erroneous,26896
+NC,2024-09-30,TOTAL,online,ggr_exceeds_handle,HIGH,"GGR $700,629,452.00 vs Handle $575,398,078.00",GGR <= Handle,GGR is 121.8% of handle (impossible without accounting adjustments),26896
+NC,2024-07-31,TOTAL,online,extreme_hold,HIGH,124.06%,Between -100% and 100%,Hold of 124.06% is likely erroneous,26898
+NC,2024-07-31,TOTAL,online,ggr_exceeds_handle,HIGH,"GGR $422,260,411.00 vs Handle $340,375,354.00",GGR <= Handle,GGR is 124.1% of handle (impossible without accounting adjustments),26898
+NY,2025-06-22,Resorts World Bet,online,suspicious_hold,LOW,57.84%,Typically 5-15%,May be legitimate for small retail venues,30600
+NY,2023-12-17,Bally Bet,online,suspicious_hold,LOW,52.12%,Typically 5-15%,May be legitimate for small retail venues,31907
+OH,2024-10-31,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,100.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,32959
+OH,2024-11-30,SuperBook,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-28,428.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,32965
+OH,2025-02-28,BetMGM,retail,suspicious_hold,LOW,-73.66%,Typically 5-15%,May be legitimate for small retail venues,33004
+OH,2024-09-30,Caesars,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-7,343.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,33145
+OH,2025-04-30,BetMGM,retail,extreme_hold,HIGH,-292.49%,Between -100% and 100%,Hold of -292.49% is likely erroneous,33339
+OH,2023-02-28,SuperBook,retail,suspicious_hold,LOW,-52.46%,Typically 5-15%,May be legitimate for small retail venues,33602
+OH,2023-03-31,SuperBook,retail,suspicious_hold,LOW,75.85%,Typically 5-15%,May be legitimate for small retail venues,33711
+OH,2023-12-31,Bally Bet,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,34003
+PA,2023-11-30,Mount Airy,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-13,296.09",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,34789
+PA,2024-02-29,Mount Airy,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-6,664.24",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,34792
+PA,2023-12-31,Mount Airy,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-20.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,34852
+PA,2023-09-30,Mount Airy,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-190.77",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,34876
+PA,2023-08-31,Mount Airy,online,negative_handle,MEDIUM,"$-4,089.45",>= $0,"Handle is negative: $-4,089.45",34917
+PA,2023-08-31,Mount Airy,online,extreme_hold,HIGH,257.63%,Between -100% and 100%,Hold of 257.63% is likely erroneous,34917
+PA,2025-05-31,Live! Philadelphia,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-576.80",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,35514
+PA,2025-02-28,Live! Philadelphia,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,238.50",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,35533
+PA,2024-08-31,Live! Philadelphia,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-12,763.93",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,35549
+PA,2024-09-30,Live! Philadelphia,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-9,239.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,35550
+PA,2024-10-31,Live! Philadelphia,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-4,590.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,35551
+PA,2024-11-30,Live! Philadelphia,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,040.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,35552
+PA,2024-12-31,Live! Philadelphia,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,191.72",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,35553
+PA,2024-08-31,betPARX,retail,suspicious_hold,LOW,59.18%,Typically 5-15%,May be legitimate for small retail venues,35585
+PA,2025-08-31,Betfred,online,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,281.23",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,35636
+PA,2020-12-31,BetRivers,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-15,230.59",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,36250
+PA,2020-04-30,BetRivers,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-1,244.61",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,36470
+PA,2020-06-30,BetRivers,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-569.55",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,36472
+PA,2020-04-30,BetRivers,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-21,351.19",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,36490
+PA,2020-05-31,BetRivers,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-2,443.53",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,36491
+PA,2020-04-30,betPARX,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-321.30",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,36538
+PA,2020-05-31,Mount Airy,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-68.00",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,36651
+PA,2020-04-30,FanDuel,retail,zero_handle_nonzero_ggr,MEDIUM,"Handle $0, GGR $-245.25",Handle > 0 when GGR != 0,Zero handle but non-zero GGR,36733
+PA,2020-06-30,FanDuel,retail,suspicious_hold,LOW,-99.00%,Typically 5-15%,May be legitimate for small retail venues,36735
+RI,2020-06-30,Sportsbook RI,retail,negative_handle,MEDIUM,"$-39,196.00",>= $0,"Handle is negative: $-39,196.00",37542
+RI,2020-06-30,Sportsbook RI,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,37542
+RI,2020-06-30,Sportsbook RI,retail,negative_handle,MEDIUM,"$-28,737.00",>= $0,"Handle is negative: $-28,737.00",37543
+RI,2020-06-30,Sportsbook RI,retail,suspicious_hold,LOW,100.00%,Typically 5-15%,May be legitimate for small retail venues,37543
+WV,2021-02-06,Mountaineer,online,suspicious_hold,LOW,66.01%,Typically 5-15%,May be legitimate for small retail venues,38627
+WV,2021-02-13,Mountaineer,online,extreme_hold,HIGH,-235.15%,Between -100% and 100%,Hold of -235.15% is likely erroneous,38629
+WV,2020-09-12,Wheeling Island,online,suspicious_hold,LOW,56.11%,Typically 5-15%,May be legitimate for small retail venues,38673
+WV,2021-02-13,ESPN Bet,retail,suspicious_hold,LOW,-62.98%,Typically 5-15%,May be legitimate for small retail venues,38912
+WV,2020-11-21,The Greenbrier,retail,suspicious_hold,LOW,-94.01%,Typically 5-15%,May be legitimate for small retail venues,38994
+WV,2021-04-10,The Greenbrier,retail,extreme_hold,HIGH,-145.03%,Between -100% and 100%,Hold of -145.03% is likely erroneous,39034
+WV,2021-04-17,The Greenbrier,retail,suspicious_hold,LOW,63.90%,Typically 5-15%,May be legitimate for small retail venues,39036
+WV,2021-04-24,The Greenbrier,retail,extreme_hold,HIGH,-227.64%,Between -100% and 100%,Hold of -227.64% is likely erroneous,39038
+WV,2021-05-01,The Greenbrier,retail,suspicious_hold,LOW,56.07%,Typically 5-15%,May be legitimate for small retail venues,39040
+WV,2021-05-08,The Greenbrier,retail,suspicious_hold,LOW,59.74%,Typically 5-15%,May be legitimate for small retail venues,39042
+WV,2021-05-29,The Greenbrier,retail,suspicious_hold,LOW,65.77%,Typically 5-15%,May be legitimate for small retail venues,39048
+WV,2021-06-12,The Greenbrier,retail,suspicious_hold,LOW,-85.01%,Typically 5-15%,May be legitimate for small retail venues,39052
+WV,2021-06-19,The Greenbrier,retail,suspicious_hold,LOW,95.13%,Typically 5-15%,May be legitimate for small retail venues,39054
+WV,2022-02-19,Mountaineer,retail,suspicious_hold,LOW,-93.22%,Typically 5-15%,May be legitimate for small retail venues,39126
+WV,2022-06-30,Mountaineer,retail,suspicious_hold,LOW,-74.75%,Typically 5-15%,May be legitimate for small retail venues,39164
+WV,2021-08-21,Mardi Gras,online,suspicious_hold,LOW,-50.78%,Typically 5-15%,May be legitimate for small retail venues,39287
+WV,2021-09-04,Mardi Gras,retail,suspicious_hold,LOW,52.76%,Typically 5-15%,May be legitimate for small retail venues,39290
+WV,2022-05-21,Mardi Gras,online,suspicious_hold,LOW,-61.40%,Typically 5-15%,May be legitimate for small retail venues,39365
+WV,2021-07-03,The Greenbrier,retail,suspicious_hold,LOW,-80.81%,Typically 5-15%,May be legitimate for small retail venues,39484
+WV,2021-07-24,The Greenbrier,retail,suspicious_hold,LOW,67.91%,Typically 5-15%,May be legitimate for small retail venues,39490
+WV,2021-08-07,The Greenbrier,retail,suspicious_hold,LOW,-67.51%,Typically 5-15%,May be legitimate for small retail venues,39494
+WV,2021-08-28,The Greenbrier,retail,suspicious_hold,LOW,64.57%,Typically 5-15%,May be legitimate for small retail venues,39500
+WV,2021-10-09,The Greenbrier,retail,suspicious_hold,LOW,53.67%,Typically 5-15%,May be legitimate for small retail venues,39512
+WV,2021-12-11,The Greenbrier,retail,suspicious_hold,LOW,69.93%,Typically 5-15%,May be legitimate for small retail venues,39530
+WV,2022-01-22,The Greenbrier,retail,suspicious_hold,LOW,80.91%,Typically 5-15%,May be legitimate for small retail venues,39542
+WV,2022-02-05,The Greenbrier,retail,suspicious_hold,LOW,72.74%,Typically 5-15%,May be legitimate for small retail venues,39546
+WV,2022-02-19,The Greenbrier,retail,extreme_hold,HIGH,-429.04%,Between -100% and 100%,Hold of -429.04% is likely erroneous,39550
+WV,2022-03-26,The Greenbrier,retail,suspicious_hold,LOW,72.60%,Typically 5-15%,May be legitimate for small retail venues,39560
+WV,2022-04-02,The Greenbrier,retail,extreme_hold,HIGH,-122.63%,Between -100% and 100%,Hold of -122.63% is likely erroneous,39562
+WV,2022-06-11,The Greenbrier,retail,suspicious_hold,LOW,61.61%,Typically 5-15%,May be legitimate for small retail venues,39582
+WV,2023-01-07,Mountaineer,retail,extreme_hold,HIGH,-121.40%,Between -100% and 100%,Hold of -121.40% is likely erroneous,39644
+WV,2023-01-14,Mountaineer,retail,suspicious_hold,LOW,-53.76%,Typically 5-15%,May be legitimate for small retail venues,39646
+WV,2023-01-28,Mountaineer,retail,suspicious_hold,LOW,63.22%,Typically 5-15%,May be legitimate for small retail venues,39650
+WV,2023-02-04,Mountaineer,retail,extreme_hold,HIGH,-158.09%,Between -100% and 100%,Hold of -158.09% is likely erroneous,39652
+WV,2023-02-18,Mountaineer,retail,suspicious_hold,LOW,-51.39%,Typically 5-15%,May be legitimate for small retail venues,39656
+WV,2023-04-08,Mountaineer,retail,suspicious_hold,LOW,-59.39%,Typically 5-15%,May be legitimate for small retail venues,39670
+WV,2023-06-03,Wheeling Island,online,suspicious_hold,LOW,56.31%,Typically 5-15%,May be legitimate for small retail venues,39791
+WV,2023-06-24,Wheeling Island,online,extreme_hold,HIGH,-248.28%,Between -100% and 100%,Hold of -248.28% is likely erroneous,39797
+WV,2022-09-03,Mardi Gras,retail,suspicious_hold,LOW,50.60%,Typically 5-15%,May be legitimate for small retail venues,39816
+WV,2022-10-22,Mardi Gras,online,suspicious_hold,LOW,-58.52%,Typically 5-15%,May be legitimate for small retail venues,39831
+WV,2023-02-18,ESPN Bet,retail,suspicious_hold,LOW,-89.16%,Typically 5-15%,May be legitimate for small retail venues,39968
+WV,2022-09-03,The Greenbrier,retail,suspicious_hold,LOW,57.75%,Typically 5-15%,May be legitimate for small retail venues,40024
+WV,2022-10-22,The Greenbrier,retail,suspicious_hold,LOW,86.25%,Typically 5-15%,May be legitimate for small retail venues,40038
+WV,2023-02-25,The Greenbrier,retail,suspicious_hold,LOW,61.52%,Typically 5-15%,May be legitimate for small retail venues,40074
+WV,2023-05-20,The Greenbrier,retail,suspicious_hold,LOW,53.05%,Typically 5-15%,May be legitimate for small retail venues,40098
+WV,2023-07-01,Mountaineer,retail,suspicious_hold,LOW,-61.99%,Typically 5-15%,May be legitimate for small retail venues,40110
+WV,2023-07-22,Mountaineer,retail,suspicious_hold,LOW,55.70%,Typically 5-15%,May be legitimate for small retail venues,40116
+WV,2024-02-10,Mountaineer,retail,suspicious_hold,LOW,69.85%,Typically 5-15%,May be legitimate for small retail venues,40174
+WV,2024-02-17,Mountaineer,retail,suspicious_hold,LOW,-73.27%,Typically 5-15%,May be legitimate for small retail venues,40176
+WV,2023-07-15,Wheeling Island,retail,suspicious_hold,LOW,50.68%,Typically 5-15%,May be legitimate for small retail venues,40220
+WV,2023-07-22,Mardi Gras,retail,suspicious_hold,LOW,73.37%,Typically 5-15%,May be legitimate for small retail venues,40278
+WV,2023-09-16,Mardi Gras,retail,extreme_hold,HIGH,-154.56%,Between -100% and 100%,Hold of -154.56% is likely erroneous,40294
+WV,2024-06-29,Mardi Gras,retail,suspicious_hold,LOW,-82.32%,Typically 5-15%,May be legitimate for small retail venues,40376
+WV,2024-06-30,Mardi Gras,retail,extreme_hold,HIGH,-179.40%,Between -100% and 100%,Hold of -179.40% is likely erroneous,40378
+WV,2023-09-09,ESPN Bet,retail,suspicious_hold,LOW,50.31%,Typically 5-15%,May be legitimate for small retail venues,40400
+WV,2023-07-22,The Greenbrier,retail,suspicious_hold,LOW,52.93%,Typically 5-15%,May be legitimate for small retail venues,40494
+WV,2023-07-29,The Greenbrier,retail,extreme_hold,HIGH,-147.90%,Between -100% and 100%,Hold of -147.90% is likely erroneous,40496
+WV,2023-09-09,The Greenbrier,retail,suspicious_hold,LOW,67.54%,Typically 5-15%,May be legitimate for small retail venues,40508
+WV,2023-10-07,The Greenbrier,retail,suspicious_hold,LOW,-59.39%,Typically 5-15%,May be legitimate for small retail venues,40516
+WV,2023-11-18,The Greenbrier,retail,extreme_hold,HIGH,-336.74%,Between -100% and 100%,Hold of -336.74% is likely erroneous,40528
+WV,2023-12-02,The Greenbrier,retail,suspicious_hold,LOW,58.67%,Typically 5-15%,May be legitimate for small retail venues,40532
+WV,2024-02-17,The Greenbrier,retail,suspicious_hold,LOW,-68.04%,Typically 5-15%,May be legitimate for small retail venues,40554
+WV,2024-05-18,The Greenbrier,retail,suspicious_hold,LOW,-71.96%,Typically 5-15%,May be legitimate for small retail venues,40580
+WV,2024-06-29,The Greenbrier,retail,suspicious_hold,LOW,91.41%,Typically 5-15%,May be legitimate for small retail venues,40592
+WV,2025-04-19,Mountaineer,retail,suspicious_hold,LOW,-88.10%,Typically 5-15%,May be legitimate for small retail venues,40678
+WV,2024-07-27,Mardi Gras,retail,suspicious_hold,LOW,53.84%,Typically 5-15%,May be legitimate for small retail venues,40761
+WV,2024-12-07,Mardi Gras,retail,suspicious_hold,LOW,-61.11%,Typically 5-15%,May be legitimate for small retail venues,40799
+WV,2025-04-19,Mardi Gras,retail,suspicious_hold,LOW,-50.40%,Typically 5-15%,May be legitimate for small retail venues,40837
+WV,2025-02-08,ESPN Bet,retail,suspicious_hold,LOW,50.77%,Typically 5-15%,May be legitimate for small retail venues,40923
+WV,2025-02-15,ESPN Bet,retail,suspicious_hold,LOW,-72.34%,Typically 5-15%,May be legitimate for small retail venues,40925
+WV,2024-07-27,The Greenbrier,retail,suspicious_hold,LOW,62.43%,Typically 5-15%,May be legitimate for small retail venues,40973
+WV,2024-08-31,The Greenbrier,retail,suspicious_hold,LOW,89.20%,Typically 5-15%,May be legitimate for small retail venues,40983
+WV,2024-11-23,The Greenbrier,retail,extreme_hold,HIGH,-115.91%,Between -100% and 100%,Hold of -115.91% is likely erroneous,41007
+WV,2024-12-14,The Greenbrier,retail,suspicious_hold,LOW,64.63%,Typically 5-15%,May be legitimate for small retail venues,41013
+WV,2025-04-26,The Greenbrier,retail,suspicious_hold,LOW,-52.53%,Typically 5-15%,May be legitimate for small retail venues,41051
+WV,2025-05-24,The Greenbrier,retail,suspicious_hold,LOW,59.03%,Typically 5-15%,May be legitimate for small retail venues,41059
+WV,2025-06-07,The Greenbrier,retail,suspicious_hold,LOW,-64.83%,Typically 5-15%,May be legitimate for small retail venues,41063
+WV,2025-06-30,The Greenbrier,retail,extreme_hold,HIGH,-607.74%,Between -100% and 100%,Hold of -607.74% is likely erroneous,41071
+WV,2025-09-27,Mountaineer,retail,suspicious_hold,LOW,53.93%,Typically 5-15%,May be legitimate for small retail venues,41097
+WV,2025-09-06,Mardi Gras,retail,suspicious_hold,LOW,56.58%,Typically 5-15%,May be legitimate for small retail venues,41202
+WV,2025-09-06,Mardi Gras,online,suspicious_hold,LOW,70.00%,Typically 5-15%,May be legitimate for small retail venues,41203
+WV,2025-08-30,ESPN Bet,retail,suspicious_hold,LOW,54.39%,Typically 5-15%,May be legitimate for small retail venues,41274
+WV,2025-10-18,The Greenbrier,retail,suspicious_hold,LOW,55.86%,Typically 5-15%,May be legitimate for small retail venues,41362
+WV,2025-11-15,The Greenbrier,retail,suspicious_hold,LOW,59.58%,Typically 5-15%,May be legitimate for small retail venues,41370
+WV,2025-12-13,The Greenbrier,retail,suspicious_hold,LOW,63.71%,Typically 5-15%,May be legitimate for small retail venues,41378
+WV,2025-12-27,The Greenbrier,retail,suspicious_hold,LOW,63.11%,Typically 5-15%,May be legitimate for small retail venues,41382
+WV,2026-01-31,The Greenbrier,retail,suspicious_hold,LOW,50.60%,Typically 5-15%,May be legitimate for small retail venues,41392
+WV,2026-02-07,The Greenbrier,retail,suspicious_hold,LOW,54.98%,Typically 5-15%,May be legitimate for small retail venues,41394
+WV,2021-04-30,The Greenbrier,retail,suspicious_hold,LOW,-60.56%,Typically 5-15%,May be legitimate for small retail venues,41623
+WV,2021-06-30,The Greenbrier,retail,suspicious_hold,LOW,55.55%,Typically 5-15%,May be legitimate for small retail venues,41625
+WV,2022-02-28,The Greenbrier,retail,suspicious_hold,LOW,-58.89%,Typically 5-15%,May be legitimate for small retail venues,41633
+WV,2022-04-30,The Greenbrier,retail,suspicious_hold,LOW,-50.61%,Typically 5-15%,May be legitimate for small retail venues,41635
+WV,2022-10-31,The Greenbrier,retail,suspicious_hold,LOW,62.48%,Typically 5-15%,May be legitimate for small retail venues,41641
+WV,2024-06-30,The Greenbrier,retail,suspicious_hold,LOW,80.28%,Typically 5-15%,May be legitimate for small retail venues,41661
+WV,2024-08-31,The Greenbrier,retail,suspicious_hold,LOW,76.72%,Typically 5-15%,May be legitimate for small retail venues,41663
+WV,2023-07-31,Mardi Gras,retail,suspicious_hold,LOW,52.80%,Typically 5-15%,May be legitimate for small retail venues,41784
+WY,2023-12-31,BetMGM,online,suspicious_hold,LOW,98.86%,Typically 5-15%,May be legitimate for small retail venues,42078
+WY,2023-12-31,Caesars,online,suspicious_hold,LOW,99.32%,Typically 5-15%,May be legitimate for small retail venues,42079
+WY,2023-12-31,DraftKings,online,suspicious_hold,LOW,88.47%,Typically 5-15%,May be legitimate for small retail venues,42080
+WY,2023-12-31,FanDuel,online,suspicious_hold,LOW,86.87%,Typically 5-15%,May be legitimate for small retail venues,42081
+DC,2021-08-31,,,date_gap,LOW,3 month gap,1 month gap,Gap from 2021-05-31 to 2021-08-31,
+KS,2025-07-31,,,date_gap,LOW,4 month gap,1 month gap,Gap from 2025-03-31 to 2025-07-31,
+KY,2025-01-31,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-01-31', 'DraftKings', 'retail', 'monthly')",
+KY,2025-02-28,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-02-28', 'DraftKings', 'retail', 'monthly')",
+KY,2025-03-31,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-03-31', 'DraftKings', 'retail', 'monthly')",
+KY,2025-04-30,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-04-30', 'DraftKings', 'retail', 'monthly')",
+KY,2025-05-31,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-05-31', 'DraftKings', 'retail', 'monthly')",
+KY,2025-06-30,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-06-30', 'DraftKings', 'retail', 'monthly')",
+KY,2025-07-31,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-07-31', 'DraftKings', 'retail', 'monthly')",
+KY,2025-08-31,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-08-31', 'DraftKings', 'retail', 'monthly')",
+KY,2025-09-30,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-09-30', 'DraftKings', 'retail', 'monthly')",
+KY,2025-10-31,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-10-31', 'DraftKings', 'retail', 'monthly')",
+KY,2025-11-30,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-11-30', 'DraftKings', 'retail', 'monthly')",
+KY,2025-12-31,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2025-12-31', 'DraftKings', 'retail', 'monthly')",
+KY,2026-01-31,DraftKings,retail,duplicate_rows,HIGH,2 duplicates,1 row,"Duplicate key: ('KY', '2026-01-31', 'DraftKings', 'retail', 'monthly')",
+LA,2022-07-31,,,date_gap,LOW,3 month gap,1 month gap,Gap from 2022-04-30 to 2022-07-31,
+NV,2020-06-30,,,date_gap,LOW,3 month gap,1 month gap,Gap from 2020-03-31 to 2020-06-30,
+WY,2023-02-28,,,date_gap,LOW,12 month gap,1 month gap,Gap from 2022-02-28 to 2023-02-28,
