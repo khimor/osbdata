@@ -112,6 +112,18 @@ def main():
     # Copy screenshots to dashboard public directory for serving
     _copy_screenshots()
 
+    # Sync CSVs to dashboard
+    import shutil
+    processed = Path("data/processed")
+    public_data = Path("dashboard/public/data")
+    if processed.exists() and public_data.exists():
+        csv_count = 0
+        for csv in processed.glob("??.csv"):
+            shutil.copy2(csv, public_data / csv.name)
+            csv_count += 1
+        if csv_count:
+            print(f"Synced {csv_count} CSV(s) to {public_data}")
+
     # Summary
     print(f"\n{'='*60}")
     print("SUMMARY")

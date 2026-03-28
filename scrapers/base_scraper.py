@@ -215,6 +215,78 @@ class BaseStateScraper(ABC):
         self.logger.info(f"PDF screenshot saved: {filepath}")
         return f"{self.state_code}/screenshots/{filename}"
 
+    def capture_xlsx_sheet(self, xlsx_path, period_info, sheet=0, suffix=''):
+        """Render first sheet of an Excel file as a PNG for source verification."""
+        try:
+            import openpyxl
+            from PIL import Image, ImageDraw, ImageFont
+        except ImportError:
+            return None
+
+        screenshots_dir = Path(f"data/raw/{self.state_code}/screenshots")
+        screenshots_dir.mkdir(parents=True, exist_ok=True)
+
+        if not suffix:
+            suffix = '_' + Path(xlsx_path).stem
+
+        pe = period_info.get('period_end')
+        if hasattr(pe, 'strftime'):
+            period_str = pe.strftime('%Y_%m')
+        else:
+            period_str = str(pe).replace('-', '_')[:7]
+
+        filename = f"{self.state_code}_{period_str}{suffix}.png"
+        filepath = screenshots_dir / filename
+
+        try:
+            wb = openpyxl.load_workbook(str(xlsx_path), data_only=True)
+            ws = wb.worksheets[sheet] if isinstance(sheet, int) else wb[sheet]
+
+            # Render cells as a simple table image
+            rows_data = []
+            for row in ws.iter_rows(max_row=min(ws.max_row, 40), max_col=min(ws.max_column, 12), values_only=True):
+                rows_data.append([str(c) if c is not None else '' for c in row])
+            wb.close()
+
+            if not rows_data:
+                return None
+
+            # Render to image
+            try:
+                font = ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", 12)
+            except Exception:
+                font = ImageFont.load_default()
+
+            cell_h = 18
+            col_widths = []
+            for ci in range(len(rows_data[0])):
+                max_w = max((len(rows_data[ri][ci]) for ri in range(len(rows_data)) if ci < len(rows_data[ri])), default=5)
+                col_widths.append(min(max_w, 20) * 8 + 12)
+
+            img_w = sum(col_widths) + 20
+            img_h = len(rows_data) * cell_h + 20
+
+            img = Image.new('RGB', (img_w, img_h), (15, 15, 21))
+            draw = ImageDraw.Draw(img)
+
+            y = 10
+            for ri, row in enumerate(rows_data):
+                x = 10
+                for ci, cell in enumerate(row):
+                    if ci >= len(col_widths):
+                        break
+                    color = (228, 228, 236) if ri == 0 else (139, 139, 158)
+                    draw.text((x, y), cell[:20], fill=color, font=font)
+                    x += col_widths[ci]
+                y += cell_h
+
+            img.save(str(filepath))
+            self.logger.info(f"XLSX screenshot saved: {filepath}")
+            return f"{self.state_code}/screenshots/{filename}"
+        except Exception as e:
+            self.logger.warning(f"Could not render XLSX sheet: {e}")
+            return None
+
     def run(self, backfill: bool = False) -> pd.DataFrame:
         """Main entry point. Discovers, downloads, parses, normalizes, validates."""
         self.logger.info(f"Starting {self.state_code} scraper (backfill={backfill})")
@@ -236,13 +308,17 @@ class BaseStateScraper(ABC):
                 raw_file = self.download_report(period)
                 df = self.parse_report(raw_file, period)
                 if df is not None and not df.empty:
-                    # Auto-capture PDF page 1 screenshot if scraper didn't already
+                    # Auto-capture screenshot if scraper didn't already
                     if ('source_screenshot' not in df.columns
                             or df['source_screenshot'].isna().all()):
-                        if str(raw_file).lower().endswith('.pdf'):
+                        raw_lower = str(raw_file).lower()
+                        ss = None
+                        if raw_lower.endswith('.pdf'):
                             ss = self.capture_pdf_page(raw_file, 1, period)
-                            if ss:
-                                df['source_screenshot'] = ss
+                        elif raw_lower.endswith(('.xlsx', '.xls')):
+                            ss = self.capture_xlsx_sheet(raw_file, period)
+                        if ss:
+                            df['source_screenshot'] = ss
                     df = self._apply_normalization(df, period, raw_file)
                     self._validate_parsed_data(df, period)
                     all_data.append(df)

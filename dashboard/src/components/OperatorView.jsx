@@ -13,6 +13,7 @@ import { getOperatorColor, STATE_NAMES } from '../utils/colors';
 import ChartCard from './ChartCard';
 import ExportButton from './ExportButton';
 import SourceableValue from './SourceableValue';
+import OperatorDetail from './OperatorDetail';
 
 const AXIS_TICK = { fill: '#55556a', fontSize: 11, fontFamily: 'JetBrains Mono' };
 const GRID_STYLE = { stroke: '#1a1a28', strokeDasharray: 'none' };
@@ -54,6 +55,7 @@ function filterByRange(series, rangeMonths) {
 }
 
 export default function OperatorView() {
+  const [selectedOperator, setSelectedOperator] = useState(null);
   const [channel, setChannel] = useState(null);
   const [selectedStates, setSelectedStates] = useState(null);
   const [showStateFilter, setShowStateFilter] = useState(false);
@@ -128,6 +130,10 @@ export default function OperatorView() {
       : selectedStates.length <= 3
         ? selectedStates.join(', ')
       : `${selectedStates.length} States`;
+
+  if (selectedOperator) {
+    return <OperatorDetail operatorName={selectedOperator} onBack={() => setSelectedOperator(null)} />;
+  }
 
   return (
     <div>
@@ -321,7 +327,7 @@ export default function OperatorView() {
                         return totalGgr > 0 ? op.ggr / totalGgr : 0;
                       })();
                       return (
-                        <tr key={op.operator}>
+                        <tr key={op.operator} className="clickable" onClick={() => setSelectedOperator(op.operator)}>
                           <td style={{ textAlign: 'left', color: 'var(--text-tertiary)' }}>{i + 1}</td>
                           <td style={{ textAlign: 'left' }}>
                             <span className="color-dot" style={{ background: getOperatorColor(op.operator) }} />

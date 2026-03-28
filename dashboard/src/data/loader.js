@@ -547,6 +547,79 @@ export async function getOperatorSummaryLatest(selectedStates = null, channel = 
 }
 
 /**
+ * Get detailed data for a single operator across all states.
+ * Returns { summary, stateBreakdown, timeSeries }.
+ */
+export async function getOperatorDetail(operatorName, channel = null) {
+  let data = filterByChannel(await loadAllData(), channel);
+  const monthly = data.filter(r =>
+    r.period_type === 'monthly' &&
+    !r.sport_category &&
+    r.operator_standard === operatorName
+  );
+
+  if (!monthly.length) return { summary: null, stateBreakdown: [], timeSeries: [] };
+
+  // Time series: aggregate across all states per period
+  const byPeriod = {};
+  for (const row of monthly) {
+    const pe = row.period_end;
+    if (!byPeriod[pe]) byPeriod[pe] = { period_end: pe, handle: 0, ggr: 0 };
+    byPeriod[pe].handle += row.handle || 0;
+    byPeriod[pe].ggr += row.standard_ggr ?? row.gross_revenue ?? 0;
+  }
+  const timeSeries = Object.values(byPeriod)
+    .sort((a, b) => a.period_end.localeCompare(b.period_end))
+    .map(p => ({ ...p, hold_pct: p.handle > 0 ? p.ggr / p.handle : null }));
+
+  // Per-state breakdown (latest period per state)
+  const stateMap = {};
+  for (const row of monthly) {
+    const sc = row.state_code;
+    if (!stateMap[sc]) stateMap[sc] = { state_code: sc, periods: {} };
+    const pe = row.period_end;
+    if (!stateMap[sc].periods[pe]) stateMap[sc].periods[pe] = { handle: 0, ggr: 0 };
+    stateMap[sc].periods[pe].handle += row.handle || 0;
+    stateMap[sc].periods[pe].ggr += row.standard_ggr ?? row.gross_revenue ?? 0;
+  }
+
+  const stateBreakdown = Object.values(stateMap).map(s => {
+    const periods = Object.keys(s.periods).sort();
+    const latest = s.periods[periods[periods.length - 1]];
+    const prev = periods.length >= 2 ? s.periods[periods[periods.length - 2]] : null;
+    // YoY
+    const latestDate = new Date(periods[periods.length - 1] + 'T00:00:00');
+    const yoyMonth = `${latestDate.getFullYear() - 1}-${String(latestDate.getMonth() + 1).padStart(2, '0')}`;
+    const yoyKey = periods.find(p => p.startsWith(yoyMonth));
+    const yoyData = yoyKey ? s.periods[yoyKey] : null;
+
+    return {
+      state_code: s.state_code,
+      state_name: STATE_NAMES[s.state_code] || s.state_code,
+      handle: latest.handle,
+      ggr: latest.ggr,
+      hold_pct: latest.handle > 0 ? latest.ggr / latest.handle : null,
+      latest_period: periods[periods.length - 1],
+      prev_handle: prev?.handle || null,
+      yoy_handle: yoyData?.handle || null,
+    };
+  }).sort((a, b) => b.ggr - a.ggr);
+
+  // Overall summary
+  const totalHandle = stateBreakdown.reduce((s, st) => s + st.handle, 0);
+  const totalGgr = stateBreakdown.reduce((s, st) => s + st.ggr, 0);
+  const summary = {
+    operator: operatorName,
+    total_handle: totalHandle,
+    total_ggr: totalGgr,
+    hold_pct: totalHandle > 0 ? totalGgr / totalHandle : null,
+    state_count: stateBreakdown.length,
+  };
+
+  return { summary, stateBreakdown, timeSeries };
+}
+
+/**
  * Get operator handle time series (for stacked area chart), optionally filtered by states/channel.
  */
 export async function getOperatorTimeSeries(topN = 6, selectedStates = null, channel = null) {
