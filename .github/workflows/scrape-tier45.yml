@@ -46,4 +46,4 @@ jobs:
           git config user.name "OSB Bot"
           git config user.email "bot@osbtracker.com"
           git add data/processed/ dashboard/public/data/ .source_hashes.json .source_check_times.json
-          git diff --cached --quiet || (git commit -m "data: tier 4-5 update $(date +%Y-%m-%d-%H%M)" && git push)
+          git diff --cached --quiet || (git commit -m "data: tier 4-5 update $(date +%Y-%m-%d-%H%M)" && git pull --rebase origin main && git push)
