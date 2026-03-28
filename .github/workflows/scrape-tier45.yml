@@ -1,0 +1,47 @@
+name: Scrape Tier 4-5
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: scrape-tier45
+  cancel-in-progress: true
+
+jobs:
+  check-and-scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check for source changes
+        id: check
+        run: python scripts/check_sources.py --tier 45
+
+      - name: Run changed scrapers
+        if: steps.check.outputs.changed_states != ''
+        id: scrape
+        run: python scripts/run_states.py ${{ steps.check.outputs.changed_states }}
+
+      - name: Sync data to dashboard
+        if: steps.scrape.outputs.new_data == 'true'
+        run: python scripts/sync_to_dashboard.py
+
+      - name: Commit and push
+        if: steps.scrape.outputs.new_data == 'true'
+        run: |
+          git config user.name "OSB Bot"
+          git config user.email "bot@osbtracker.com"
+          git add data/processed/ dashboard/public/data/ .source_hashes.json .source_check_times.json
+          git diff --cached --quiet || (git commit -m "data: tier 4-5 update $(date +%Y-%m-%d-%H%M)" && git push)

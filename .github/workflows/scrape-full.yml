@@ -1,0 +1,42 @@
+name: Full Backfill Sweep
+on:
+  schedule:
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+
+concurrency:
+  group: scrape-full
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright
+        run: playwright install chromium
+
+      - name: Run all scrapers with backfill
+        run: python scripts/run_states.py --backfill $(python -c "from scrapers.config import STATE_REGISTRY; print(' '.join(sorted(STATE_REGISTRY.keys())))")
+
+      - name: Sync data to dashboard
+        run: python scripts/sync_to_dashboard.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "OSB Bot"
+          git config user.email "bot@osbtracker.com"
+          git add data/processed/ dashboard/public/data/ .source_hashes.json .source_check_times.json
+          git diff --cached --quiet || (git commit -m "data: weekly full sweep $(date +%Y-%m-%d)" && git push)

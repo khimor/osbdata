@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm dashboard/public/data)",
+      "Bash(mkdir dashboard/public/data)",
+      "Bash(cp data/processed/??.csv dashboard/public/data/)",
+      "Bash(git add:*)"
+    ]
+  }
+}
