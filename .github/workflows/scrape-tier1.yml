@@ -38,6 +38,9 @@ jobs:
       - name: Run changed scrapers
         if: steps.check.outputs.changed_states != ''
         id: scrape
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: python scripts/run_states.py ${{ steps.check.outputs.changed_states }}
 
       - name: Sync data to dashboard

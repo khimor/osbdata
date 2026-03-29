@@ -1,5 +1,6 @@
 import Papa from 'papaparse';
 import { STATE_NAMES } from '../utils/colors';
+import { fetchAllFromSupabase } from './supabase';
 
 const STATE_CODES = [
   'AR','AZ','CO','CT','DC','DE','IA','IL','IN','KS','KY','LA',
@@ -63,7 +64,7 @@ function filterByChannel(data, channel) {
 }
 
 /**
- * Load all state CSVs and merge into a single array.
+ * Load all data. Tries Supabase first, falls back to CSV files.
  * Cached after first load.
  */
 export async function loadAllData() {
@@ -71,7 +72,23 @@ export async function loadAllData() {
   if (_loading) return _loading;
 
   _loading = (async () => {
-    const all = [];
+    let all = [];
+
+    // Try Supabase first
+    try {
+      const supabaseData = await fetchAllFromSupabase();
+      if (supabaseData && supabaseData.length > 0) {
+        all = supabaseData.map(r => processRow(r));
+        console.log(`Loaded ${all.length} rows from Supabase`);
+        _allData = all;
+        _loading = null;
+        return all;
+      }
+    } catch (e) {
+      console.warn('Supabase unavailable, falling back to CSV:', e.message);
+    }
+
+    // Fallback: load from CSV files
     const fetches = STATE_CODES.map(async (code) => {
       try {
         const resp = await fetch(`/data/${code}.csv`);
@@ -86,6 +103,9 @@ export async function loadAllData() {
       }
     });
     await Promise.all(fetches);
+    if (all.length > 0) {
+      console.log(`Loaded ${all.length} rows from CSV files`);
+    }
     _allData = all;
     _loading = null;
     return all;

@@ -29,6 +29,34 @@ DASHBOARD_URL = "https://osbdata.vercel.app"
 
 
 def load_subscribers():
+    # Try Supabase first
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+        supabase_url = os.environ.get('SUPABASE_URL')
+        supabase_key = os.environ.get('SUPABASE_KEY')
+        if supabase_url and supabase_key:
+            from supabase import create_client
+            client = create_client(supabase_url, supabase_key)
+            resp = client.table('subscribers').select('*').eq('active', True).execute()
+            if resp.data:
+                subs = []
+                for row in resp.data:
+                    states = row.get('states', 'all')
+                    if isinstance(states, str) and states != 'all':
+                        states = json.loads(states)
+                    subs.append({
+                        'email': row['email'],
+                        'name': row.get('name', ''),
+                        'states': states,
+                        'frequency': row.get('frequency', 'immediate'),
+                    })
+                print(f"Loaded {len(subs)} subscriber(s) from Supabase")
+                return subs
+    except Exception as e:
+        print(f"Supabase subscribers unavailable ({e}), falling back to JSON")
+
+    # Fallback: JSON file
     if not SUBSCRIBERS_FILE.exists():
         print("No subscribers.json found")
         return []

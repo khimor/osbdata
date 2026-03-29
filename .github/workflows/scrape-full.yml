@@ -32,6 +32,9 @@ jobs:
         run: playwright install chromium
 
       - name: Run all scrapers with backfill
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: python scripts/run_states.py --backfill $(python -c "from scrapers.config import STATE_REGISTRY; print(' '.join(sorted(STATE_REGISTRY.keys())))")
 
       - name: Sync data to dashboard
