@@ -1305,8 +1305,8 @@ input:focus-visible {
 .state-filter-dropdown {
   position: absolute;
   top: calc(100% + 6px);
-  right: 0;
-  z-index: 200;
+  left: 0;
+  z-index: 500;
   background: var(--bg-elevated);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-lg);
