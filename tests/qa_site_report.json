@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-03-29T20:11:51.147034Z",
-  "url": "https://osbdata.vercel.app",
+  "timestamp": "2026-03-29T20:22:39.092276Z",
+  "url": "http://localhost:5175",
   "total_checks": 26,
   "passed": 26,
   "failed": 0,
