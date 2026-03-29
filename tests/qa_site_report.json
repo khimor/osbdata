@@ -1,0 +1,166 @@
+{
+  "timestamp": "2026-03-29T20:03:42.434917Z",
+  "url": "https://osbdata.vercel.app",
+  "total_checks": 26,
+  "passed": 26,
+  "failed": 0,
+  "critical": 0,
+  "checks": [
+    {
+      "name": "page_loads",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "national_stat_cards",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "national_stat_values",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "national_table_rows",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "national_charts",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "national_channel_toggle",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "national_month_selector",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "operator_table_rows",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "operator_has_data",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "operator_detail_opens",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "operator_state_filter",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "compare_state_chips",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "compare_default_selected",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "compare_charts",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "compare_metric_toggle",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "compare_table",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "state_name_shown",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "state_stat_cards",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "state_charts",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "state_operator_table",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "state_source_panel",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "state_screenshot_loads",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "state_raw_line",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "state_switch",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "datatable_rows",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    },
+    {
+      "name": "no_console_errors",
+      "passed": true,
+      "message": "OK",
+      "severity": "PASS"
+    }
+  ]
+}

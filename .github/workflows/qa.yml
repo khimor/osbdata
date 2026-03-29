@@ -1,0 +1,80 @@
+name: QA Checks
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/processed/**'
+      - 'dashboard/public/data/**'
+  workflow_dispatch:
+
+jobs:
+  data-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - run: pip install pandas
+
+      - name: Run data QA checks
+        id: qa
+        run: python tests/qa_data.py || true
+
+      - name: Alert on critical failures
+        if: always()
+        env:
+          EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: |
+          if python -c "import json; r=json.load(open('tests/qa_report.json')); exit(0 if r['critical']==0 else 1)"; then
+            echo "No critical QA issues"
+          else
+            echo "CRITICAL QA issues found - sending alert"
+            python -c "
+import json, smtplib, os
+from email.mime.text import MIMEText
+r = json.load(open('tests/qa_report.json'))
+crits = [i for i in r['issues'] if i['severity'] == 'CRITICAL']
+body = 'QA DATA ALERT - Critical issues detected:\n\n'
+for c in crits:
+    body += f\"  {c['state']}: {c['message']}\n\"
+body += f\"\nFull report: https://github.com/khimor/osbdata/actions/runs/${{ github.run_id }}\"
+msg = MIMEText(body)
+msg['Subject'] = f\"OSB QA ALERT: {len(crits)} critical issue(s)\"
+msg['From'] = os.environ.get('EMAIL_USERNAME','')
+msg['To'] = 'nosherzapoo@gmail.com'
+u = os.environ.get('EMAIL_USERNAME','')
+p = os.environ.get('EMAIL_PASSWORD','')
+if u and p:
+    with smtplib.SMTP('smtp.gmail.com', 587) as s:
+        s.starttls(); s.login(u, p); s.send_message(msg)
+    print('Alert email sent')
+"
+          fi
+
+  site-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: pip install playwright pandas && playwright install chromium
+
+      - name: Run site QA checks
+        run: python tests/qa_site.py --url https://osbdata.vercel.app || true
+
+      - name: Upload QA report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-reports
+          path: tests/qa_*_report.json
