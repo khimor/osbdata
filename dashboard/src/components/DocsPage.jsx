@@ -322,7 +322,7 @@ export default function DocsPage() {
     <div>
       <div className="page-header">
         <div className="page-header-left">
-          <h2 className="page-title">Documentation</h2>
+          <h2 className="page-title">API Docs</h2>
           <div className="page-subtitle">API reference, data dictionary, and state profiles</div>
         </div>
       </div>

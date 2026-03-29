@@ -6,7 +6,7 @@ const NAV_ITEMS = [
   { id: 'compare', label: 'Compare States', icon: GitCompareArrows },
   { id: 'state', label: 'State Deep Dive', icon: MapPin },
   { id: 'data', label: 'Data Table', icon: Table2 },
-  { id: 'docs', label: 'Docs', icon: BookOpen },
+  { id: 'docs', label: 'API Docs', icon: BookOpen },
 ];
 
 export default function Sidebar({ activeView, onNavigate, dataAsOf }) {
