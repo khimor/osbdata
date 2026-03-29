@@ -33,7 +33,21 @@ def load_state(state_code):
         return 0
 
     # Clean up columns for DB compatibility
-    # Replace NaN with None for proper null handling
+    # Convert float columns to int where the DB expects bigint/integer
+    int_cols = ['handle', 'gross_revenue', 'standard_ggr', 'promo_credits',
+                'net_revenue', 'payouts', 'tax_paid', 'federal_excise_tax']
+    int_small_cols = ['days_in_period', 'source_row', 'source_page', 'source_table_index']
+
+    for col in int_cols + int_small_cols:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+            df[col] = df[col].where(df[col].notna(), None)
+            # Convert non-null floats to ints
+            mask = df[col].notna()
+            if mask.any():
+                df.loc[mask, col] = df.loc[mask, col].astype(float).round(0).astype(int)
+
+    # Replace NaN with None for proper null handling in text columns
     for col in df.columns:
         if df[col].dtype == 'object':
             df[col] = df[col].where(df[col].notna(), None)

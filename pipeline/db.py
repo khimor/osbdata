@@ -40,18 +40,30 @@ def upsert_dataframe(df: pd.DataFrame, table: str = TABLE_NAME, batch_size: int 
     client = get_supabase_client()
     results = {'inserted': 0, 'updated': 0, 'errors': 0}
 
-    # Convert DataFrame to list of dicts, handling NaN/NaT
-    records = df.where(pd.notnull(df), None).to_dict(orient='records')
+    # Convert DataFrame to list of dicts, handling NaN/NaT and numeric types
+    records = df.to_dict(orient='records')
 
-    # Convert datetime/date objects to strings
     for record in records:
-        for key, val in record.items():
+        for key, val in list(record.items()):
+            if val is None:
+                continue
+            # Handle pandas NA/NaN/NaT
+            try:
+                if pd.isna(val):
+                    record[key] = None
+                    continue
+            except (TypeError, ValueError):
+                pass
+            # Convert datetime/date to string
             if isinstance(val, (datetime, pd.Timestamp)):
                 record[key] = val.isoformat()
-            elif hasattr(val, 'isoformat'):  # date objects
+            elif hasattr(val, 'isoformat'):
                 record[key] = val.isoformat()
-            elif pd.isna(val) if isinstance(val, float) else False:
-                record[key] = None
+            # Convert numpy/pandas int/float to Python native types
+            elif hasattr(val, 'item'):  # numpy scalar
+                record[key] = val.item()
+            elif isinstance(val, float) and val == int(val):
+                record[key] = int(val)
 
     # Batch upsert
     for i in range(0, len(records), batch_size):
