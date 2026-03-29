@@ -83,7 +83,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
     () => getStateTimeSeries(stateCode, periodType, channel), [stateCode, periodType, channel]
   );
   const { data: opTimeSeries, loading: loadingOpTS } = useData(
-    () => getStateOperatorTimeSeries(stateCode, 5, channel, opMetric), [stateCode, channel, opMetric]
+    () => getStateOperatorTimeSeries(stateCode, 5, channel, opMetric, periodType), [stateCode, channel, opMetric, periodType]
   );
   const { data: opTableData, loading: loadingOpTable } = useData(
     () => getStateOperatorTable(stateCode, selectedPeriod, channel, periodType), [stateCode, selectedPeriod, channel, periodType]

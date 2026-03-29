@@ -787,11 +787,11 @@ export async function getStateTimeSeries(stateCode, periodType = 'monthly', chan
 /**
  * Get operator breakdown for a state over time.
  */
-export async function getStateOperatorTimeSeries(stateCode, topN = 5, channel = null, metric = 'handle') {
+export async function getStateOperatorTimeSeries(stateCode, topN = 5, channel = null, metric = 'handle', periodType = 'monthly') {
   const data = filterByChannel(await loadAllData(), channel);
   const filtered = data.filter(r =>
     r.state_code === stateCode &&
-    r.period_type === 'monthly' &&
+    r.period_type === periodType &&
     r.operator_standard &&
     !['TOTAL', 'ALL', 'UNKNOWN'].includes(r.operator_standard)
   );
