@@ -14,6 +14,7 @@ import ChartCard from './ChartCard';
 import ExportButton from './ExportButton';
 import SourceableValue from './SourceableValue';
 import OperatorDetail from './OperatorDetail';
+import { PageSkeleton } from './LoadingSkeleton';
 
 const AXIS_TICK = { fill: '#55556a', fontSize: 11, fontFamily: 'JetBrains Mono' };
 const GRID_STYLE = { stroke: '#1a1a28', strokeDasharray: 'none' };
@@ -206,7 +207,7 @@ export default function OperatorView() {
         </div>
       </div>
 
-      {loading && <div className="loading-state">Loading operator data...</div>}
+      {loading && <PageSkeleton />}
 
       {totals && (
         <div className="stat-cards">

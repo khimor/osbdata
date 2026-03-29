@@ -14,6 +14,7 @@ import ChartCard from './ChartCard';
 import ExportButton from './ExportButton';
 import SourceableValue from './SourceableValue';
 import MetricInfo from './MetricInfo';
+import { PageSkeleton } from './LoadingSkeleton';
 
 const AXIS_TICK = { fill: '#55556a', fontSize: 11, fontFamily: 'JetBrains Mono' };
 const AXIS_LINE = { stroke: '#1a1a28' };
@@ -172,7 +173,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
     <div>
       <div className="page-header">
         <div className="page-header-left" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
-          <span className="color-dot" style={{ background: getStateColor(stateCode), width: 10, height: 10 }} />
+          <span className="color-dot" style={{ background: getStateColor(stateCode) }} />
           <span className="state-name">{STATE_NAMES[stateCode] || stateCode}</span>
           <select value={stateCode} onChange={e => { setStateCode(e.target.value); setSelectedPeriod(null); }}>
             {(stateList || []).map(st => (
@@ -219,7 +220,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
         </div>
       </div>
 
-      {loading && <div className="loading-state">Loading state data...</div>}
+      {loading && <PageSkeleton />}
 
       {summary && (
         <div className="stat-cards">

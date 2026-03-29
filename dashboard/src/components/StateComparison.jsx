@@ -10,6 +10,7 @@ import { getStateColor, STATE_NAMES } from '../utils/colors';
 import ChartCard from './ChartCard';
 import ExportButton from './ExportButton';
 import SourceableValue from './SourceableValue';
+import { PageSkeleton } from './LoadingSkeleton';
 
 const AXIS_TICK = { fill: '#55556a', fontSize: 11, fontFamily: 'JetBrains Mono' };
 const GRID_STYLE = { stroke: '#1a1a28', strokeDasharray: 'none' };
@@ -258,7 +259,7 @@ export default function StateComparison() {
         ))}
       </div>
 
-      {loadingStates && <div className="loading-state">Loading comparison data...</div>}
+      {loadingStates && <PageSkeleton />}
 
       {!loadingStates && selectedStates.length > 0 && (
         <>

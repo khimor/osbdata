@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
+import ErrorBoundary from './components/ErrorBoundary';
 import Sidebar from './components/Sidebar';
 import NationalOverview from './components/NationalOverview';
 import OperatorView from './components/OperatorView';
@@ -22,25 +23,29 @@ export default function App() {
   }, []);
 
   return (
-    <div className="app-layout">
-      <Sidebar activeView={activeView} onNavigate={setActiveView} dataAsOf={dataAsOf} />
-      <main className="main-content">
-        {activeView === 'national' && (
-          <NationalOverview onNavigateToState={handleNavigateToState} />
-        )}
-        {activeView === 'operators' && (
-          <OperatorView />
-        )}
-        {activeView === 'compare' && (
-          <StateComparison />
-        )}
-        {activeView === 'state' && (
-          <StateDeepDive stateCode={selectedState} />
-        )}
-        {activeView === 'data' && (
-          <DataTable />
-        )}
-      </main>
-    </div>
+    <ErrorBoundary>
+      <div className="app-layout">
+        <Sidebar activeView={activeView} onNavigate={setActiveView} dataAsOf={dataAsOf} />
+        <main className="main-content" role="main" aria-label="Dashboard content">
+          <ErrorBoundary>
+            {activeView === 'national' && (
+              <NationalOverview onNavigateToState={handleNavigateToState} />
+            )}
+            {activeView === 'operators' && (
+              <OperatorView />
+            )}
+            {activeView === 'compare' && (
+              <StateComparison />
+            )}
+            {activeView === 'state' && (
+              <StateDeepDive stateCode={selectedState} />
+            )}
+            {activeView === 'data' && (
+              <DataTable />
+            )}
+          </ErrorBoundary>
+        </main>
+      </div>
+    </ErrorBoundary>
   );
 }

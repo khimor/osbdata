@@ -4,6 +4,7 @@ import { getAllData } from '../data/loader';
 import { formatCurrency, formatPct, formatDate, formatNumber } from '../utils/format';
 import ExportButton from './ExportButton';
 import SourceableValue from './SourceableValue';
+import { PageSkeleton } from './LoadingSkeleton';
 
 const PAGE_SIZE = 100;
 
@@ -125,7 +126,7 @@ export default function DataTable() {
     setPage(0);
   }, []);
 
-  if (loading) return <div className="loading-state">Loading all data...</div>;
+  if (loading) return <PageSkeleton />;
   if (error) return <div className="error-state">{error}</div>;
 
   return (

@@ -495,7 +495,7 @@ select, input[type="text"], input[type="date"], input[type="month"] {
 select {
   cursor: pointer;
   padding-right: 32px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2355556a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b8b9e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
 }
@@ -687,6 +687,35 @@ table.data-table tr.clickable { cursor: pointer; }
 
 .state-header .date-range-selector {
   margin-left: auto;
+}
+
+/* ─── Skeleton Loading ───────────────────────────────── */
+.skeleton-block {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* ─── Focus States ───────────────────────────────────── */
+.btn:focus-visible,
+.view-toggle-btn:focus-visible,
+.date-preset:focus-visible,
+.nav-item:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.sourceable:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 1px;
+  border-radius: 2px;
 }
 
 /* ─── Pagination ──────────────────────────────────────── */

@@ -9,6 +9,7 @@ import { formatCurrency, formatPct, formatChange, formatAxisMonth } from '../uti
 import { getOperatorColor, getStateColor, STATE_NAMES } from '../utils/colors';
 import ChartCard from './ChartCard';
 import ExportButton from './ExportButton';
+import { PageSkeleton } from './LoadingSkeleton';
 
 const AXIS_TICK = { fill: '#55556a', fontSize: 11, fontFamily: 'JetBrains Mono' };
 const GRID_STYLE = { stroke: '#1a1a28', strokeDasharray: 'none' };
@@ -85,7 +86,7 @@ export default function OperatorDetail({ operatorName, onBack }) {
       <div className="page-header">
         <div className="page-header-left" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
           <button className="btn" onClick={onBack}>Back</button>
-          <span className="color-dot" style={{ background: color, width: 10, height: 10 }} />
+          <span className="color-dot" style={{ background: color }} />
           <span className="state-name">{operatorName}</span>
         </div>
         <div className="page-header-controls">
@@ -114,7 +115,7 @@ export default function OperatorDetail({ operatorName, onBack }) {
         </div>
       </div>
 
-      {loading && <div className="loading-state">Loading operator data...</div>}
+      {loading && <PageSkeleton />}
 
       {summary && (
         <div className="stat-cards">

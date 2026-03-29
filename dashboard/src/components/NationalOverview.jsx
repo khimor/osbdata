@@ -12,6 +12,7 @@ import { getStateColor, STATE_NAMES } from '../utils/colors';
 import ChartCard from './ChartCard';
 import ExportButton from './ExportButton';
 import MetricInfo from './MetricInfo';
+import { PageSkeleton } from './LoadingSkeleton';
 
 const AXIS_TICK = { fill: '#55556a', fontSize: 11, fontFamily: 'JetBrains Mono' };
 const GRID_STYLE = { stroke: '#1a1a28', strokeDasharray: 'none' };
@@ -127,7 +128,7 @@ export default function NationalOverview({ onNavigateToState }) {
 
 
   if (loadingStates || loadingTS) {
-    return <div className="loading-state">Loading national data...</div>;
+    return <PageSkeleton />;
   }
 
   return (
