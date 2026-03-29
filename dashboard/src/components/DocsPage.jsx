@@ -252,7 +252,7 @@ function StateProfiles() {
       const q = search.toLowerCase();
       return code.toLowerCase().includes(q) || s.name.toLowerCase().includes(q);
     })
-    .sort((a, b) => a[1].tier - b[1].tier || a[1].name.localeCompare(b[1].name));
+    .sort((a, b) => a[1].name.localeCompare(b[1].name));
 
   return (
     <div className="docs-section">
@@ -271,7 +271,6 @@ function StateProfiles() {
             <div className="docs-state-header">
               <span className="docs-state-code">{code}</span>
               <span className="docs-state-name">{s.name}</span>
-              <span className="docs-state-tier">Tier {s.tier}</span>
             </div>
             <div className="docs-state-body">
               <div className="docs-state-row">
