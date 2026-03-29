@@ -16,10 +16,10 @@ export function formatCurrency(cents, opts = {}) {
     });
   }
 
-  if (abs >= 1_000_000_000) return sign + '$' + (abs / 1_000_000_000).toFixed(2) + 'B';
-  if (abs >= 1_000_000) return sign + '$' + (abs / 1_000_000).toFixed(1) + 'M';
-  if (abs >= 1_000) return sign + '$' + (abs / 1_000).toFixed(1) + 'K';
-  return sign + '$' + abs.toFixed(2);
+  if (abs >= 1_000_000_000) return sign + '$' + (abs / 1_000_000_000).toFixed(1) + 'B';
+  if (abs >= 1_000_000) return sign + '$' + Math.round(abs / 1_000_000) + 'M';
+  if (abs >= 1_000) return sign + '$' + Math.round(abs / 1_000) + 'K';
+  return sign + '$' + Math.round(abs);
 }
 
 /**
@@ -35,7 +35,7 @@ export function formatDollars(dollars, opts = {}) {
  */
 export function formatPct(decimal) {
   if (decimal == null || isNaN(decimal)) return '-';
-  return (decimal * 100).toFixed(2) + '%';
+  return (decimal * 100).toFixed(1) + '%';
 }
 
 /**
