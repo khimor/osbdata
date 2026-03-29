@@ -898,29 +898,49 @@ export async function getStateOperatorTable(stateCode, targetPeriod = null, chan
   const prev = prevPeriod ? useRows.filter(r => r.period_end === prevPeriod) : [];
   const yoyRows = yoyPeriod ? useRows.filter(r => r.period_end === yoyPeriod) : [];
 
+  // For weekly states (NY, WV), find the original weekly rows for provenance
+  // since monthly rows are aggregated and lack screenshots/raw lines
+  const allStateRows = data.filter(r =>
+    r.state_code === stateCode &&
+    r.operator_standard &&
+    !['TOTAL', 'ALL', 'UNKNOWN'].includes(r.operator_standard)
+  );
+  const weeklyProvenance = {};
+  for (const row of allStateRows) {
+    if (row.period_type === 'weekly' && row.source_file && row.source_file !== 'aggregated_from_weekly') {
+      const op = row.operator_standard;
+      if (!weeklyProvenance[op] || row.period_end > weeklyProvenance[op].period_end) {
+        weeklyProvenance[op] = row;
+      }
+    }
+  }
+
   const opMap = {};
   for (const row of latest) {
     const op = row.operator_standard;
     if (!opMap[op]) {
+      // Use weekly provenance if the monthly row is aggregated
+      const prov = (row.source_file === 'aggregated_from_weekly' && weeklyProvenance[op])
+        ? weeklyProvenance[op] : row;
       opMap[op] = {
         operator: op, handle: 0, payouts: 0, standard_ggr: 0, gross_revenue: 0,
         promo_credits: 0, tax_paid: 0, net_revenue: 0,
-        // Carry forward provenance from first row for this operator
-        state_code: row.state_code,
+        // Carry forward provenance (prefer original weekly source)
+        state_code: prov.state_code,
         period_end: row.period_end,
         period_type: row.period_type,
         operator_standard: row.operator_standard,
-        source_file: row.source_file,
-        source_sheet: row.source_sheet,
-        source_row: row.source_row,
-        source_column: row.source_column,
-        source_page: row.source_page,
-        source_url: row.source_url,
-        source_report_url: row.source_report_url,
-        source_screenshot: row.source_screenshot,
-        source_raw_line: row.source_raw_line,
-        source_context: row.source_context,
-        scrape_timestamp: row.scrape_timestamp,
+        source_file: prov.source_file,
+        source_sheet: prov.source_sheet,
+        source_row: prov.source_row,
+        source_column: prov.source_column,
+        source_page: prov.source_page,
+        source_url: prov.source_url,
+        source_report_url: prov.source_report_url,
+        source_screenshot: prov.source_screenshot,
+        source_raw_line: prov.source_raw_line,
+        source_context: prov.source_context,
+        scrape_timestamp: prov.scrape_timestamp,
       };
     }
     opMap[op].handle += row.handle || 0;
