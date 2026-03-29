@@ -23,9 +23,14 @@ const GRID_STYLE = { stroke: '#1a1a28', strokeDasharray: 'none' };
 
 function ChartTooltip({ active, payload, label, isCurrency = true }) {
   if (!active || !payload?.length) return null;
+  const pe = payload[0]?.payload?.period_end;
+  const pt = payload[0]?.payload?.period_type;
+  const displayDate = pe
+    ? (pt === 'weekly' ? 'Week of ' + formatDate(pe, 'weekly') : formatDate(pe))
+    : label;
   return (
     <div className="chart-tooltip">
-      <div className="tooltip-date">{label}</div>
+      <div className="tooltip-date">{displayDate}</div>
       {payload.filter(p => p.value != null).map((p, i) => (
         <div key={i} className="tooltip-row">
           <span className="tooltip-label" style={{ color: p.color || p.stroke }}>{p.name}</span>
@@ -151,14 +156,16 @@ export default function StateDeepDive({ stateCode: initialState }) {
   const handleChartData = useMemo(() => {
     if (!timeSeries) return [];
     const filtered = filterByRange(timeSeries, rangeMonths) || timeSeries.slice(-36);
-    return filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end, isWeekly) }));
-  }, [timeSeries, rangeMonths, isWeekly]);
+    return filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end, isWeekly), period_type: periodType }));
+  }, [timeSeries, rangeMonths, isWeekly, periodType]);
 
   const holdChartData = useMemo(() => {
     if (!timeSeries) return [];
     const filtered = filterByRange(timeSeries, rangeMonths) || timeSeries.slice(-36);
     return filtered.filter(d => d.hold_pct != null).map(d => ({
       date: formatAxisMonth(d.period_end, isWeekly),
+      period_end: d.period_end,
+      period_type: periodType,
       hold_pct: d.hold_pct,
     }));
   }, [timeSeries, rangeMonths, isWeekly]);
@@ -176,7 +183,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
     if (filteredOpTS && selectedOps && selectedOps.length > 0) {
       const filtered = filterByRange(filteredOpTS.series, rangeMonths) || filteredOpTS.series;
       return {
-        series: filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end, isWeekly) })),
+        series: filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end, isWeekly), period_type: periodType })),
         keys: filteredOpTS.keys,
         isFiltered: true,
       };
@@ -185,7 +192,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
     if (!opTimeSeries) return { series: [], keys: [], isFiltered: false };
     const filtered = filterByRange(opTimeSeries.series, rangeMonths) || opTimeSeries.series.slice(-24);
     return {
-      series: filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end) })),
+      series: filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end, isWeekly), period_type: periodType })),
       keys: opTimeSeries.keys,
       isFiltered: false,
     };
