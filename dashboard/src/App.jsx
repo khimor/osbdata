@@ -3,6 +3,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import Sidebar from './components/Sidebar';
 import NationalOverview from './components/NationalOverview';
 import OperatorView from './components/OperatorView';
+import OperatorComparison from './components/OperatorComparison';
 import StateComparison from './components/StateComparison';
 import StateDeepDive from './components/StateDeepDive';
 import DataTable from './components/DataTable';
@@ -34,6 +35,9 @@ export default function App() {
             )}
             {activeView === 'operators' && (
               <OperatorView />
+            )}
+            {activeView === 'compare-ops' && (
+              <OperatorComparison />
             )}
             {activeView === 'compare' && (
               <StateComparison />

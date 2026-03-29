@@ -694,6 +694,73 @@ export async function getOperatorGgrTimeSeries(topN = 6, selectedStates = null, 
 }
 
 /**
+ * Get all operator names sorted by total handle descending.
+ */
+export async function getAllOperatorNames(channel = null, selectedStates = null) {
+  const data = filterByChannel(await loadAllData(), channel);
+  const opHandles = {};
+  for (const row of data) {
+    if (row.operator_standard &&
+        !['TOTAL', 'ALL', 'UNKNOWN'].includes(row.operator_standard) &&
+        !row.sport_category &&
+        (!selectedStates || selectedStates.length === 0 || selectedStates.includes(row.state_code))) {
+      opHandles[row.operator_standard] = (opHandles[row.operator_standard] || 0) + (row.handle || 0);
+    }
+  }
+  return Object.entries(opHandles)
+    .sort((a, b) => b[1] - a[1])
+    .map(([op]) => op);
+}
+
+/**
+ * Get per-operator time series for multiple operators (for comparison charts).
+ * Returns merged data: [{period_end, FanDuel: value, DraftKings: value, ...}]
+ */
+export async function getOperatorComparisonTimeSeries(operators, metric = 'handle', channel = null, selectedStates = null) {
+  const data = filterByChannel(await loadAllData(), channel);
+  const monthly = data.filter(r =>
+    r.period_type === 'monthly' &&
+    !r.sport_category &&
+    r.operator_standard &&
+    operators.includes(r.operator_standard) &&
+    (!selectedStates || selectedStates.length === 0 || selectedStates.includes(r.state_code))
+  );
+
+  const byPeriod = {};
+
+  if (metric === 'hold_pct') {
+    for (const row of monthly) {
+      const pe = row.period_end;
+      if (!byPeriod[pe]) byPeriod[pe] = { period_end: pe, _h: {}, _g: {} };
+      const op = row.operator_standard;
+      byPeriod[pe]._h[op] = (byPeriod[pe]._h[op] || 0) + (row.handle || 0);
+      byPeriod[pe]._g[op] = (byPeriod[pe]._g[op] || 0) + (row.standard_ggr ?? row.gross_revenue ?? 0);
+    }
+    for (const p of Object.values(byPeriod)) {
+      for (const op of operators) {
+        const h = p._h[op] || 0;
+        const g = p._g[op] || 0;
+        p[op] = h > 0 ? g / h : null;
+      }
+      delete p._h;
+      delete p._g;
+    }
+  } else {
+    for (const row of monthly) {
+      const pe = row.period_end;
+      if (!byPeriod[pe]) byPeriod[pe] = { period_end: pe };
+      const op = row.operator_standard;
+      const val = metric === 'standard_ggr'
+        ? (row.standard_ggr ?? row.gross_revenue ?? 0)
+        : (row[metric] || 0);
+      byPeriod[pe][op] = (byPeriod[pe][op] || 0) + val;
+    }
+  }
+
+  return Object.values(byPeriod).sort((a, b) => a.period_end.localeCompare(b.period_end));
+}
+
+/**
  * Get all unique state codes that have operator data.
  */
 export async function getStatesWithOperatorData() {
