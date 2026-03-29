@@ -6,10 +6,11 @@ import {
 import { useData } from '../hooks/useData';
 import {
   getAllOperatorNames, getOperatorComparisonTimeSeries,
-  getOperatorSummaryLatest, getStatesWithOperatorData,
+  getOperatorSummaryLatest, getStatesWithOperatorData, getOperatorDetail,
 } from '../data/loader';
 import { formatCurrency, formatPct, formatChange, formatAxisMonth } from '../utils/format';
-import { getOperatorColor, STATE_NAMES } from '../utils/colors';
+import { getOperatorColor, getStateColor, STATE_NAMES } from '../utils/colors';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import ChartCard from './ChartCard';
 import ExportButton from './ExportButton';
 import { PageSkeleton } from './LoadingSkeleton';
@@ -66,6 +67,9 @@ export default function OperatorComparison() {
   const [metric, setMetric] = useState('handle');
   const [selectedStates, setSelectedStates] = useState(null);
   const [showStateFilter, setShowStateFilter] = useState(false);
+  const [showOpPicker, setShowOpPicker] = useState(false);
+  const [expandedOps, setExpandedOps] = useState({});
+  const [opDetails, setOpDetails] = useState({});
 
   const { data: allOperators } = useData(
     () => getAllOperatorNames(channel, selectedStates), [channel, selectedStates]
@@ -124,6 +128,19 @@ export default function OperatorComparison() {
     setSelectedOps(prev =>
       prev.includes(op) ? prev.filter(o => o !== op) : [...prev, op]
     );
+  };
+
+  const toggleExpand = async (opName) => {
+    if (expandedOps[opName]) {
+      setExpandedOps(prev => ({ ...prev, [opName]: false }));
+      return;
+    }
+    // Fetch detail if not cached
+    if (!opDetails[opName]) {
+      const detail = await getOperatorDetail(opName, channel);
+      setOpDetails(prev => ({ ...prev, [opName]: detail.stateBreakdown }));
+    }
+    setExpandedOps(prev => ({ ...prev, [opName]: true }));
   };
 
   const selectTop = (n) => {
@@ -211,27 +228,50 @@ export default function OperatorComparison() {
         </div>
       </div>
 
-      {/* Operator picker */}
-      <div className="filter-bar" style={{ marginBottom: 'var(--space-4)' }}>
-        <div style={{ display: 'flex', gap: 'var(--space-2)', alignItems: 'center' }}>
-          <button className="state-filter-action" onClick={() => selectTop(5)}>Top 5</button>
-          <button className="state-filter-action" onClick={() => selectTop(10)}>Top 10</button>
-          <button className="state-filter-action" onClick={() => setSelectedOps([])}>Clear</button>
+      {/* Operator picker - clean dropdown */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)', flexWrap: 'wrap' }}>
+        <div style={{ position: 'relative' }}>
+          <button className="btn" onClick={() => setShowOpPicker(!showOpPicker)}>
+            {selectedOps.length === 0 ? 'Select Operators' : `${selectedOps.length} Operator${selectedOps.length > 1 ? 's' : ''}`} &#9662;
+          </button>
+          {showOpPicker && (
+            <div className="state-filter-dropdown" style={{ minWidth: 280 }}>
+              <div className="state-filter-actions">
+                <button className="state-filter-action" onClick={() => selectTop(5)}>Top 5</button>
+                <button className="state-filter-action" onClick={() => selectTop(10)}>Top 10</button>
+                <button className="state-filter-action" onClick={() => setSelectedOps([])}>Clear</button>
+              </div>
+              <div className="state-filter-grid" style={{ gridTemplateColumns: '1fr' }}>
+                {(allOperators || []).map(op => (
+                  <label key={op} className="state-filter-item">
+                    <input
+                      type="checkbox"
+                      checked={selectedOps.includes(op)}
+                      onChange={() => toggleOp(op)}
+                    />
+                    <span className="color-dot" style={{ background: getOperatorColor(op) }} />
+                    <span>{op}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-        <div className="divider" />
-        <div className="state-picker-grid">
-          {(allOperators || []).map(op => (
-            <label key={op} className={`state-picker-chip ${selectedOps.includes(op) ? 'active' : ''}`}>
-              <input
-                type="checkbox"
-                checked={selectedOps.includes(op)}
-                onChange={() => toggleOp(op)}
-              />
-              <span className="state-picker-dot" style={{ background: getOperatorColor(op) }} />
-              {op}
-            </label>
-          ))}
-        </div>
+        {/* Selected operator tags */}
+        {selectedOps.map(op => (
+          <span key={op} style={{
+            display: 'inline-flex', alignItems: 'center', gap: 4,
+            padding: '3px 8px', background: 'var(--bg-active)', borderRadius: 'var(--radius-sm)',
+            fontSize: 12, color: 'var(--text-primary)', fontFamily: 'var(--font-body)',
+          }}>
+            <span className="color-dot" style={{ background: getOperatorColor(op) }} />
+            {op}
+            <span
+              style={{ cursor: 'pointer', marginLeft: 2, color: 'var(--text-tertiary)' }}
+              onClick={() => toggleOp(op)}
+            >x</span>
+          </span>
+        ))}
       </div>
 
       {/* Metric toggle */}
@@ -321,28 +361,69 @@ export default function OperatorComparison() {
                       const yoy = formatChange(op.handle, op.yoy_handle);
                       const totalGgr = tableData.reduce((s, o) => s + o.ggr, 0);
                       const ggrShare = totalGgr > 0 ? op.ggr / totalGgr : 0;
+                      const isExpanded = expandedOps[op.operator];
+                      const stateRows = opDetails[op.operator] || [];
                       return (
-                        <tr key={op.operator}>
-                          <td style={{ textAlign: 'left', color: 'var(--text-tertiary)' }}>{i + 1}</td>
-                          <td style={{ textAlign: 'left' }}>
-                            <span className="color-dot" style={{ background: getOperatorColor(op.operator) }} />
-                            {op.operator}
-                          </td>
-                          <td>{formatCurrency(op.ggr)}</td>
-                          <td>{formatCurrency(op.handle)}</td>
-                          <td>{formatPct(op.hold_pct)}</td>
-                          <td>{formatPct(ggrShare)}</td>
-                          <td>
-                            {yoy ? (
-                              <span className={yoy.direction === 'up' ? 'cell-positive' : 'cell-negative'}>
-                                {yoy.label}
-                              </span>
-                            ) : '-'}
-                          </td>
-                          <td style={{ color: 'var(--text-tertiary)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>
-                            {op.state_count}
-                          </td>
-                        </tr>
+                        <>
+                          <tr key={op.operator} className="clickable" onClick={() => toggleExpand(op.operator)}>
+                            <td style={{ textAlign: 'left', color: 'var(--text-tertiary)' }}>
+                              {isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                            </td>
+                            <td style={{ textAlign: 'left', fontWeight: 500 }}>
+                              <span className="color-dot" style={{ background: getOperatorColor(op.operator) }} />
+                              {op.operator}
+                            </td>
+                            <td>{formatCurrency(op.ggr)}</td>
+                            <td>{formatCurrency(op.handle)}</td>
+                            <td>{formatPct(op.hold_pct)}</td>
+                            <td>{formatPct(ggrShare)}</td>
+                            <td>
+                              {yoy ? (
+                                <span className={yoy.direction === 'up' ? 'cell-positive' : 'cell-negative'}>
+                                  {yoy.label}
+                                </span>
+                              ) : '-'}
+                            </td>
+                            <td style={{ color: 'var(--text-tertiary)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>
+                              {op.state_count}
+                            </td>
+                          </tr>
+                          {isExpanded && stateRows.map(st => {
+                            const stYoy = formatChange(st.handle, st.yoy_handle);
+                            return (
+                              <tr key={op.operator + '-' + st.state_code} style={{ background: 'var(--bg-root)' }}>
+                                <td></td>
+                                <td style={{ textAlign: 'left', paddingLeft: 28, fontSize: 12 }}>
+                                  <span className="color-dot" style={{ background: getStateColor(st.state_code) }} />
+                                  {st.state_code}
+                                  <span style={{ color: 'var(--text-tertiary)', marginLeft: 6, fontFamily: 'var(--font-body)' }}>
+                                    {st.state_name}
+                                  </span>
+                                </td>
+                                <td style={{ fontSize: 12 }}>{formatCurrency(st.ggr)}</td>
+                                <td style={{ fontSize: 12 }}>{formatCurrency(st.handle)}</td>
+                                <td style={{ fontSize: 12 }}>{formatPct(st.hold_pct)}</td>
+                                <td style={{ fontSize: 12 }}></td>
+                                <td style={{ fontSize: 12 }}>
+                                  {stYoy ? (
+                                    <span className={stYoy.direction === 'up' ? 'cell-positive' : 'cell-negative'}>
+                                      {stYoy.label}
+                                    </span>
+                                  ) : '-'}
+                                </td>
+                                <td></td>
+                              </tr>
+                            );
+                          })}
+                          {isExpanded && stateRows.length === 0 && (
+                            <tr style={{ background: 'var(--bg-root)' }}>
+                              <td></td>
+                              <td colSpan={7} style={{ textAlign: 'left', paddingLeft: 28, fontSize: 12, color: 'var(--text-tertiary)' }}>
+                                Loading state breakdown...
+                              </td>
+                            </tr>
+                          )}
+                        </>
                       );
                     })}
                   </tbody>
