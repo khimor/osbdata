@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import {
   LineChart, Line, AreaChart, Area,
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend,
@@ -68,6 +68,12 @@ export default function StateDeepDive({ stateCode: initialState }) {
 
   const { data: stateList } = useData(() => getNationalSummary(), []);
   const { data: hasWeekly } = useData(() => stateHasWeeklyData(stateCode), [stateCode]);
+
+  // Default to weekly for states that have weekly data
+  useEffect(() => {
+    if (hasWeekly === true) setPeriodType('weekly');
+    else if (hasWeekly === false) setPeriodType('monthly');
+  }, [hasWeekly]);
 
   const { data: timeSeries, loading: loadingTS } = useData(
     () => getStateTimeSeries(stateCode, periodType, channel), [stateCode, periodType, channel]
