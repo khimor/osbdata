@@ -133,7 +133,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
   const opTableTitle = useMemo(() => {
     const period = opTableData?.period;
     if (!period) return 'Operator Summary';
-    return `Operator Summary - ${formatDate(period)}`;
+    return `Operator Summary - ${formatDate(period, periodType)}`;
   }, [opTableData]);
 
   const stateReportsHandle = useMemo(() => {
