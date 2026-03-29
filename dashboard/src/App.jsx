@@ -6,6 +6,7 @@ import OperatorView from './components/OperatorView';
 import StateComparison from './components/StateComparison';
 import StateDeepDive from './components/StateDeepDive';
 import DataTable from './components/DataTable';
+import DocsPage from './components/DocsPage';
 
 export default function App() {
   const [activeView, setActiveView] = useState('national');
@@ -42,6 +43,9 @@ export default function App() {
             )}
             {activeView === 'data' && (
               <DataTable />
+            )}
+            {activeView === 'docs' && (
+              <DocsPage />
             )}
           </ErrorBoundary>
         </main>

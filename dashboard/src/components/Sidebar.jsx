@@ -1,4 +1,4 @@
-import { Globe, MapPin, Users, GitCompareArrows, Table2 } from 'lucide-react';
+import { Globe, MapPin, Users, GitCompareArrows, Table2, BookOpen } from 'lucide-react';
 
 const NAV_ITEMS = [
   { id: 'national', label: 'National Overview', icon: Globe },
@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { id: 'compare', label: 'Compare States', icon: GitCompareArrows },
   { id: 'state', label: 'State Deep Dive', icon: MapPin },
   { id: 'data', label: 'Data Table', icon: Table2 },
+  { id: 'docs', label: 'Docs', icon: BookOpen },
 ];
 
 export default function Sidebar({ activeView, onNavigate, dataAsOf }) {
