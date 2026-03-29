@@ -1,6 +1,7 @@
 playwright
 pdfplumber
 openpyxl
+xlrd
 pandas
 requests
 beautifulsoup4
@@ -9,3 +10,4 @@ supabase
 tabula-py
 lxml
 tenacity
+cloudscraper
