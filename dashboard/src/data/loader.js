@@ -74,21 +74,8 @@ export async function loadAllData() {
   _loading = (async () => {
     let all = [];
 
-    // Try Supabase first
-    try {
-      const supabaseData = await fetchAllFromSupabase();
-      if (supabaseData && supabaseData.length > 0) {
-        all = supabaseData.map(r => processRow(r));
-        console.log(`Loaded ${all.length} rows from Supabase`);
-        _allData = all;
-        _loading = null;
-        return all;
-      }
-    } catch (e) {
-      console.warn('Supabase unavailable, falling back to CSV:', e.message);
-    }
-
-    // Fallback: load from CSV files
+    // Load from CSV files (fast — bundled with the site, no external API calls)
+    // Supabase is used for the write path (scrapers) and REST API (clients)
     const fetches = STATE_CODES.map(async (code) => {
       try {
         const resp = await fetch(`/data/${code}.csv`);
@@ -103,9 +90,6 @@ export async function loadAllData() {
       }
     });
     await Promise.all(fetches);
-    if (all.length > 0) {
-      console.log(`Loaded ${all.length} rows from CSV files`);
-    }
     _allData = all;
     _loading = null;
     return all;
