@@ -876,10 +876,11 @@ export async function getStateOperators(stateCode, channel = null) {
 }
 
 /**
- * Get per-operator handle time series for selected operators in a state.
- * Returns { series: [{period_end, FanDuel: handle, DraftKings: handle, ...}], keys: [...] }
+ * Get per-operator time series for selected operators in a state.
+ * metric: 'handle', 'standard_ggr', or 'hold_pct'
+ * Returns { series: [{period_end, FanDuel: value, DraftKings: value, ...}], keys: [...] }
  */
-export async function getStateOperatorFilteredTimeSeries(stateCode, selectedOps, periodType = 'monthly', channel = null) {
+export async function getStateOperatorFilteredTimeSeries(stateCode, selectedOps, periodType = 'monthly', channel = null, metric = 'handle') {
   const data = filterByChannel(await loadAllData(), channel);
   const filtered = data.filter(r =>
     r.state_code === stateCode &&
@@ -894,7 +895,33 @@ export async function getStateOperatorFilteredTimeSeries(stateCode, selectedOps,
   for (const row of filtered) {
     const pe = row.period_end;
     if (!byPeriod[pe]) byPeriod[pe] = { period_end: pe };
-    byPeriod[pe][row.operator_standard] = (byPeriod[pe][row.operator_standard] || 0) + (row.handle || 0);
+
+    if (metric === 'hold_pct') {
+      // Hold needs handle + ggr to compute per period
+      const key = row.operator_standard;
+      if (!byPeriod[pe][key + '_h']) byPeriod[pe][key + '_h'] = 0;
+      if (!byPeriod[pe][key + '_g']) byPeriod[pe][key + '_g'] = 0;
+      byPeriod[pe][key + '_h'] += row.handle || 0;
+      byPeriod[pe][key + '_g'] += row.standard_ggr ?? row.gross_revenue ?? 0;
+    } else {
+      const val = metric === 'standard_ggr'
+        ? (row.standard_ggr ?? row.gross_revenue ?? 0)
+        : (row[metric] || 0);
+      byPeriod[pe][row.operator_standard] = (byPeriod[pe][row.operator_standard] || 0) + val;
+    }
+  }
+
+  // For hold_pct, compute after aggregation
+  if (metric === 'hold_pct') {
+    for (const pe of Object.keys(byPeriod)) {
+      for (const op of selectedOps) {
+        const h = byPeriod[pe][op + '_h'] || 0;
+        const g = byPeriod[pe][op + '_g'] || 0;
+        byPeriod[pe][op] = h > 0 ? g / h : null;
+        delete byPeriod[pe][op + '_h'];
+        delete byPeriod[pe][op + '_g'];
+      }
+    }
   }
 
   const series = Object.values(byPeriod).sort((a, b) => a.period_end.localeCompare(b.period_end));

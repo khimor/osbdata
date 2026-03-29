@@ -67,6 +67,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
   const [channel, setChannel] = useState(null);
   const [periodType, setPeriodType] = useState('monthly');
   const [selectedOps, setSelectedOps] = useState(null); // null = show default top-5 stacked chart
+  const [opMetric, setOpMetric] = useState('handle');
 
   const { data: stateList } = useData(() => getNationalSummary(), []);
   const { data: hasWeekly } = useData(() => stateHasWeeklyData(stateCode), [stateCode]);
@@ -165,9 +166,9 @@ export default function StateDeepDive({ stateCode: initialState }) {
   // Filtered operator time series (when user selects specific operators)
   const { data: filteredOpTS } = useData(
     () => selectedOps && selectedOps.length > 0
-      ? getStateOperatorFilteredTimeSeries(stateCode, selectedOps, periodType, channel)
+      ? getStateOperatorFilteredTimeSeries(stateCode, selectedOps, periodType, channel, opMetric)
       : Promise.resolve(null),
-    [stateCode, selectedOps, periodType, channel]
+    [stateCode, selectedOps, periodType, channel, opMetric]
   );
 
   const opAreaData = useMemo(() => {
@@ -352,11 +353,26 @@ export default function StateDeepDive({ stateCode: initialState }) {
           {(opAreaData.keys.length > 1 || (allOperators && allOperators.length > 1)) && (
             <div className="charts-row single">
               <ChartCard
-                title={opAreaData.isFiltered ? 'Operator Handle Comparison' : 'Operator Market Share Over Time (Handle)'}
+                title={opAreaData.isFiltered
+                  ? `Operator ${opMetric === 'handle' ? 'Handle' : opMetric === 'standard_ggr' ? 'GGR' : 'Hold %'} Comparison`
+                  : 'Operator Market Share Over Time (Handle)'}
                 action={
-                  selectedOps && selectedOps.length > 0 ? (
-                    <button className="btn" onClick={() => setSelectedOps(null)} style={{ fontSize: 11 }}>Show All</button>
-                  ) : null
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                    {selectedOps && selectedOps.length > 0 && (
+                      <select
+                        value={opMetric}
+                        onChange={e => setOpMetric(e.target.value)}
+                        style={{ fontSize: 12, minWidth: 90, padding: '4px 28px 4px 8px' }}
+                      >
+                        <option value="handle">Handle</option>
+                        <option value="standard_ggr">GGR</option>
+                        <option value="hold_pct">Hold %</option>
+                      </select>
+                    )}
+                    {selectedOps && selectedOps.length > 0 && (
+                      <button className="btn" onClick={() => { setSelectedOps(null); setOpMetric('handle'); }} style={{ fontSize: 11 }}>Show All</button>
+                    )}
+                  </div>
                 }
               >
                 {allOperators && allOperators.length > 1 && (
@@ -388,8 +404,13 @@ export default function StateDeepDive({ stateCode: initialState }) {
                     <LineChart data={opAreaData.series} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
                       <CartesianGrid {...GRID_STYLE} vertical={false} />
                       <XAxis dataKey="date" tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} interval="preserveStartEnd" />
-                      <YAxis tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} tickFormatter={v => formatCurrency(v)} width={70} />
-                      <Tooltip content={<ChartTooltip />} />
+                      <YAxis
+                        tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false}
+                        tickFormatter={v => opMetric === 'hold_pct' ? formatPct(v) : formatCurrency(v)}
+                        width={opMetric === 'hold_pct' ? 55 : 70}
+                        domain={opMetric === 'hold_pct' ? ['auto', 'auto'] : undefined}
+                      />
+                      <Tooltip content={<ChartTooltip isCurrency={opMetric !== 'hold_pct'} />} />
                       <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Instrument Sans' }} />
                       {opAreaData.keys.map(key => (
                         <Line
