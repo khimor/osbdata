@@ -787,7 +787,7 @@ export async function getStateTimeSeries(stateCode, periodType = 'monthly', chan
 /**
  * Get operator breakdown for a state over time.
  */
-export async function getStateOperatorTimeSeries(stateCode, topN = 5, channel = null) {
+export async function getStateOperatorTimeSeries(stateCode, topN = 5, channel = null, metric = 'handle') {
   const data = filterByChannel(await loadAllData(), channel);
   const filtered = data.filter(r =>
     r.state_code === stateCode &&
@@ -796,7 +796,7 @@ export async function getStateOperatorTimeSeries(stateCode, topN = 5, channel = 
     !['TOTAL', 'ALL', 'UNKNOWN'].includes(r.operator_standard)
   );
 
-  // Determine top operators
+  // Determine top operators by handle (always rank by handle)
   const opHandles = {};
   for (const row of filtered) {
     opHandles[row.operator_standard] = (opHandles[row.operator_standard] || 0) + (row.handle || 0);
@@ -808,11 +808,35 @@ export async function getStateOperatorTimeSeries(stateCode, topN = 5, channel = 
 
   // Build time series
   const byPeriod = {};
-  for (const row of filtered) {
-    const pe = row.period_end;
-    if (!byPeriod[pe]) byPeriod[pe] = { period_end: pe };
-    const key = topOps.includes(row.operator_standard) ? row.operator_standard : 'Other';
-    byPeriod[pe][key] = (byPeriod[pe][key] || 0) + (row.handle || 0);
+
+  if (metric === 'hold_pct') {
+    // Need handle + ggr per operator per period to compute hold
+    for (const row of filtered) {
+      const pe = row.period_end;
+      if (!byPeriod[pe]) byPeriod[pe] = { period_end: pe, _h: {}, _g: {} };
+      const key = topOps.includes(row.operator_standard) ? row.operator_standard : 'Other';
+      byPeriod[pe]._h[key] = (byPeriod[pe]._h[key] || 0) + (row.handle || 0);
+      byPeriod[pe]._g[key] = (byPeriod[pe]._g[key] || 0) + (row.standard_ggr ?? row.gross_revenue ?? 0);
+    }
+    for (const p of Object.values(byPeriod)) {
+      for (const key of [...topOps, 'Other']) {
+        const h = p._h[key] || 0;
+        const g = p._g[key] || 0;
+        p[key] = h > 0 ? g / h : null;
+      }
+      delete p._h;
+      delete p._g;
+    }
+  } else {
+    for (const row of filtered) {
+      const pe = row.period_end;
+      if (!byPeriod[pe]) byPeriod[pe] = { period_end: pe };
+      const key = topOps.includes(row.operator_standard) ? row.operator_standard : 'Other';
+      const val = metric === 'standard_ggr'
+        ? (row.standard_ggr ?? row.gross_revenue ?? 0)
+        : (row[metric] || 0);
+      byPeriod[pe][key] = (byPeriod[pe][key] || 0) + val;
+    }
   }
 
   const series = Object.values(byPeriod).sort((a, b) => a.period_end.localeCompare(b.period_end));

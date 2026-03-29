@@ -83,7 +83,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
     () => getStateTimeSeries(stateCode, periodType, channel), [stateCode, periodType, channel]
   );
   const { data: opTimeSeries, loading: loadingOpTS } = useData(
-    () => getStateOperatorTimeSeries(stateCode, 5, channel), [stateCode, channel]
+    () => getStateOperatorTimeSeries(stateCode, 5, channel, opMetric), [stateCode, channel, opMetric]
   );
   const { data: opTableData, loading: loadingOpTable } = useData(
     () => getStateOperatorTable(stateCode, selectedPeriod, channel, periodType), [stateCode, selectedPeriod, channel, periodType]
@@ -355,20 +355,18 @@ export default function StateDeepDive({ stateCode: initialState }) {
               <ChartCard
                 title={opAreaData.isFiltered
                   ? `Operator ${opMetric === 'handle' ? 'Handle' : opMetric === 'standard_ggr' ? 'GGR' : 'Hold %'} Comparison`
-                  : 'Operator Market Share Over Time (Handle)'}
+                  : `Operator Market Share Over Time (${opMetric === 'handle' ? 'Handle' : opMetric === 'standard_ggr' ? 'GGR' : 'Hold %'})`}
                 action={
                   <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-                    {selectedOps && selectedOps.length > 0 && (
-                      <select
-                        value={opMetric}
-                        onChange={e => setOpMetric(e.target.value)}
-                        style={{ fontSize: 12, minWidth: 90, padding: '4px 28px 4px 8px' }}
-                      >
-                        <option value="handle">Handle</option>
-                        <option value="standard_ggr">GGR</option>
-                        <option value="hold_pct">Hold %</option>
-                      </select>
-                    )}
+                    <select
+                      value={opMetric}
+                      onChange={e => setOpMetric(e.target.value)}
+                      style={{ fontSize: 12, minWidth: 90, padding: '4px 28px 4px 8px' }}
+                    >
+                      <option value="handle">Handle</option>
+                      <option value="standard_ggr">GGR</option>
+                      <option value="hold_pct">Hold %</option>
+                    </select>
                     {selectedOps && selectedOps.length > 0 && (
                       <button className="btn" onClick={() => { setSelectedOps(null); setOpMetric('handle'); }} style={{ fontSize: 11 }}>Show All</button>
                     )}
@@ -425,8 +423,13 @@ export default function StateDeepDive({ stateCode: initialState }) {
                     <AreaChart data={opAreaData.series} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
                       <CartesianGrid {...GRID_STYLE} vertical={false} />
                       <XAxis dataKey="date" tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} interval="preserveStartEnd" />
-                      <YAxis tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} tickFormatter={v => formatCurrency(v)} width={70} />
-                      <Tooltip content={<ChartTooltip />} />
+                      <YAxis
+                        tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false}
+                        tickFormatter={v => opMetric === 'hold_pct' ? formatPct(v) : formatCurrency(v)}
+                        width={opMetric === 'hold_pct' ? 55 : 70}
+                        domain={opMetric === 'hold_pct' ? ['auto', 'auto'] : undefined}
+                      />
+                      <Tooltip content={<ChartTooltip isCurrency={opMetric !== 'hold_pct'} />} />
                       <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Instrument Sans' }} />
                       {opAreaData.keys.map(key => (
                         <Area
