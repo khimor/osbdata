@@ -6,7 +6,7 @@ import {
 import { useData } from '../hooks/useData';
 import {
   getStateTimeSeries, getStateOperatorTimeSeries, getStateOperatorTable,
-  getNationalSummary, getStateSportsTimeSeries,
+  getNationalSummary, getStateSportsTimeSeries, stateHasWeeklyData,
 } from '../data/loader';
 import { formatCurrency, formatPct, formatChange, formatDate, formatAxisMonth } from '../utils/format';
 import { getOperatorColor, getSportColor, STATE_NAMES, getStateColor } from '../utils/colors';
@@ -64,17 +64,19 @@ export default function StateDeepDive({ stateCode: initialState }) {
   const [rangeMonths, setRangeMonths] = useState(12);
   const [selectedPeriod, setSelectedPeriod] = useState(null);
   const [channel, setChannel] = useState(null);
+  const [periodType, setPeriodType] = useState('monthly');
 
   const { data: stateList } = useData(() => getNationalSummary(), []);
+  const { data: hasWeekly } = useData(() => stateHasWeeklyData(stateCode), [stateCode]);
 
   const { data: timeSeries, loading: loadingTS } = useData(
-    () => getStateTimeSeries(stateCode, 'monthly', channel), [stateCode, channel]
+    () => getStateTimeSeries(stateCode, periodType, channel), [stateCode, periodType, channel]
   );
   const { data: opTimeSeries, loading: loadingOpTS } = useData(
     () => getStateOperatorTimeSeries(stateCode, 5, channel), [stateCode, channel]
   );
   const { data: opTableData, loading: loadingOpTable } = useData(
-    () => getStateOperatorTable(stateCode, selectedPeriod, channel), [stateCode, selectedPeriod, channel]
+    () => getStateOperatorTable(stateCode, selectedPeriod, channel, periodType), [stateCode, selectedPeriod, channel, periodType]
   );
   const { data: sportsData, loading: loadingSports } = useData(
     () => getStateSportsTimeSeries(stateCode, channel), [stateCode, channel]
@@ -134,20 +136,22 @@ export default function StateDeepDive({ stateCode: initialState }) {
     return totalHandle > 0;
   }, [opTableData]);
 
+  const isWeekly = periodType === 'weekly';
+
   const handleChartData = useMemo(() => {
     if (!timeSeries) return [];
     const filtered = filterByRange(timeSeries, rangeMonths) || timeSeries.slice(-36);
-    return filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end) }));
-  }, [timeSeries, rangeMonths]);
+    return filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end, isWeekly) }));
+  }, [timeSeries, rangeMonths, isWeekly]);
 
   const holdChartData = useMemo(() => {
     if (!timeSeries) return [];
     const filtered = filterByRange(timeSeries, rangeMonths) || timeSeries.slice(-36);
     return filtered.filter(d => d.hold_pct != null).map(d => ({
-      date: formatAxisMonth(d.period_end),
+      date: formatAxisMonth(d.period_end, isWeekly),
       hold_pct: d.hold_pct,
     }));
-  }, [timeSeries, rangeMonths]);
+  }, [timeSeries, rangeMonths, isWeekly]);
 
   const opAreaData = useMemo(() => {
     if (!opTimeSeries) return { series: [], keys: [] };
@@ -184,6 +188,22 @@ export default function StateDeepDive({ stateCode: initialState }) {
           </select>
         </div>
         <div className="page-header-controls">
+          {hasWeekly && (
+            <div className="view-toggle" style={{ marginBottom: 0 }}>
+              <button
+                className={`view-toggle-btn ${periodType === 'monthly' ? 'active' : ''}`}
+                onClick={() => { setPeriodType('monthly'); setSelectedPeriod(null); }}
+              >
+                Monthly
+              </button>
+              <button
+                className={`view-toggle-btn ${periodType === 'weekly' ? 'active' : ''}`}
+                onClick={() => { setPeriodType('weekly'); setSelectedPeriod(null); }}
+              >
+                Weekly
+              </button>
+            </div>
+          )}
           <div className="view-toggle" style={{ marginBottom: 0 }}>
             {CHANNEL_OPTIONS.map(opt => (
               <button
@@ -202,7 +222,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
               onChange={e => setSelectedPeriod(e.target.value)}
             >
               {[...availablePeriods].reverse().map(pe => (
-                <option key={pe} value={pe}>{formatDate(pe)}</option>
+                <option key={pe} value={pe}>{formatDate(pe, periodType)}</option>
               ))}
             </select>
           )}

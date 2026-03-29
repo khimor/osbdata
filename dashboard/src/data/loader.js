@@ -858,10 +858,18 @@ export async function getStateSportsTimeSeries(stateCode, channel = null) {
 }
 
 /**
+ * Check if a state has weekly data.
+ */
+export async function stateHasWeeklyData(stateCode) {
+  const data = await loadAllData();
+  return data.some(r => r.state_code === stateCode && r.period_type === 'weekly');
+}
+
+/**
  * Get operator table for a specific period (or most recent) in a state.
  * Returns { operators, period, availablePeriods }.
  */
-export async function getStateOperatorTable(stateCode, targetPeriod = null, channel = null) {
+export async function getStateOperatorTable(stateCode, targetPeriod = null, channel = null, periodType = 'monthly') {
   const data = filterByChannel(await loadAllData(), channel);
   let stateRows = data.filter(r =>
     r.state_code === stateCode &&
@@ -878,8 +886,8 @@ export async function getStateOperatorTable(stateCode, targetPeriod = null, chan
     );
   }
 
-  const monthly = stateRows.filter(r => r.period_type === 'monthly');
-  const useRows = monthly.length > 0 ? monthly : stateRows;
+  const typed = stateRows.filter(r => r.period_type === periodType);
+  const useRows = typed.length > 0 ? typed : stateRows;
 
   const periods = [...new Set(useRows.map(r => r.period_end))].sort();
   const latestPeriod = (targetPeriod && periods.includes(targetPeriod))

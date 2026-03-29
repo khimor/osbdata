@@ -55,12 +55,17 @@ export function formatDate(dateStr, periodType) {
 
 /**
  * Format "2025-01" or "2025-01-31" to compact "Jan-25" axis label.
+ * For weekly: "Mar 22" (with day).
  */
-export function formatAxisMonth(str) {
+export function formatAxisMonth(str, isWeekly = false) {
   if (!str) return '';
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  if (isWeekly && str.length >= 10) {
+    const [y, m, d] = str.split('-');
+    return `${months[parseInt(m, 10) - 1]} ${parseInt(d, 10)}`;
+  }
   const ym = str.slice(0, 7);
   const [y, m] = ym.split('-');
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   return `${months[parseInt(m, 10) - 1]}-${y.slice(2)}`;
 }
 
