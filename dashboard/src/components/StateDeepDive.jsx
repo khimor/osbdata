@@ -7,6 +7,7 @@ import { useData } from '../hooks/useData';
 import {
   getStateTimeSeries, getStateOperatorTimeSeries, getStateOperatorTable,
   getNationalSummary, getStateSportsTimeSeries, stateHasWeeklyData,
+  getStateOperators, getStateOperatorFilteredTimeSeries,
 } from '../data/loader';
 import { formatCurrency, formatPct, formatChange, formatDate, formatAxisMonth } from '../utils/format';
 import { getOperatorColor, getSportColor, STATE_NAMES, getStateColor } from '../utils/colors';
@@ -65,9 +66,11 @@ export default function StateDeepDive({ stateCode: initialState }) {
   const [selectedPeriod, setSelectedPeriod] = useState(null);
   const [channel, setChannel] = useState(null);
   const [periodType, setPeriodType] = useState('monthly');
+  const [selectedOps, setSelectedOps] = useState(null); // null = show default top-5 stacked chart
 
   const { data: stateList } = useData(() => getNationalSummary(), []);
   const { data: hasWeekly } = useData(() => stateHasWeeklyData(stateCode), [stateCode]);
+  const { data: allOperators } = useData(() => getStateOperators(stateCode, channel), [stateCode, channel]);
 
   // Default to weekly for states that have weekly data
   useEffect(() => {
@@ -159,14 +162,33 @@ export default function StateDeepDive({ stateCode: initialState }) {
     }));
   }, [timeSeries, rangeMonths, isWeekly]);
 
+  // Filtered operator time series (when user selects specific operators)
+  const { data: filteredOpTS } = useData(
+    () => selectedOps && selectedOps.length > 0
+      ? getStateOperatorFilteredTimeSeries(stateCode, selectedOps, periodType, channel)
+      : Promise.resolve(null),
+    [stateCode, selectedOps, periodType, channel]
+  );
+
   const opAreaData = useMemo(() => {
-    if (!opTimeSeries) return { series: [], keys: [] };
+    // If user selected specific operators, use filtered data
+    if (filteredOpTS && selectedOps && selectedOps.length > 0) {
+      const filtered = filterByRange(filteredOpTS.series, rangeMonths) || filteredOpTS.series;
+      return {
+        series: filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end, isWeekly) })),
+        keys: filteredOpTS.keys,
+        isFiltered: true,
+      };
+    }
+    // Default: top-5 stacked area
+    if (!opTimeSeries) return { series: [], keys: [], isFiltered: false };
     const filtered = filterByRange(opTimeSeries.series, rangeMonths) || opTimeSeries.series.slice(-24);
     return {
       series: filtered.map(d => ({ ...d, date: formatAxisMonth(d.period_end) })),
       keys: opTimeSeries.keys,
+      isFiltered: false,
     };
-  }, [opTimeSeries, rangeMonths]);
+  }, [opTimeSeries, filteredOpTS, selectedOps, rangeMonths, isWeekly]);
 
   const sportsChartData = useMemo(() => {
     if (!sportsData) return null;
@@ -327,25 +349,74 @@ export default function StateDeepDive({ stateCode: initialState }) {
             </ChartCard>
           </div>
 
-          {opAreaData.keys.length > 1 && (
+          {(opAreaData.keys.length > 1 || (allOperators && allOperators.length > 1)) && (
             <div className="charts-row single">
-              <ChartCard title="Operator Market Share Over Time (Handle)">
-                <ResponsiveContainer width="100%" height={320}>
-                  <AreaChart data={opAreaData.series} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
-                    <CartesianGrid {...GRID_STYLE} vertical={false} />
-                    <XAxis dataKey="date" tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} interval="preserveStartEnd" />
-                    <YAxis tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} tickFormatter={v => formatCurrency(v)} width={70} />
-                    <Tooltip content={<ChartTooltip />} />
-                    <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Instrument Sans' }} />
-                    {opAreaData.keys.map(key => (
-                      <Area
-                        key={key} type="monotone" dataKey={key}
-                        stackId="1" stroke={getOperatorColor(key)}
-                        fill={getOperatorColor(key)} fillOpacity={0.6}
-                        name={key} isAnimationActive={false}
-                      />
+              <ChartCard
+                title={opAreaData.isFiltered ? 'Operator Handle Comparison' : 'Operator Market Share Over Time (Handle)'}
+                action={
+                  selectedOps && selectedOps.length > 0 ? (
+                    <button className="btn" onClick={() => setSelectedOps(null)} style={{ fontSize: 11 }}>Show All</button>
+                  ) : null
+                }
+              >
+                {allOperators && allOperators.length > 1 && (
+                  <div className="state-picker-grid" style={{ marginBottom: 'var(--space-3)' }}>
+                    {allOperators.map(op => (
+                      <label key={op} className={`state-picker-chip ${selectedOps?.includes(op) ? 'active' : (!selectedOps ? '' : '')}`}>
+                        <input
+                          type="checkbox"
+                          checked={selectedOps ? selectedOps.includes(op) : false}
+                          onChange={() => {
+                            if (!selectedOps) {
+                              setSelectedOps([op]);
+                            } else if (selectedOps.includes(op)) {
+                              const next = selectedOps.filter(o => o !== op);
+                              setSelectedOps(next.length > 0 ? next : null);
+                            } else {
+                              setSelectedOps([...selectedOps, op]);
+                            }
+                          }}
+                        />
+                        <span className="state-picker-dot" style={{ background: getOperatorColor(op) }} />
+                        {op}
+                      </label>
                     ))}
-                  </AreaChart>
+                  </div>
+                )}
+                <ResponsiveContainer width="100%" height={320}>
+                  {opAreaData.isFiltered ? (
+                    <LineChart data={opAreaData.series} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
+                      <CartesianGrid {...GRID_STYLE} vertical={false} />
+                      <XAxis dataKey="date" tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} interval="preserveStartEnd" />
+                      <YAxis tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} tickFormatter={v => formatCurrency(v)} width={70} />
+                      <Tooltip content={<ChartTooltip />} />
+                      <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Instrument Sans' }} />
+                      {opAreaData.keys.map(key => (
+                        <Line
+                          key={key} type="monotone" dataKey={key}
+                          stroke={getOperatorColor(key)} strokeWidth={2}
+                          dot={false} name={key} isAnimationActive={false}
+                          connectNulls
+                        />
+                      ))}
+                    </LineChart>
+                  ) : (
+                    <AreaChart data={opAreaData.series} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
+                      <CartesianGrid {...GRID_STYLE} vertical={false} />
+                      <XAxis dataKey="date" tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} interval="preserveStartEnd" />
+                      <YAxis tick={AXIS_TICK} axisLine={AXIS_LINE} tickLine={false} tickFormatter={v => formatCurrency(v)} width={70} />
+                      <Tooltip content={<ChartTooltip />} />
+                      <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Instrument Sans' }} />
+                      {opAreaData.keys.map(key => (
+                        <Area
+                          key={key} type="monotone" dataKey={key}
+                          stackId="1" stroke={getOperatorColor(key)}
+                          fill={getOperatorColor(key)} fillOpacity={0.6}
+                          name={key} isAnimationActive={false}
+                        />
+                      ))}
+                    </AreaChart>
+                  )}
                 </ResponsiveContainer>
               </ChartCard>
             </div>

@@ -858,6 +858,50 @@ export async function getStateSportsTimeSeries(stateCode, channel = null) {
 }
 
 /**
+ * Get all operators for a state, sorted by total handle descending.
+ */
+export async function getStateOperators(stateCode, channel = null) {
+  const data = filterByChannel(await loadAllData(), channel);
+  const opHandles = {};
+  for (const row of data) {
+    if (row.state_code === stateCode && row.operator_standard &&
+        !['TOTAL', 'ALL', 'UNKNOWN'].includes(row.operator_standard) &&
+        !row.sport_category) {
+      opHandles[row.operator_standard] = (opHandles[row.operator_standard] || 0) + (row.handle || 0);
+    }
+  }
+  return Object.entries(opHandles)
+    .sort((a, b) => b[1] - a[1])
+    .map(([op]) => op);
+}
+
+/**
+ * Get per-operator handle time series for selected operators in a state.
+ * Returns { series: [{period_end, FanDuel: handle, DraftKings: handle, ...}], keys: [...] }
+ */
+export async function getStateOperatorFilteredTimeSeries(stateCode, selectedOps, periodType = 'monthly', channel = null) {
+  const data = filterByChannel(await loadAllData(), channel);
+  const filtered = data.filter(r =>
+    r.state_code === stateCode &&
+    r.period_type === periodType &&
+    r.operator_standard &&
+    !['TOTAL', 'ALL', 'UNKNOWN'].includes(r.operator_standard) &&
+    !r.sport_category &&
+    selectedOps.includes(r.operator_standard)
+  );
+
+  const byPeriod = {};
+  for (const row of filtered) {
+    const pe = row.period_end;
+    if (!byPeriod[pe]) byPeriod[pe] = { period_end: pe };
+    byPeriod[pe][row.operator_standard] = (byPeriod[pe][row.operator_standard] || 0) + (row.handle || 0);
+  }
+
+  const series = Object.values(byPeriod).sort((a, b) => a.period_end.localeCompare(b.period_end));
+  return { series, keys: selectedOps };
+}
+
+/**
  * Check if a state has weekly data.
  */
 export async function stateHasWeeklyData(stateCode) {
