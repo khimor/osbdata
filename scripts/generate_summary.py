@@ -173,7 +173,7 @@ def main():
         }
 
     with open("/tmp/scrape_summary.json", "w") as f:
-        json.dump(json_data, f, indent=2)
+        json.dump(json_data, f, indent=2, default=lambda x: int(x) if hasattr(x, 'item') else float(x))
 
     print(f"\nJSON written to /tmp/scrape_summary.json")
 
