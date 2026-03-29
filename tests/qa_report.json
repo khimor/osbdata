@@ -1,75 +1,10 @@
 {
-  "timestamp": "2026-03-29T20:09:48.956906Z",
-  "states_checked": 35,
-  "total_issues": 8,
+  "timestamp": "2026-03-29T22:45:00.899617Z",
+  "states_checked": 1,
+  "total_issues": 0,
   "critical": 0,
-  "warnings": 8,
+  "warnings": 0,
   "info": 0,
-  "passed": false,
-  "issues": [
-    {
-      "name": "operator_hold_negative",
-      "severity": "WARNING",
-      "state": "DC",
-      "message": "Fanatics hold -14.3% < -10.0%",
-      "value": "-14.3%",
-      "expected": null
-    },
-    {
-      "name": "operator_hold_negative",
-      "severity": "WARNING",
-      "state": "IA",
-      "message": "Isle Waterloo hold -11.2% < -10.0%",
-      "value": "-11.2%",
-      "expected": null
-    },
-    {
-      "name": "operator_hold_negative",
-      "severity": "WARNING",
-      "state": "IL",
-      "message": "DraftKings hold -58.3% < -10.0%",
-      "value": "-58.3%",
-      "expected": null
-    },
-    {
-      "name": "operator_hold_negative",
-      "severity": "WARNING",
-      "state": "IN",
-      "message": "ESPN Bet hold -11.3% < -10.0%",
-      "value": "-11.3%",
-      "expected": null
-    },
-    {
-      "name": "operator_hold_negative",
-      "severity": "WARNING",
-      "state": "IN",
-      "message": "Belterra Casino hold -11.2% < -10.0%",
-      "value": "-11.2%",
-      "expected": null
-    },
-    {
-      "name": "stale_data",
-      "severity": "WARNING",
-      "state": "KY",
-      "message": "Data is 453 days old (latest: 2024-12-31)",
-      "value": "453",
-      "expected": "<90"
-    },
-    {
-      "name": "operator_hold_negative",
-      "severity": "WARNING",
-      "state": "KY",
-      "message": "Circa Sports hold -11.9% < -10.0%",
-      "value": "-11.9%",
-      "expected": null
-    },
-    {
-      "name": "operator_hold_negative",
-      "severity": "WARNING",
-      "state": "MO",
-      "message": "Century Casino hold -23.0% < -10.0%",
-      "value": "-23.0%",
-      "expected": null
-    }
-  ]
+  "passed": true,
+  "issues": []
 }
