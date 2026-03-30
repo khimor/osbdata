@@ -66,7 +66,10 @@ def run_state(state_code, backfill=False):
 
         latest_after, rows_after = get_csv_fingerprint(state_code)
         elapsed = time.time() - start
-        changed = (latest_after != latest_before) or (rows_after != rows_before)
+        # Only flag as changed if the latest period actually advanced
+        # (not just row count differences from re-scraping same data)
+        changed = (latest_after is not None and latest_before is not None
+                   and latest_after > latest_before) or (latest_before is None and latest_after is not None)
 
         return (latest_before, latest_after, elapsed, None, changed)
 
