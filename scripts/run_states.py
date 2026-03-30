@@ -79,12 +79,12 @@ def run_state(state_code, backfill=False):
     except TimeoutError:
         signal.alarm(0)
         elapsed = time.time() - start
-        return (rows_before, get_row_count(state_code), elapsed, "TIMEOUT", 0)
+        return (latest_before, None, elapsed, "TIMEOUT", 0)
 
     except Exception as e:
         signal.alarm(0)
         elapsed = time.time() - start
-        return (rows_before, get_row_count(state_code), elapsed, str(e)[:200], 0)
+        return (latest_before, None, elapsed, str(e)[:200], 0)
 
 
 def main():
@@ -101,7 +101,7 @@ def main():
         print("  Mode: backfill")
     print()
 
-    any_changed = False
+    changed_states = []
     failures = []
 
     for sc in states:
@@ -119,22 +119,23 @@ def main():
             failures.append(sc)
         elif changed:
             print(f"NEW DATA: {latest_before} -> {latest_after} ({elapsed:.0f}s)")
-            any_changed = True
+            changed_states.append(sc)
         else:
             print(f"OK no new data ({elapsed:.0f}s)")
 
     # Summary
     print()
-    if any_changed:
-        print("NEW DATA DETECTED - dashboard update needed")
+    if changed_states:
+        print(f"NEW DATA DETECTED: {' '.join(changed_states)}")
     else:
         print("No new data found.")
 
     if failures:
         print(f"FAILURES: {', '.join(failures)}")
 
-    # Set GitHub Actions output
-    _set_output('new_data', 'true' if any_changed else 'false')
+    # Set GitHub Actions outputs
+    _set_output('new_data', 'true' if changed_states else 'false')
+    _set_output('changed_states', ' '.join(changed_states))
 
 
 def _set_output(name, value):

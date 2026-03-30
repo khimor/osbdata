@@ -44,7 +44,7 @@ jobs:
 
       - name: Generate summary
         if: steps.scrape.outputs.new_data == 'true'
-        run: python scripts/generate_summary.py ${{ steps.check.outputs.changed_states }}
+        run: python scripts/generate_summary.py ${{ steps.scrape.outputs.changed_states }}
 
       - name: Commit and push
         if: steps.scrape.outputs.new_data == 'true'
