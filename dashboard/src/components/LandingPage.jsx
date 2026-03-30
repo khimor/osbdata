@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, BarChart3, Shield, Zap, GitCompareArrows, Send, MessageSquare } from 'lucide-react';
+import { ArrowRight, BarChart3, Shield, Zap, GitCompareArrows, Send, MessageSquare, Bell } from 'lucide-react';
 import { STATE_NAMES, getOperatorColor } from '../utils/colors';
 import { supabase } from '../data/supabase';
 
