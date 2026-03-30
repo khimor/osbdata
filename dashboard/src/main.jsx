@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import ReactGA from 'react-ga4';
 import App from './App';
 
@@ -31,5 +32,6 @@ createRoot(document.getElementById('root')).render(
       </Routes>
     </BrowserRouter>
     <Analytics />
+    <SpeedInsights />
   </StrictMode>
 );
