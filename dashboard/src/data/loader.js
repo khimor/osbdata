@@ -573,6 +573,19 @@ export async function getOperatorDetail(operatorName, channel = null) {
     r.operator_standard === operatorName
   );
 
+  // Weekly rows for provenance (NY, WV, MT have real source data in weekly rows)
+  const weeklyByState = {};
+  for (const row of data) {
+    if (row.period_type === 'weekly' && row.operator_standard === operatorName &&
+        row.source_file && row.source_file !== 'aggregated_from_weekly' &&
+        (row.source_url || row.source_screenshot || row.source_raw_line)) {
+      const sc = row.state_code;
+      if (!weeklyByState[sc] || row.period_end > weeklyByState[sc].period_end) {
+        weeklyByState[sc] = row;
+      }
+    }
+  }
+
   if (!monthly.length) return { summary: null, stateBreakdown: [], timeSeries: [] };
 
   // Time series: aggregate across all states per period
@@ -596,11 +609,11 @@ export async function getOperatorDetail(operatorName, channel = null) {
     if (!stateMap[sc].periods[pe]) stateMap[sc].periods[pe] = { handle: 0, ggr: 0 };
     stateMap[sc].periods[pe].handle += row.handle || 0;
     stateMap[sc].periods[pe].ggr += row.standard_ggr ?? row.gross_revenue ?? 0;
-    // Track best provenance row per state
+    // Track best provenance row per state (prefer non-aggregated)
     const hasGood = row.source_file && row.source_file !== 'aggregated_from_weekly'
       && (row.source_url || row.source_screenshot || row.source_raw_line);
-    if (!stateMap[sc].prov || hasGood) {
-      stateMap[sc].prov = row;
+    if (!stateMap[sc].prov || (hasGood && (!stateMap[sc].prov._good))) {
+      stateMap[sc].prov = { ...row, _good: hasGood };
     }
   }
 
@@ -612,7 +625,11 @@ export async function getOperatorDetail(operatorName, channel = null) {
     const yoyMonth = `${latestDate.getFullYear() - 1}-${String(latestDate.getMonth() + 1).padStart(2, '0')}`;
     const yoyKey = periods.find(p => p.startsWith(yoyMonth));
     const yoyData = yoyKey ? s.periods[yoyKey] : null;
-    const prov = s.prov || {};
+    // Use monthly provenance if good, otherwise fall back to weekly
+    let prov = s.prov || {};
+    if ((!prov._good) && weeklyByState[s.state_code]) {
+      prov = weeklyByState[s.state_code];
+    }
 
     return {
       state_code: s.state_code,
