@@ -33,15 +33,19 @@ def timeout_handler(signum, frame):
 
 
 def get_csv_fingerprint(state_code):
-    """Get latest period_end and row count from state CSV."""
+    """Get latest period_end and content hash of state CSV."""
+    import hashlib
     csv_path = PROCESSED_DIR / f"{state_code}.csv"
     if not csv_path.exists():
-        return None, 0
+        return None, None
     try:
+        content = csv_path.read_bytes()
+        content_hash = hashlib.md5(content).hexdigest()
         df = pd.read_csv(csv_path, usecols=['period_end'], low_memory=False)
-        return df['period_end'].max() if not df.empty else None, len(df)
+        latest = df['period_end'].max() if not df.empty else None
+        return latest, content_hash
     except Exception:
-        return None, 0
+        return None, None
 
 
 def run_state(state_code, backfill=False):
@@ -49,7 +53,7 @@ def run_state(state_code, backfill=False):
     module_name = f"scrapers.{state_code.lower()}_scraper"
     class_name = f"{state_code}Scraper"
 
-    latest_before, rows_before = get_csv_fingerprint(state_code)
+    latest_before, hash_before = get_csv_fingerprint(state_code)
     start = time.time()
 
     try:
@@ -64,12 +68,11 @@ def run_state(state_code, backfill=False):
 
         signal.alarm(0)  # Cancel timeout
 
-        latest_after, rows_after = get_csv_fingerprint(state_code)
+        latest_after, hash_after = get_csv_fingerprint(state_code)
         elapsed = time.time() - start
-        # Only flag as changed if the latest period actually advanced
-        # (not just row count differences from re-scraping same data)
-        changed = (latest_after is not None and latest_before is not None
-                   and latest_after > latest_before) or (latest_before is None and latest_after is not None)
+        # Only flag as changed if the CSV content actually changed
+        # (hash comparison catches all cases: new periods, revised data, etc.)
+        changed = hash_after is not None and hash_after != hash_before
 
         return (latest_before, latest_after, elapsed, None, changed)
 

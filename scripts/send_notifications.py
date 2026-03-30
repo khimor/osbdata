@@ -104,7 +104,8 @@ def filter_summary_for_subscriber(summary, subscriber):
     return filtered
 
 
-def render_html_email(summary, subscriber_name):
+def render_html_email(summary, subscriber_name=None):
+    subscriber_name = subscriber_name if subscriber_name and subscriber_name != 'None' else 'there'
     """Render an HTML email from summary data."""
     states = summary.get("states", {})
     updated = summary.get("updated_states", [])
