@@ -1,7 +1,5 @@
 name: Scrape Tier 4-5
 on:
-  schedule:
-    - cron: '0 */4 * * *'
   workflow_dispatch:
 
 permissions:
