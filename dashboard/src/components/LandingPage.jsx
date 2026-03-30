@@ -121,6 +121,10 @@ export default function LandingPage() {
               <div className="landing-stat-value">40K+</div>
               <div className="landing-stat-label">Data Points</div>
             </div>
+            <div className="landing-stat">
+              <div className="landing-stat-value">&lt;2 min</div>
+              <div className="landing-stat-label">Publish to Dashboard</div>
+            </div>
           </div>
         </div>
       </section>
