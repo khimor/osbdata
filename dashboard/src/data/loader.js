@@ -489,23 +489,34 @@ export async function getOperatorSummaryLatest(selectedStates = null, channel = 
   const prevRows = prevPeriod ? monthly.filter(r => r.period_end === prevPeriod) : [];
   const yoyRows = yoyPeriod ? monthly.filter(r => r.period_end === yoyPeriod) : [];
 
+  // Find best provenance row per operator (prefer rows with real source data)
+  const bestProv = {};
+  for (const row of latestRows) {
+    const op = row.operator_standard;
+    const hasGoodSource = row.source_file && row.source_file !== 'aggregated_from_weekly'
+      && (row.source_url || row.source_screenshot || row.source_raw_line);
+    if (!bestProv[op] || (hasGoodSource && !bestProv[op]._good)) {
+      bestProv[op] = { ...row, _good: hasGoodSource };
+    }
+  }
+
   const opMap = {};
   for (const row of latestRows) {
     const op = row.operator_standard;
     if (!opMap[op]) {
+      const prov = bestProv[op] || row;
       opMap[op] = {
         operator: op, handle: 0, ggr: 0, states: new Set(),
-        // Provenance from first row
-        state_code: row.state_code,
-        period_end: row.period_end,
-        operator_standard: row.operator_standard,
-        source_file: row.source_file,
-        source_url: row.source_url,
-        source_report_url: row.source_report_url,
-        source_screenshot: row.source_screenshot,
-        source_raw_line: row.source_raw_line,
-        source_context: row.source_context,
-        scrape_timestamp: row.scrape_timestamp,
+        state_code: prov.state_code,
+        period_end: prov.period_end,
+        operator_standard: prov.operator_standard,
+        source_file: prov.source_file !== 'aggregated_from_weekly' ? prov.source_file : null,
+        source_url: prov.source_url,
+        source_report_url: prov.source_report_url,
+        source_screenshot: prov.source_screenshot,
+        source_raw_line: prov.source_raw_line,
+        source_context: prov.source_context,
+        scrape_timestamp: prov.scrape_timestamp,
       };
     }
     opMap[op].handle += row.handle || 0;
