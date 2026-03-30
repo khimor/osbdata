@@ -689,6 +689,101 @@ table.data-table tr.clickable { cursor: pointer; }
   margin-left: auto;
 }
 
+/* ─── Feed Timeline ──────────────────────────────────── */
+.feed-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.feed-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.feed-card:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-elevated);
+}
+
+.feed-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.feed-card-state {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.feed-card-code {
+  font: 700 16px/1 var(--font-mono);
+  color: var(--text-primary);
+}
+
+.feed-card-name {
+  font: 400 14px/1 var(--font-body);
+  color: var(--text-secondary);
+}
+
+.feed-card-time {
+  font: 500 12px/1 var(--font-mono);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.feed-card-period {
+  font: 400 13px/1 var(--font-body);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-3);
+}
+
+.feed-card-metrics {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.feed-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.feed-metric-label {
+  font: 500 10px/1 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+
+.feed-metric-value {
+  font: 600 18px/1.1 var(--font-mono);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.feed-card-action {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--space-3);
+  font: 500 12px/1 var(--font-display);
+  color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+  .feed-card-metrics { gap: var(--space-4); }
+  .feed-metric-value { font-size: 15px; }
+}
+
 /* ─── Skeleton Loading ───────────────────────────────── */
 .skeleton-block {
   background: var(--bg-elevated);

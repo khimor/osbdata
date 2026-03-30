@@ -1,6 +1,7 @@
-import { Globe, MapPin, Users, GitCompareArrows, BarChart3, Table2, BookOpen } from 'lucide-react';
+import { Globe, MapPin, Users, GitCompareArrows, BarChart3, Table2, BookOpen, Radio } from 'lucide-react';
 
 const NAV_ITEMS = [
+  { id: 'feed', label: 'Feed', icon: Radio },
   { id: 'national', label: 'National Overview', icon: Globe },
   { id: 'operators', label: 'Operator View', icon: Users },
   { id: 'compare-ops', label: 'Compare Operators', icon: BarChart3 },
