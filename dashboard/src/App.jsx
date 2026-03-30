@@ -10,6 +10,7 @@ import StateDeepDive from './components/StateDeepDive';
 import DataTable from './components/DataTable';
 import DocsPage from './components/DocsPage';
 import FeedPage from './components/FeedPage';
+import EmailBanner from './components/EmailBanner';
 
 export default function App() {
   const location = useLocation();
@@ -42,6 +43,7 @@ export default function App() {
       <div className="app-layout">
         <Sidebar activeView={activeView} onNavigate={setActiveView} dataAsOf={dataAsOf} />
         <main className="main-content" role="main" aria-label="Dashboard content">
+          <EmailBanner />
           <ErrorBoundary>
             {activeView === 'feed' && (
               <FeedPage onNavigateToState={handleNavigateToState} />

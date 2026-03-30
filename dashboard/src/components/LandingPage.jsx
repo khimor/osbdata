@@ -44,6 +44,8 @@ export default function LandingPage() {
   const navigate = useNavigate();
   const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
   const [contactStatus, setContactStatus] = useState(null);
+  const [newsletter, setNewsletter] = useState('');
+  const [nlStatus, setNlStatus] = useState(null);
 
   const handleContact = async (e) => {
     e.preventDefault();
@@ -326,10 +328,105 @@ export default function LandingPage() {
                 <p className="landing-form-success">Thanks for reaching out! We'll get back to you shortly.</p>
               )}
               {contactStatus === 'error' && (
-                <p className="landing-form-error">Something went wrong. Email us at nosherzapoo@gmail.com</p>
+                <p className="landing-form-error">Something went wrong. Email us at moqainvest@gmail.com</p>
               )}
             </form>
           </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="landing-section" id="pricing">
+        <div className="landing-container">
+          <h2 className="landing-section-title">Pricing</h2>
+          <p className="landing-section-sub">
+            Free during early access. Paid tiers coming soon.
+          </p>
+          <div className="landing-pricing-grid">
+            <div className="landing-pricing-card">
+              <div className="landing-pricing-badge">Current</div>
+              <h3 className="landing-pricing-name">Free</h3>
+              <div className="landing-pricing-price">$0<span>/month</span></div>
+              <ul className="landing-pricing-features">
+                <li>National Overview</li>
+                <li>Live Feed</li>
+                <li>State Deep Dive (35 states)</li>
+                <li>Operator Intelligence</li>
+                <li>Compare States & Operators</li>
+                <li>Source Verification</li>
+                <li>Data Export</li>
+              </ul>
+              <Link to="/app" className="landing-cta" style={{ width: '100%', justifyContent: 'center' }}>
+                Open Dashboard
+              </Link>
+            </div>
+            <div className="landing-pricing-card landing-pricing-featured">
+              <div className="landing-pricing-badge">Coming Soon</div>
+              <h3 className="landing-pricing-name">Pro</h3>
+              <div className="landing-pricing-price">$500<span>/month</span></div>
+              <ul className="landing-pricing-features">
+                <li>Everything in Free</li>
+                <li>Email alerts on new data</li>
+                <li>Priority data access</li>
+                <li>Weekly operator reports</li>
+                <li>Dedicated support</li>
+              </ul>
+              <a href="#newsletter" className="landing-cta-secondary" style={{ width: '100%', justifyContent: 'center', textAlign: 'center' }}>
+                Get Early Access
+              </a>
+            </div>
+            <div className="landing-pricing-card">
+              <div className="landing-pricing-badge">Coming Soon</div>
+              <h3 className="landing-pricing-name">Pro + API</h3>
+              <div className="landing-pricing-price">$1,000<span>/month</span></div>
+              <ul className="landing-pricing-features">
+                <li>Everything in Pro</li>
+                <li>REST API access (100K calls/mo)</li>
+                <li>Webhook delivery</li>
+                <li>Historical data exports</li>
+                <li>Custom integrations</li>
+              </ul>
+              <a href="#newsletter" className="landing-cta-secondary" style={{ width: '100%', justifyContent: 'center', textAlign: 'center' }}>
+                Get Early Access
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="landing-section" id="newsletter">
+        <div className="landing-container" style={{ textAlign: 'center' }}>
+          <h2 className="landing-section-title">Stay Ahead of the Market</h2>
+          <p className="landing-section-sub">
+            Get the monthly US Sports Betting Market Report and be first to know when Pro launches.
+          </p>
+          <form className="landing-newsletter" onSubmit={async (e) => {
+            e.preventDefault();
+            if (!newsletter) return;
+            setNlStatus('sending');
+            try {
+              await supabase.from('subscribers').upsert({ email: newsletter, states: '"all"', frequency: 'immediate', active: true }, { onConflict: 'email' });
+              setNlStatus('done');
+              setNewsletter('');
+            } catch { setNlStatus('done'); }
+          }}>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              required
+              value={newsletter}
+              onChange={e => setNewsletter(e.target.value)}
+            />
+            <button type="submit" className="landing-cta" disabled={nlStatus === 'sending'}>
+              {nlStatus === 'done' ? 'Subscribed!' : 'Subscribe'}
+            </button>
+          </form>
+          {nlStatus === 'done' && (
+            <p style={{ color: 'var(--positive)', fontSize: 14, marginTop: 'var(--space-3)' }}>
+              You're in! We'll keep you posted.
+            </p>
+          )}
         </div>
       </section>
 

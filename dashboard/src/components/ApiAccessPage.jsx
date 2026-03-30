@@ -119,7 +119,7 @@ export default function ApiAccessPage() {
                   <p className="landing-form-success">Thanks! We'll review your request and get back to you within 24 hours.</p>
                 )}
                 {status === 'error' && (
-                  <p className="landing-form-error">Something went wrong. Email us at nosherzapoo@gmail.com</p>
+                  <p className="landing-form-error">Something went wrong. Email us at moqainvest@gmail.com</p>
                 )}
               </form>
             </div>
@@ -147,7 +147,7 @@ export default function ApiAccessPage() {
           <div className="landing-footer-links">
             <Link to="/">Home</Link>
             <Link to="/app">Dashboard</Link>
-            <a href="mailto:nosherzapoo@gmail.com">Contact</a>
+            <a href="mailto:moqainvest@gmail.com">Contact</a>
           </div>
         </div>
       </footer>
