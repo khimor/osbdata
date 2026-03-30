@@ -160,8 +160,7 @@ export default function FeedPage({ onNavigateToState }) {
           >
             <div className="feed-card-header">
               <div className="feed-card-state">
-                <span className="color-dot" style={{ background: getStateColor(ev.state_code) }} />
-                <span className="feed-card-code">{ev.state_code}</span>
+                  <span className="feed-card-code">{ev.state_code}</span>
                 <span className="feed-card-name">{STATE_NAMES[ev.state_code]}</span>
               </div>
               <span className="feed-card-time">{timeAgo(ev.scrape_timestamp)}</span>
