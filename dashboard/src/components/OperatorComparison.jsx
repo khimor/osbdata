@@ -14,6 +14,7 @@ import { ChevronDown, ChevronRight } from 'lucide-react';
 import ChartCard from './ChartCard';
 import ExportButton from './ExportButton';
 import { PageSkeleton } from './LoadingSkeleton';
+import SourceableValue from './SourceableValue';
 
 const AXIS_TICK = { fill: '#55556a', fontSize: 11, fontFamily: 'JetBrains Mono' };
 const GRID_STYLE = { stroke: '#1a1a28', strokeDasharray: 'none' };
@@ -373,8 +374,8 @@ export default function OperatorComparison() {
                               <span className="color-dot" style={{ background: getOperatorColor(op.operator) }} />
                               {op.operator}
                             </td>
-                            <td>{formatCurrency(op.ggr)}</td>
-                            <td>{formatCurrency(op.handle)}</td>
+                            <td><SourceableValue value={op.ggr} formattedValue={formatCurrency(op.ggr)} row={op} metric="Std GGR" /></td>
+                            <td><SourceableValue value={op.handle} formattedValue={formatCurrency(op.handle)} row={op} metric="Handle" /></td>
                             <td>{formatPct(op.hold_pct)}</td>
                             <td>{formatPct(ggrShare)}</td>
                             <td>
