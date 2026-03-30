@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Install Playwright (KY needs it)
+        run: playwright install chromium
+
       - name: Check for source changes
         id: check
         run: python scripts/check_sources.py --tier 23
