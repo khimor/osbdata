@@ -20,8 +20,8 @@ const TOP_OPERATORS = [
 const FEATURES = [
   {
     icon: Zap,
-    title: 'Fastest in Market',
-    desc: 'Live detection picks up new state filings the moment they publish. Data flows to the dashboard automatically - no manual updates, no delays.',
+    title: 'Under 2 Minutes from Publish',
+    desc: 'The moment a state publishes new data, our system detects it, scrapes it, validates it, and delivers it to the dashboard - in under 2 minutes. No other platform comes close.',
   },
   {
     icon: GitCompareArrows,
