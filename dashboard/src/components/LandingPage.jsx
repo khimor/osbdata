@@ -105,6 +105,9 @@ export default function LandingPage() {
             <span className="landing-proof-dot" />
             <span className="landing-live-badge">LIVE</span>
           </div>
+          <div className="landing-coming-soon">
+            Kalshi & Polymarket data coming soon
+          </div>
         </div>
       </section>
 
