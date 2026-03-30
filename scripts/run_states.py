@@ -6,9 +6,10 @@ Usage:
     python scripts/run_states.py --backfill NY NJ PA
 
 Sets GITHUB_OUTPUT new_data=true if any state got new rows.
+Sets GITHUB_OUTPUT changed_states=NY,PA (only states with new periods).
 """
 
-import importlib
+import json
 import os
 import signal
 import sys
@@ -21,7 +22,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from scrapers.config import STATE_REGISTRY
 
 PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
-PER_STATE_TIMEOUT = 180  # 3 minutes per state
+WATERMARK_FILE = Path(__file__).parent.parent / ".state_watermarks.json"
+PER_STATE_TIMEOUT = 180
 
 
 class TimeoutError(Exception):
@@ -32,59 +34,56 @@ def timeout_handler(signum, frame):
     raise TimeoutError("Scraper timed out")
 
 
-def get_csv_fingerprint(state_code):
-    """Get latest period_end and content hash of state CSV."""
-    import hashlib
+def load_watermarks():
+    """Load the last known latest_period_end per state."""
+    if WATERMARK_FILE.exists():
+        with open(WATERMARK_FILE) as f:
+            return json.load(f)
+    return {}
+
+
+def save_watermarks(wm):
+    with open(WATERMARK_FILE, 'w') as f:
+        json.dump(wm, f, indent=2)
+
+
+def get_latest_period(state_code):
     csv_path = PROCESSED_DIR / f"{state_code}.csv"
     if not csv_path.exists():
-        return None, None
+        return None
     try:
-        content = csv_path.read_bytes()
-        content_hash = hashlib.md5(content).hexdigest()
         df = pd.read_csv(csv_path, usecols=['period_end'], low_memory=False)
-        latest = df['period_end'].max() if not df.empty else None
-        return latest, content_hash
+        return str(df['period_end'].max()) if not df.empty else None
     except Exception:
-        return None, None
+        return None
 
 
 def run_state(state_code, backfill=False):
-    """Run a single state scraper. Returns (latest_before, latest_after, elapsed, error, changed)."""
     module_name = f"scrapers.{state_code.lower()}_scraper"
     class_name = f"{state_code}Scraper"
-
-    latest_before, hash_before = get_csv_fingerprint(state_code)
     start = time.time()
 
     try:
-        # Set timeout
         signal.signal(signal.SIGALRM, timeout_handler)
         signal.alarm(PER_STATE_TIMEOUT)
 
-        mod = importlib.import_module(module_name)
+        mod = __import__(module_name, fromlist=[class_name])
         scraper_class = getattr(mod, class_name)
         scraper = scraper_class()
-        df = scraper.run(backfill=backfill)
+        scraper.run(backfill=backfill)
 
-        signal.alarm(0)  # Cancel timeout
-
-        latest_after, hash_after = get_csv_fingerprint(state_code)
+        signal.alarm(0)
         elapsed = time.time() - start
-        # Only flag as changed if the CSV content actually changed
-        # (hash comparison catches all cases: new periods, revised data, etc.)
-        changed = hash_after is not None and hash_after != hash_before
-
-        return (latest_before, latest_after, elapsed, None, changed)
+        latest = get_latest_period(state_code)
+        return (latest, elapsed, None)
 
     except TimeoutError:
         signal.alarm(0)
-        elapsed = time.time() - start
-        return (latest_before, None, elapsed, "TIMEOUT", 0)
+        return (None, time.time() - start, "TIMEOUT")
 
     except Exception as e:
         signal.alarm(0)
-        elapsed = time.time() - start
-        return (latest_before, None, elapsed, str(e)[:200], 0)
+        return (None, time.time() - start, str(e)[:200])
 
 
 def main():
@@ -93,14 +92,13 @@ def main():
     states = [s.upper() for s in args if not s.startswith('-')]
 
     if not states:
-        print("No states specified. Usage: python run_states.py NY NJ PA")
+        print("No states specified.")
         sys.exit(0)
 
     print(f"Running {len(states)} state(s): {' '.join(states)}")
-    if backfill:
-        print("  Mode: backfill")
     print()
 
+    watermarks = load_watermarks()
     changed_states = []
     failures = []
 
@@ -110,20 +108,30 @@ def main():
             continue
 
         name = STATE_REGISTRY[sc].get('name', sc)
+        old_latest = watermarks.get(sc)
         print(f"  {sc} ({name})...", end=' ', flush=True)
 
-        latest_before, latest_after, elapsed, error, changed = run_state(sc, backfill)
+        latest, elapsed, error = run_state(sc, backfill)
 
         if error:
             print(f"FAIL ({elapsed:.0f}s): {error}")
             failures.append(sc)
-        elif changed:
-            print(f"NEW DATA: {latest_before} -> {latest_after} ({elapsed:.0f}s)")
+        elif latest and old_latest and latest > old_latest:
+            print(f"NEW DATA: {old_latest} -> {latest} ({elapsed:.0f}s)")
             changed_states.append(sc)
+            watermarks[sc] = latest
+        elif latest and not old_latest:
+            # First time seeing this state - save watermark but don't notify
+            print(f"OK first run, watermark set to {latest} ({elapsed:.0f}s)")
+            watermarks[sc] = latest
         else:
             print(f"OK no new data ({elapsed:.0f}s)")
+            # Update watermark even if unchanged (in case it wasn't set)
+            if latest:
+                watermarks[sc] = latest
 
-    # Summary
+    save_watermarks(watermarks)
+
     print()
     if changed_states:
         print(f"NEW DATA DETECTED: {' '.join(changed_states)}")
@@ -133,7 +141,6 @@ def main():
     if failures:
         print(f"FAILURES: {', '.join(failures)}")
 
-    # Set GitHub Actions outputs
     _set_output('new_data', 'true' if changed_states else 'false')
     _set_output('changed_states', ' '.join(changed_states))
 
