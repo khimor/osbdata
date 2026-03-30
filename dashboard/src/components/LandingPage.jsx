@@ -193,6 +193,45 @@ export default function LandingPage() {
                     03/22/26 $199,232,115 $25,200,002
                   </div>
                 </div>
+                <div style={{ marginTop: 'var(--space-3)' }}>
+                  <span className="landing-source-mock-label">Source Document Preview</span>
+                  <div className="landing-pdf-mock">
+                    <div className="landing-pdf-header">
+                      <span className="landing-pdf-icon">PDF</span>
+                      <span>NY_fanduel_weekly.pdf - Page 1</span>
+                    </div>
+                    <div className="landing-pdf-body">
+                      <div className="landing-pdf-title">WEEKLY SPORTS WAGERING REPORT</div>
+                      <div className="landing-pdf-subtitle">New York State Gaming Commission - FanDuel Sportsbook</div>
+                      <table className="landing-pdf-table">
+                        <thead>
+                          <tr>
+                            <th>Week Ending</th>
+                            <th>Total Wagers</th>
+                            <th>Gross Revenue</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>03/08/26</td>
+                            <td>$187,441,203</td>
+                            <td>$18,922,105</td>
+                          </tr>
+                          <tr>
+                            <td>03/15/26</td>
+                            <td>$194,108,447</td>
+                            <td>$22,381,660</td>
+                          </tr>
+                          <tr className="landing-pdf-highlight">
+                            <td>03/22/26</td>
+                            <td>$199,232,115</td>
+                            <td>$25,200,002</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="landing-source-text">
