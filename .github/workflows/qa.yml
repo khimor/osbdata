@@ -70,7 +70,7 @@ if u and p:
       - run: pip install playwright pandas && playwright install chromium
 
       - name: Run site QA checks
-        run: python tests/qa_site.py --url https://osbdata.vercel.app || true
+        run: python tests/qa_site.py --url https://osbdata.com || true
 
       - name: Upload QA report
         if: always()

@@ -25,7 +25,7 @@ SUMMARY_TXT = Path("/tmp/scrape_summary.txt")
 
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-DASHBOARD_URL = "https://osbdata.vercel.app"
+DASHBOARD_URL = "https://osbdata.com"
 
 
 def load_subscribers():
