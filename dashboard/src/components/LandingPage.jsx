@@ -121,10 +121,6 @@ export default function LandingPage() {
               <div className="landing-stat-value">40K+</div>
               <div className="landing-stat-label">Data Points</div>
             </div>
-            <div className="landing-stat">
-              <div className="landing-stat-value landing-live-pulse">LIVE</div>
-              <div className="landing-stat-label">Update Frequency</div>
-            </div>
           </div>
         </div>
       </section>
