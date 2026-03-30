@@ -20,8 +20,8 @@ const TOP_OPERATORS = [
 const FEATURES = [
   {
     icon: Zap,
-    title: 'Under 2 Minutes from Publish',
-    desc: 'The moment a state publishes new data, our system detects it, scrapes it, validates it, and delivers it to the dashboard - in under 2 minutes. No other platform comes close.',
+    title: 'Under 1 Minute from Publish',
+    desc: 'The moment a state publishes new data, our system detects it, scrapes it, validates it, and delivers it to your dashboard, model, and email - in under 60 seconds. No other platform comes close.',
   },
   {
     icon: GitCompareArrows,
@@ -125,8 +125,8 @@ export default function LandingPage() {
               <div className="landing-stat-label">Data Points</div>
             </div>
             <div className="landing-stat">
-              <div className="landing-stat-value">&lt;2 min</div>
-              <div className="landing-stat-label">Publish to Dashboard</div>
+              <div className="landing-stat-value">&lt;1 min</div>
+              <div className="landing-stat-label">Publish to You</div>
             </div>
           </div>
         </div>
