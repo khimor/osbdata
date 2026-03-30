@@ -4,8 +4,8 @@ import { ArrowRight, BarChart3, Shield, Zap, GitCompareArrows, Send, MessageSqua
 import { STATE_NAMES, getOperatorColor } from '../utils/colors';
 import { supabase } from '../data/supabase';
 
-// Top 5 states by handle
-const TOP_STATES = ['NY','IL','NJ','PA','OH'];
+// Top 10 states by handle
+const TOP_STATES = ['NY','IL','NJ','PA','OH','MI','VA','MA','AZ','NC'];
 
 // Top 6 operators
 const TOP_OPERATORS = [
