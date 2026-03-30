@@ -412,8 +412,8 @@ export default function OperatorComparison() {
                                     {st.state_name}
                                   </span>
                                 </td>
-                                <td style={{ fontSize: 12 }}>{formatCurrency(st.ggr)}</td>
-                                <td style={{ fontSize: 12 }}>{formatCurrency(st.handle)}</td>
+                                <td style={{ fontSize: 12 }}><SourceableValue value={st.ggr} formattedValue={formatCurrency(st.ggr)} row={st} metric="Std GGR" /></td>
+                                <td style={{ fontSize: 12 }}><SourceableValue value={st.handle} formattedValue={formatCurrency(st.handle)} row={st} metric="Handle" /></td>
                                 <td style={{ fontSize: 12 }}>{formatPct(st.hold_pct)}</td>
                                 <td></td>
                                 <td style={{ fontSize: 12 }}>

@@ -591,22 +591,28 @@ export async function getOperatorDetail(operatorName, channel = null) {
   const stateMap = {};
   for (const row of monthly) {
     const sc = row.state_code;
-    if (!stateMap[sc]) stateMap[sc] = { state_code: sc, periods: {} };
+    if (!stateMap[sc]) stateMap[sc] = { state_code: sc, periods: {}, prov: null };
     const pe = row.period_end;
     if (!stateMap[sc].periods[pe]) stateMap[sc].periods[pe] = { handle: 0, ggr: 0 };
     stateMap[sc].periods[pe].handle += row.handle || 0;
     stateMap[sc].periods[pe].ggr += row.standard_ggr ?? row.gross_revenue ?? 0;
+    // Track best provenance row per state
+    const hasGood = row.source_file && row.source_file !== 'aggregated_from_weekly'
+      && (row.source_url || row.source_screenshot || row.source_raw_line);
+    if (!stateMap[sc].prov || hasGood) {
+      stateMap[sc].prov = row;
+    }
   }
 
   const stateBreakdown = Object.values(stateMap).map(s => {
     const periods = Object.keys(s.periods).sort();
     const latest = s.periods[periods[periods.length - 1]];
     const prev = periods.length >= 2 ? s.periods[periods[periods.length - 2]] : null;
-    // YoY
     const latestDate = new Date(periods[periods.length - 1] + 'T00:00:00');
     const yoyMonth = `${latestDate.getFullYear() - 1}-${String(latestDate.getMonth() + 1).padStart(2, '0')}`;
     const yoyKey = periods.find(p => p.startsWith(yoyMonth));
     const yoyData = yoyKey ? s.periods[yoyKey] : null;
+    const prov = s.prov || {};
 
     return {
       state_code: s.state_code,
@@ -617,6 +623,16 @@ export async function getOperatorDetail(operatorName, channel = null) {
       latest_period: periods[periods.length - 1],
       prev_handle: prev?.handle || null,
       yoy_handle: yoyData?.handle || null,
+      // Provenance
+      period_end: periods[periods.length - 1],
+      operator_standard: operatorName,
+      source_file: prov.source_file !== 'aggregated_from_weekly' ? prov.source_file : null,
+      source_url: prov.source_url,
+      source_report_url: prov.source_report_url,
+      source_screenshot: prov.source_screenshot,
+      source_raw_line: prov.source_raw_line,
+      source_context: prov.source_context,
+      scrape_timestamp: prov.scrape_timestamp,
     };
   }).sort((a, b) => b.ggr - a.ggr);
 
