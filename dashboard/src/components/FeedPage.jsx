@@ -38,47 +38,60 @@ export default function FeedPage({ onNavigateToState }) {
   const feedEvents = useMemo(() => {
     if (!allData) return [];
 
-    // Group by state + scrape_timestamp (rounded to minute for dedup)
-    const eventMap = {};
+    // Step 1: Find the latest period_end per state (one entry per state)
+    const stateLatest = {};
     for (const row of allData) {
-      if (!row.scrape_timestamp || row.sport_category) continue;
+      if (!row.period_end || row.sport_category) continue;
       if (periodFilter !== 'all' && row.period_type !== periodFilter) continue;
 
-      const tsKey = row.scrape_timestamp.slice(0, 16); // round to minute
-      const key = `${row.state_code}_${row.period_end}_${tsKey}`;
+      const sc = row.state_code;
+      if (!stateLatest[sc] || row.period_end > stateLatest[sc]) {
+        stateLatest[sc] = row.period_end;
+      }
+    }
 
-      if (!eventMap[key]) {
-        eventMap[key] = {
-          state_code: row.state_code,
+    // Step 2: Aggregate metrics for each state's latest period
+    const eventMap = {};
+    for (const row of allData) {
+      if (row.sport_category) continue;
+      const sc = row.state_code;
+      if (!stateLatest[sc] || row.period_end !== stateLatest[sc]) continue;
+      if (periodFilter !== 'all' && row.period_type !== periodFilter) continue;
+
+      if (!eventMap[sc]) {
+        eventMap[sc] = {
+          state_code: sc,
           period_end: row.period_end,
           period_type: row.period_type,
           scrape_timestamp: row.scrape_timestamp,
           handle: 0,
           ggr: 0,
           operators: new Set(),
-          _hasOps: false,
           _totalHandle: 0,
           _totalGgr: 0,
         };
       }
 
-      const ev = eventMap[key];
-      const isTotalRow = ['TOTAL', 'ALL'].includes(row.operator_standard);
+      const ev = eventMap[sc];
+      // Keep the most recent scrape_timestamp
+      if (row.scrape_timestamp && (!ev.scrape_timestamp || row.scrape_timestamp > ev.scrape_timestamp)) {
+        ev.scrape_timestamp = row.scrape_timestamp;
+      }
 
+      const isTotalRow = ['TOTAL', 'ALL'].includes(row.operator_standard);
       if (isTotalRow) {
         ev._totalHandle += row.handle || 0;
         ev._totalGgr += row.standard_ggr ?? row.gross_revenue ?? 0;
       } else {
-        ev._hasOps = true;
         ev.handle += row.handle || 0;
         ev.ggr += row.standard_ggr ?? row.gross_revenue ?? 0;
-        if (row.operator_standard && row.operator_standard !== 'UNKNOWN') {
+        if (row.operator_standard && !['UNKNOWN'].includes(row.operator_standard)) {
           ev.operators.add(row.operator_standard);
         }
       }
     }
 
-    // Finalize: use TOTAL fallback if no operator rows
+    // Finalize
     const events = Object.values(eventMap).map(ev => {
       if (ev.handle === 0 && ev._totalHandle > 0) ev.handle = ev._totalHandle;
       if (ev.ggr === 0 && ev._totalGgr > 0) ev.ggr = ev._totalGgr;
@@ -99,21 +112,10 @@ export default function FeedPage({ onNavigateToState }) {
       );
     }
 
-    // Sort by scrape_timestamp descending (most recent first)
+    // Sort by scrape_timestamp descending (most recently updated states first)
     filtered.sort((a, b) => (b.scrape_timestamp || '').localeCompare(a.scrape_timestamp || ''));
 
-    // Deduplicate: keep only the latest scrape per (state, period_end)
-    const seen = new Set();
-    const deduped = [];
-    for (const ev of filtered) {
-      const dedupKey = `${ev.state_code}_${ev.period_end}`;
-      if (!seen.has(dedupKey)) {
-        seen.add(dedupKey);
-        deduped.push(ev);
-      }
-    }
-
-    return deduped;
+    return filtered;
   }, [allData, periodFilter, stateSearch]);
 
   const visibleEvents = feedEvents.slice(0, showCount);
