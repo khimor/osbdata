@@ -4,16 +4,17 @@ import { ArrowRight, BarChart3, Shield, Zap, GitCompareArrows, Send, MessageSqua
 import { STATE_NAMES, getOperatorColor } from '../utils/colors';
 import { supabase } from '../data/supabase';
 
-// Top 10 states by handle (hardcoded for fast landing page load)
-const TOP_STATES = ['NY','IL','NJ','PA','OH','MI','VA','MA','AZ','NC'];
+// Top 5 states by handle
+const TOP_STATES = ['NY','IL','NJ','PA','OH'];
 
-// Top 5 operators
+// Top 6 operators
 const TOP_OPERATORS = [
   { name: 'FanDuel', parent: 'Flutter Entertainment' },
   { name: 'DraftKings', parent: 'DraftKings Inc' },
   { name: 'BetMGM', parent: 'Entain / MGM Resorts' },
   { name: 'Caesars', parent: 'Caesars Entertainment' },
   { name: 'Fanatics', parent: 'Fanatics Inc' },
+  { name: 'BetRivers', parent: 'Rush Street Interactive' },
 ];
 
 const FEATURES = [
@@ -147,12 +148,87 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* State coverage — top 10 */}
+      {/* Source verification demo */}
+      <section className="landing-section">
+        <div className="landing-container">
+          <h2 className="landing-section-title">Every Number is Source-Verified</h2>
+          <p className="landing-section-sub">
+            Click any data point and trace it back to the original regulatory filing. No black boxes.
+          </p>
+          <div className="landing-source-demo">
+            <div className="landing-source-mock">
+              <div className="landing-source-mock-header">
+                <span style={{ font: '500 11px/1 var(--font-display)', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-tertiary)' }}>Source Verification</span>
+              </div>
+              <div className="landing-source-mock-body">
+                <div className="landing-source-mock-row">
+                  <span className="landing-source-mock-label">Value</span>
+                  <span style={{ font: '600 28px/1 var(--font-mono)', color: 'var(--text-primary)' }}>$199,232,115</span>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
+                  <div>
+                    <span className="landing-source-mock-label">Metric</span>
+                    <span className="landing-source-mock-value">Handle</span>
+                  </div>
+                  <div>
+                    <span className="landing-source-mock-label">Period</span>
+                    <span className="landing-source-mock-value">Mar 22, 2026</span>
+                  </div>
+                  <div>
+                    <span className="landing-source-mock-label">State</span>
+                    <span className="landing-source-mock-value">NY - New York</span>
+                  </div>
+                  <div>
+                    <span className="landing-source-mock-label">Operator</span>
+                    <span className="landing-source-mock-value">FanDuel</span>
+                  </div>
+                </div>
+                <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-3)', marginTop: 'var(--space-3)' }}>
+                  <span className="landing-source-mock-label">Source Document</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px', background: 'var(--bg-root)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', marginTop: 4, font: '400 13px/1.3 var(--font-mono)', color: 'var(--accent-primary)' }}>
+                    NY_fanduel_weekly.pdf
+                  </div>
+                </div>
+                <div style={{ marginTop: 'var(--space-3)' }}>
+                  <span className="landing-source-mock-label">Raw Source Data</span>
+                  <div style={{ padding: '10px 12px', background: 'var(--bg-root)', border: '1px solid var(--border-subtle)', borderLeft: '3px solid var(--accent-secondary)', borderRadius: 'var(--radius-md)', marginTop: 4, font: '400 13px/1.5 var(--font-mono)', color: 'var(--accent-secondary)' }}>
+                    03/22/26 $199,232,115 $25,200,002
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="landing-source-text">
+              <h3 style={{ font: '600 20px/1.3 var(--font-display)', color: 'var(--text-primary)', margin: '0 0 var(--space-4)' }}>
+                Full audit trail on every data point
+              </h3>
+              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+                {[
+                  'Direct link to original regulatory PDF',
+                  'Raw data line extracted from source',
+                  'PDF page screenshot for visual verification',
+                  'Scrape timestamp showing when data was collected',
+                  'Report URL to access the full filing',
+                ].map(item => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, font: '400 14px/1.5 var(--font-body)', color: 'var(--text-secondary)' }}>
+                    <span style={{ color: 'var(--positive)', fontSize: 14, marginTop: 2, flexShrink: 0 }}>&#10003;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/app" className="landing-cta" style={{ marginTop: 'var(--space-6)', display: 'inline-flex' }}>
+                Try It Live <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* State coverage — top 5 */}
       <section className="landing-section">
         <div className="landing-container">
           <h2 className="landing-section-title">US-Wide Coverage</h2>
           <p className="landing-section-sub">
-            Regulatory data from every US state with legal sports betting. Here are the top 10 markets.
+            Regulatory data from every US state with legal sports betting. Top markets by handle.
           </p>
           <div className="landing-state-grid">
             {TOP_STATES.map(code => (
