@@ -47,7 +47,7 @@ body += f\"\nFull report: https://github.com/khimor/osbdata/actions/runs/${{ git
 msg = MIMEText(body)
 msg['Subject'] = f\"OSB QA ALERT: {len(crits)} critical issue(s)\"
 msg['From'] = os.environ.get('EMAIL_USERNAME','')
-msg['To'] = 'nosherzapoo@gmail.com'
+msg['To'] = 'khimor@osbdata.com'
 u = os.environ.get('EMAIL_USERNAME','')
 p = os.environ.get('EMAIL_PASSWORD','')
 if u and p:

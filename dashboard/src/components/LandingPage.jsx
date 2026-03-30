@@ -328,7 +328,7 @@ export default function LandingPage() {
                 <p className="landing-form-success">Thanks for reaching out! We'll get back to you shortly.</p>
               )}
               {contactStatus === 'error' && (
-                <p className="landing-form-error">Something went wrong. Email us at moqainvest@gmail.com</p>
+                <p className="landing-form-error">Something went wrong. Email us at khimor@osbdata.com</p>
               )}
             </form>
           </div>
