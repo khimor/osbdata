@@ -15,11 +15,13 @@ export default function App() {
   const [activeView, setActiveView] = useState('national');
   const [selectedState, setSelectedState] = useState('NY');
 
-  // Handle navigation from landing page (state chips pass view + stateCode)
+  // Handle navigation from landing page
   useEffect(() => {
     if (location.state?.view === 'state' && location.state?.stateCode) {
       setSelectedState(location.state.stateCode);
       setActiveView('state');
+    } else if (location.state?.view === 'operators') {
+      setActiveView('operators');
     }
   }, [location.state]);
 

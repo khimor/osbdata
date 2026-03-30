@@ -1500,6 +1500,43 @@ input:focus-visible {
 
 .landing-footer-links a:hover { color: var(--text-primary); }
 
+/* Operator cards */
+.landing-operator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-3);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.landing-operator-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 14px 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.landing-operator-card:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-elevated);
+}
+
+.landing-operator-name {
+  font: 600 14px/1.2 var(--font-display);
+  color: var(--text-primary);
+}
+
+.landing-operator-parent {
+  font: 400 11px/1.2 var(--font-body);
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
 /* Landing mobile */
 @media (max-width: 768px) {
   .landing-hero { padding: 80px 0 60px; }
@@ -1514,6 +1551,7 @@ input:focus-visible {
   .landing-state-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
   .landing-footer .landing-container { flex-direction: column; gap: var(--space-4); text-align: center; }
   .landing-api-actions { flex-direction: column; align-items: center; }
+  .landing-operator-grid { grid-template-columns: 1fr; }
   .landing-container { padding: 0 var(--space-4); }
 }
 

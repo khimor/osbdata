@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, BarChart3, Shield, Zap, GitCompareArrows, Send } from 'lucide-react';
-import { STATE_NAMES } from '../utils/colors';
+import { ArrowRight, BarChart3, Shield, Zap, GitCompareArrows, Send, MessageSquare } from 'lucide-react';
+import { STATE_NAMES, getOperatorColor } from '../utils/colors';
 import { supabase } from '../data/supabase';
 
-const STATE_CODES = [
-  'AR','AZ','CO','CT','DC','DE','IA','IL','IN','KS','KY','LA',
-  'MA','MD','ME','MI','MO','MS','MT','NC','NE','NH','NJ','NV',
-  'NY','OH','OR','PA','RI','SD','TN','VA','VT','WV','WY'
+// Top 10 states by handle (hardcoded for fast landing page load)
+const TOP_STATES = ['NY','IL','NJ','PA','OH','MI','VA','MA','AZ','NC'];
+
+// Top 5 operators
+const TOP_OPERATORS = [
+  { name: 'FanDuel', parent: 'Flutter Entertainment' },
+  { name: 'DraftKings', parent: 'DraftKings Inc' },
+  { name: 'BetMGM', parent: 'Entain / MGM Resorts' },
+  { name: 'Caesars', parent: 'Caesars Entertainment' },
+  { name: 'Fanatics', parent: 'Fanatics Inc' },
 ];
 
 const FEATURES = [
@@ -35,30 +41,34 @@ const FEATURES = [
 
 export default function LandingPage() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
-  const [formStatus, setFormStatus] = useState(null); // null | 'sending' | 'sent' | 'error'
+  const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
+  const [contactStatus, setContactStatus] = useState(null);
 
-  const handleSubmit = async (e) => {
+  const handleContact = async (e) => {
     e.preventDefault();
-    if (!formData.email) return;
-    setFormStatus('sending');
+    if (!contactForm.email) return;
+    setContactStatus('sending');
     try {
       await supabase.from('subscribers').upsert({
-        email: formData.email,
-        name: formData.name || null,
+        email: contactForm.email,
+        name: contactForm.name || null,
         states: '"all"',
         frequency: 'immediate',
         active: true,
       }, { onConflict: 'email' });
-      setFormStatus('sent');
-      setFormData({ name: '', email: '', company: '', message: '' });
+      setContactStatus('sent');
+      setContactForm({ name: '', email: '', message: '' });
     } catch {
-      setFormStatus('error');
+      setContactStatus('error');
     }
   };
 
   const goToState = (code) => {
     navigate('/app', { state: { view: 'state', stateCode: code } });
+  };
+
+  const goToOperator = (name) => {
+    navigate('/app', { state: { view: 'operators', operator: name } });
   };
 
   return (
@@ -80,7 +90,7 @@ export default function LandingPage() {
             <Link to="/app" className="landing-cta">
               Explore Dashboard <ArrowRight size={18} />
             </Link>
-            <a href="#contact" className="landing-cta-secondary">Get API Access</a>
+            <Link to="/api-access" className="landing-cta-secondary">Request API Access</Link>
           </div>
           <div className="landing-proof">
             <span>35 states</span>
@@ -137,15 +147,15 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* State coverage */}
+      {/* State coverage — top 10 */}
       <section className="landing-section">
         <div className="landing-container">
-          <h2 className="landing-section-title">35-state coverage</h2>
+          <h2 className="landing-section-title">US-Wide Coverage</h2>
           <p className="landing-section-sub">
-            From New York to Nevada. Regulatory data from every US state with legal sports betting.
+            Regulatory data from every US state with legal sports betting. Here are the top 10 markets.
           </p>
           <div className="landing-state-grid">
-            {STATE_CODES.map(code => (
+            {TOP_STATES.map(code => (
               <div
                 key={code}
                 className="landing-state-chip landing-state-clickable"
@@ -153,87 +163,96 @@ export default function LandingPage() {
               >
                 <span className="landing-state-code">{code}</span>
                 <span className="landing-state-name">{STATE_NAMES[code]}</span>
+                <ArrowRight size={12} style={{ marginLeft: 'auto', color: 'var(--text-tertiary)' }} />
               </div>
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 'var(--space-6)' }}>
-            <Link to="/app" className="landing-cta">
-              Explore All States <ArrowRight size={18} />
+            <Link to="/app" className="landing-cta-secondary">
+              View All 35 States <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* API + Contact form */}
+      {/* Top operators */}
+      <section className="landing-section">
+        <div className="landing-container">
+          <h2 className="landing-section-title">Top Operators</h2>
+          <p className="landing-section-sub">
+            Track the largest sportsbook operators across every state they operate in.
+          </p>
+          <div className="landing-operator-grid">
+            {TOP_OPERATORS.map(op => (
+              <div
+                key={op.name}
+                className="landing-operator-card"
+                onClick={() => goToOperator(op.name)}
+              >
+                <span className="color-dot" style={{ background: getOperatorColor(op.name), width: 10, height: 10 }} />
+                <div>
+                  <div className="landing-operator-name">{op.name}</div>
+                  <div className="landing-operator-parent">{op.parent}</div>
+                </div>
+                <ArrowRight size={14} style={{ marginLeft: 'auto', color: 'var(--text-tertiary)' }} />
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 'var(--space-6)' }}>
+            <Link to="/app" className="landing-cta-secondary" onClick={() => {
+              setTimeout(() => {
+                const btn = document.querySelector('button[aria-label="Operator View"]');
+                if (btn) btn.click();
+              }, 500);
+            }}>
+              View All Operators <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact / Help / Suggestions */}
       <section className="landing-section" id="contact">
         <div className="landing-container">
-          <h2 className="landing-section-title">Get API Access</h2>
+          <h2 className="landing-section-title">Get in Touch</h2>
           <p className="landing-section-sub">
-            Programmatic access to the full dataset. Query by state, operator, date range, or channel.
+            Questions, feedback, or suggestions? We'd love to hear from you.
           </p>
-          <div className="landing-code">
-            <pre><code>{`curl "https://api.osbdata.com/rest/v1/monthly_data
-  ?state_code=eq.NY
-  &period_type=eq.monthly
-  &order=period_end.desc
-  &limit=10"
-  -H "apikey: YOUR_API_KEY"`}</code></pre>
-          </div>
-
           <div className="landing-contact-form-wrapper">
-            <form className="landing-contact-form" onSubmit={handleSubmit}>
+            <form className="landing-contact-form" onSubmit={handleContact}>
               <div className="landing-form-row">
                 <input
                   type="text"
                   placeholder="Name"
-                  value={formData.name}
-                  onChange={e => setFormData({ ...formData, name: e.target.value })}
+                  value={contactForm.name}
+                  onChange={e => setContactForm({ ...contactForm, name: e.target.value })}
                 />
                 <input
                   type="email"
                   placeholder="Email *"
                   required
-                  value={formData.email}
-                  onChange={e => setFormData({ ...formData, email: e.target.value })}
-                />
-              </div>
-              <div className="landing-form-row">
-                <input
-                  type="text"
-                  placeholder="Company"
-                  value={formData.company}
-                  onChange={e => setFormData({ ...formData, company: e.target.value })}
+                  value={contactForm.email}
+                  onChange={e => setContactForm({ ...contactForm, email: e.target.value })}
                 />
               </div>
               <textarea
-                placeholder="Tell us about your use case..."
-                rows={3}
-                value={formData.message}
-                onChange={e => setFormData({ ...formData, message: e.target.value })}
+                placeholder="Your message, feedback, or suggestion..."
+                rows={4}
+                value={contactForm.message}
+                onChange={e => setContactForm({ ...contactForm, message: e.target.value })}
               />
-              <button type="submit" className="landing-cta" disabled={formStatus === 'sending'}>
-                {formStatus === 'sending' ? 'Sending...' : formStatus === 'sent' ? 'Sent!' : (
-                  <>Request Access <Send size={16} /></>
+              <button type="submit" className="landing-cta" disabled={contactStatus === 'sending'}>
+                {contactStatus === 'sending' ? 'Sending...' : contactStatus === 'sent' ? 'Sent!' : (
+                  <>Send Message <MessageSquare size={16} /></>
                 )}
               </button>
-              {formStatus === 'sent' && (
-                <p className="landing-form-success">Thanks! We'll be in touch shortly.</p>
+              {contactStatus === 'sent' && (
+                <p className="landing-form-success">Thanks for reaching out! We'll get back to you shortly.</p>
               )}
-              {formStatus === 'error' && (
+              {contactStatus === 'error' && (
                 <p className="landing-form-error">Something went wrong. Email us at nosherzapoo@gmail.com</p>
               )}
             </form>
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: 'var(--space-4)' }}>
-            <Link to="/app" className="landing-cta-secondary" onClick={() => {
-              setTimeout(() => {
-                const docsBtn = document.querySelector('button[aria-label="API Docs"]');
-                if (docsBtn) docsBtn.click();
-              }, 500);
-            }}>
-              View Full API Documentation
-            </Link>
           </div>
         </div>
       </section>
@@ -247,8 +266,8 @@ export default function LandingPage() {
           </div>
           <div className="landing-footer-links">
             <Link to="/app">Dashboard</Link>
-            <a href="#contact">API Access</a>
-            <a href="mailto:nosherzapoo@gmail.com">Contact</a>
+            <Link to="/api-access">API Access</Link>
+            <a href="#contact">Contact</a>
           </div>
         </div>
       </footer>
