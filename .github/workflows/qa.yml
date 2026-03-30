@@ -22,40 +22,43 @@ jobs:
       - run: pip install pandas
 
       - name: Run data QA checks
-        id: qa
         run: python tests/qa_data.py || true
 
-      - name: Alert on critical failures
-        if: always()
+      - name: Check for critical issues
         env:
           EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          RUN_URL: https://github.com/khimor/osbdata/actions/runs/${{ github.run_id }}
         run: |
-          if python -c "import json; r=json.load(open('tests/qa_report.json')); exit(0 if r['critical']==0 else 1)"; then
-            echo "No critical QA issues"
-          else
-            echo "CRITICAL QA issues found - sending alert"
-            python -c "
-import json, smtplib, os
-from email.mime.text import MIMEText
-r = json.load(open('tests/qa_report.json'))
-crits = [i for i in r['issues'] if i['severity'] == 'CRITICAL']
-body = 'QA DATA ALERT - Critical issues detected:\n\n'
-for c in crits:
-    body += f\"  {c['state']}: {c['message']}\n\"
-body += f\"\nFull report: https://github.com/khimor/osbdata/actions/runs/${{ github.run_id }}\"
-msg = MIMEText(body)
-msg['Subject'] = f\"OSB QA ALERT: {len(crits)} critical issue(s)\"
-msg['From'] = os.environ.get('EMAIL_USERNAME','')
-msg['To'] = 'khimor@osbdata.com'
-u = os.environ.get('EMAIL_USERNAME','')
-p = os.environ.get('EMAIL_PASSWORD','')
-if u and p:
-    with smtplib.SMTP('smtp.gmail.com', 587) as s:
-        s.starttls(); s.login(u, p); s.send_message(msg)
-    print('Alert email sent')
-"
-          fi
+          python3 << 'PYEOF'
+          import json, smtplib, os
+          from email.mime.text import MIMEText
+          try:
+              r = json.load(open('tests/qa_report.json'))
+          except:
+              print("No QA report found")
+              exit(0)
+          if r.get('critical', 0) == 0:
+              print("No critical QA issues")
+              exit(0)
+          crits = [i for i in r['issues'] if i['severity'] == 'CRITICAL']
+          body = 'QA DATA ALERT - Critical issues detected:\n\n'
+          for c in crits:
+              body += '  ' + c['state'] + ': ' + c['message'] + '\n'
+          body += '\nFull report: ' + os.environ.get('RUN_URL', '')
+          msg = MIMEText(body)
+          msg['Subject'] = 'OSB QA ALERT: ' + str(len(crits)) + ' critical issue(s)'
+          msg['From'] = os.environ.get('EMAIL_USERNAME', '')
+          msg['To'] = 'khimor@osbdata.com'
+          u = os.environ.get('EMAIL_USERNAME', '')
+          p = os.environ.get('EMAIL_PASSWORD', '')
+          if u and p:
+              with smtplib.SMTP('smtp.gmail.com', 587) as s:
+                  s.starttls()
+                  s.login(u, p)
+                  s.send_message(msg)
+              print('Alert email sent')
+          PYEOF
 
   site-qa:
     runs-on: ubuntu-latest
@@ -70,7 +73,7 @@ if u and p:
       - run: pip install playwright pandas && playwright install chromium
 
       - name: Run site QA checks
-        run: python tests/qa_site.py --url https://osbdata.com || true
+        run: python tests/qa_site.py --url https://osbdata.com/app || true
 
       - name: Upload QA report
         if: always()
