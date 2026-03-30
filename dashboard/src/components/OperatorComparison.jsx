@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   LineChart, Line,
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend,
@@ -136,12 +136,17 @@ export default function OperatorComparison() {
       setExpandedOps(prev => ({ ...prev, [opName]: false }));
       return;
     }
+    // Show expanded immediately (with loading state)
+    setExpandedOps(prev => ({ ...prev, [opName]: true }));
     // Fetch detail if not cached
     if (!opDetails[opName]) {
-      const detail = await getOperatorDetail(opName, channel);
-      setOpDetails(prev => ({ ...prev, [opName]: detail.stateBreakdown }));
+      try {
+        const detail = await getOperatorDetail(opName, channel);
+        setOpDetails(prev => ({ ...prev, [opName]: detail.stateBreakdown || [] }));
+      } catch {
+        setOpDetails(prev => ({ ...prev, [opName]: [] }));
+      }
     }
-    setExpandedOps(prev => ({ ...prev, [opName]: true }));
   };
 
   const selectTop = (n) => {
@@ -365,12 +370,18 @@ export default function OperatorComparison() {
                       const isExpanded = expandedOps[op.operator];
                       const stateRows = opDetails[op.operator] || [];
                       return (
-                        <>
-                          <tr key={op.operator} className="clickable" onClick={() => toggleExpand(op.operator)}>
-                            <td style={{ textAlign: 'left', color: 'var(--text-tertiary)' }}>
+                        <React.Fragment key={op.operator}>
+                          <tr>
+                            <td
+                              style={{ textAlign: 'left', color: 'var(--text-tertiary)', cursor: 'pointer' }}
+                              onClick={() => toggleExpand(op.operator)}
+                            >
                               {isExpanded ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
                             </td>
-                            <td style={{ textAlign: 'left', fontWeight: 500 }}>
+                            <td
+                              style={{ textAlign: 'left', fontWeight: 500, cursor: 'pointer' }}
+                              onClick={() => toggleExpand(op.operator)}
+                            >
                               <span className="color-dot" style={{ background: getOperatorColor(op.operator) }} />
                               {op.operator}
                             </td>
@@ -404,7 +415,7 @@ export default function OperatorComparison() {
                                 <td style={{ fontSize: 12 }}>{formatCurrency(st.ggr)}</td>
                                 <td style={{ fontSize: 12 }}>{formatCurrency(st.handle)}</td>
                                 <td style={{ fontSize: 12 }}>{formatPct(st.hold_pct)}</td>
-                                <td style={{ fontSize: 12 }}></td>
+                                <td></td>
                                 <td style={{ fontSize: 12 }}>
                                   {stYoy ? (
                                     <span className={stYoy.direction === 'up' ? 'cell-positive' : 'cell-negative'}>
@@ -424,7 +435,7 @@ export default function OperatorComparison() {
                               </td>
                             </tr>
                           )}
-                        </>
+                        </React.Fragment>
                       );
                     })}
                   </tbody>
