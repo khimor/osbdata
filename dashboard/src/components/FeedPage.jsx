@@ -163,7 +163,6 @@ export default function FeedPage({ onNavigateToState }) {
                   <span className="feed-card-code">{ev.state_code}</span>
                 <span className="feed-card-name">{STATE_NAMES[ev.state_code]}</span>
               </div>
-              <span className="feed-card-time">{timeAgo(ev.scrape_timestamp)}</span>
             </div>
             <div className="feed-card-period">
               {ev.period_type === 'weekly' ? 'Weekly' : 'Monthly'} data through {formatDate(ev.period_end, ev.period_type)}
