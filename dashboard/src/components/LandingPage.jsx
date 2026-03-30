@@ -52,6 +52,12 @@ export default function LandingPage() {
     if (!contactForm.email) return;
     setContactStatus('sending');
     try {
+      await supabase.from('contacts').insert({
+        email: contactForm.email,
+        name: contactForm.name || null,
+        message: contactForm.message || null,
+        source: 'contact_form',
+      });
       await supabase.from('subscribers').upsert({
         email: contactForm.email,
         name: contactForm.name || null,

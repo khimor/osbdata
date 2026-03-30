@@ -12,6 +12,15 @@ export default function ApiAccessPage() {
     if (!form.email) return;
     setStatus('sending');
     try {
+      // Save full details to contacts table
+      await supabase.from('contacts').insert({
+        email: form.email,
+        name: form.name || null,
+        company: form.company || null,
+        message: form.useCase || null,
+        source: 'api_access',
+      });
+      // Also add to subscribers for data alerts
       await supabase.from('subscribers').upsert({
         email: form.email,
         name: form.name || null,
