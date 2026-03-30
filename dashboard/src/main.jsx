@@ -2,7 +2,10 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
+import ReactGA from 'react-ga4';
 import App from './App';
+
+ReactGA.initialize('G-WJ6TQ113YS');
 import LandingPage from './components/LandingPage';
 import ApiAccessPage from './components/ApiAccessPage';
 import './styles.css';
