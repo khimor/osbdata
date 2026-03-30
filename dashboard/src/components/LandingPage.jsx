@@ -93,6 +93,9 @@ export default function LandingPage() {
             <Link to="/app" className="landing-cta">
               Explore Dashboard <ArrowRight size={18} />
             </Link>
+            <a href="#newsletter" className="landing-cta-alert">
+              <Bell size={16} /> Get Live Alerts
+            </a>
             <Link to="/api-access" className="landing-cta-secondary">Request API Access</Link>
           </div>
           <div className="landing-proof">

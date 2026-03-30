@@ -1329,6 +1329,26 @@ input:focus-visible {
   transform: translateY(-1px);
 }
 
+.landing-cta-alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--positive-bg);
+  color: var(--positive);
+  font: 600 15px/1 var(--font-display);
+  border: 1px solid rgba(45, 212, 160, 0.25);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.landing-cta-alert:hover {
+  background: rgba(45, 212, 160, 0.15);
+  border-color: var(--positive);
+  box-shadow: 0 0 20px rgba(45, 212, 160, 0.15);
+}
+
 .landing-cta-secondary {
   display: inline-flex;
   align-items: center;
