@@ -10,6 +10,7 @@ import { getOperatorColor, getStateColor, STATE_NAMES } from '../utils/colors';
 import ChartCard from './ChartCard';
 import ExportButton from './ExportButton';
 import { PageSkeleton } from './LoadingSkeleton';
+import SourceableValue from './SourceableValue';
 
 const AXIS_TICK = { fill: '#55556a', fontSize: 11, fontFamily: 'JetBrains Mono' };
 const GRID_STYLE = { stroke: '#1a1a28', strokeDasharray: 'none' };
@@ -201,8 +202,8 @@ export default function OperatorDetail({ operatorName, onBack }) {
                               {st.state_name}
                             </span>
                           </td>
-                          <td>{formatCurrency(st.handle)}</td>
-                          <td>{formatCurrency(st.ggr)}</td>
+                          <td><SourceableValue value={st.handle} formattedValue={formatCurrency(st.handle)} row={st} metric="Handle" /></td>
+                          <td><SourceableValue value={st.ggr} formattedValue={formatCurrency(st.ggr)} row={st} metric="Std GGR" /></td>
                           <td>{formatPct(st.hold_pct)}</td>
                           <td>
                             {mom ? (
