@@ -1,4 +1,5 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
 import Sidebar from './components/Sidebar';
 import NationalOverview from './components/NationalOverview';
@@ -10,8 +11,17 @@ import DataTable from './components/DataTable';
 import DocsPage from './components/DocsPage';
 
 export default function App() {
+  const location = useLocation();
   const [activeView, setActiveView] = useState('national');
   const [selectedState, setSelectedState] = useState('NY');
+
+  // Handle navigation from landing page (state chips pass view + stateCode)
+  useEffect(() => {
+    if (location.state?.view === 'state' && location.state?.stateCode) {
+      setSelectedState(location.state.stateCode);
+      setActiveView('state');
+    }
+  }, [location.state]);
 
   const handleNavigateToState = useCallback((stateCode) => {
     setSelectedState(stateCode);

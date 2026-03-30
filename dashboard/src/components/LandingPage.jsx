@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, BarChart3, Shield, Zap, GitCompareArrows } from 'lucide-react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ArrowRight, BarChart3, Shield, Zap, GitCompareArrows, Send } from 'lucide-react';
 import { STATE_NAMES } from '../utils/colors';
+import { supabase } from '../data/supabase';
 
 const STATE_CODES = [
   'AR','AZ','CO','CT','DC','DE','IA','IL','IN','KS','KY','LA',
@@ -10,6 +11,11 @@ const STATE_CODES = [
 ];
 
 const FEATURES = [
+  {
+    icon: Zap,
+    title: 'Fastest in Market',
+    desc: 'Live detection picks up new state filings the moment they publish. Data flows to the dashboard automatically - no manual updates, no delays.',
+  },
   {
     icon: GitCompareArrows,
     title: 'Cross-State Comparison',
@@ -25,66 +31,63 @@ const FEATURES = [
     title: 'Source Verification',
     desc: 'Every number links back to the original regulatory filing. PDF screenshots, raw data lines, and direct source URLs.',
   },
-  {
-    icon: Zap,
-    title: 'Real-Time Updates',
-    desc: 'Automated scrapers detect new data within minutes of state publication. Email alerts when data lands.',
-  },
 ];
 
-function formatBillions(cents) {
-  if (!cents) return '-';
-  const d = cents / 100;
-  if (d >= 1e9) return '$' + (d / 1e9).toFixed(1) + 'B';
-  if (d >= 1e6) return '$' + Math.round(d / 1e6) + 'M';
-  return '$' + Math.round(d);
-}
-
 export default function LandingPage() {
-  const [stats, setStats] = useState(null);
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
+  const [formStatus, setFormStatus] = useState(null); // null | 'sending' | 'sent' | 'error'
 
-  useEffect(() => {
-    // Load a couple CSVs to get live stats for the hero
-    (async () => {
-      try {
-        const resp = await fetch('/data/NY.csv');
-        if (!resp.ok) return;
-        const text = await resp.text();
-        const lines = text.trim().split('\n');
-        // Count unique operators across all loaded data
-        const totalRows = lines.length - 1;
-        setStats({ rows: totalRows > 1000 ? '40,000+' : totalRows.toLocaleString() });
-      } catch {}
-    })();
-  }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.email) return;
+    setFormStatus('sending');
+    try {
+      await supabase.from('subscribers').upsert({
+        email: formData.email,
+        name: formData.name || null,
+        states: '"all"',
+        frequency: 'immediate',
+        active: true,
+      }, { onConflict: 'email' });
+      setFormStatus('sent');
+      setFormData({ name: '', email: '', company: '', message: '' });
+    } catch {
+      setFormStatus('error');
+    }
+  };
+
+  const goToState = (code) => {
+    navigate('/app', { state: { view: 'state', stateCode: code } });
+  };
 
   return (
     <div className="landing">
       {/* Hero */}
       <section className="landing-hero">
         <div className="landing-container">
-          <div className="landing-badge">Data Intelligence Platform</div>
+          <div className="landing-badge">US Sports Betting Data Intelligence Platform</div>
           <h1 className="landing-headline">
-            US Sports Betting Data.<br />
-            Every State. Every Operator.<br />
-            <span className="landing-accent">Source-Verified.</span>
+            The fastest sports betting<br />
+            data platform on the market.<br />
+            <span className="landing-accent">Source-verified.</span>
           </h1>
           <p className="landing-subline">
-            Real-time regulatory data across 35 states. Handle, GGR, market share, and operator
-            performance - updated automatically as states publish.
+            Live regulatory data across 35 states. Handle, GGR, market share, and operator
+            performance - delivered the moment states publish.
           </p>
           <div className="landing-cta-row">
             <Link to="/app" className="landing-cta">
               Explore Dashboard <ArrowRight size={18} />
             </Link>
-            <a href="#api" className="landing-cta-secondary">API Access</a>
+            <a href="#contact" className="landing-cta-secondary">Get API Access</a>
           </div>
           <div className="landing-proof">
             <span>35 states</span>
             <span className="landing-proof-dot" />
             <span>40,000+ data points</span>
             <span className="landing-proof-dot" />
-            <span>Updated every 15 minutes</span>
+            <span className="landing-live-badge">LIVE</span>
           </div>
         </div>
       </section>
@@ -106,7 +109,7 @@ export default function LandingPage() {
               <div className="landing-stat-label">Data Points</div>
             </div>
             <div className="landing-stat">
-              <div className="landing-stat-value">15 min</div>
+              <div className="landing-stat-value landing-live-pulse">LIVE</div>
               <div className="landing-stat-label">Update Frequency</div>
             </div>
           </div>
@@ -143,7 +146,11 @@ export default function LandingPage() {
           </p>
           <div className="landing-state-grid">
             {STATE_CODES.map(code => (
-              <div key={code} className="landing-state-chip">
+              <div
+                key={code}
+                className="landing-state-chip landing-state-clickable"
+                onClick={() => goToState(code)}
+              >
                 <span className="landing-state-code">{code}</span>
                 <span className="landing-state-name">{STATE_NAMES[code]}</span>
               </div>
@@ -157,34 +164,76 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* API */}
-      <section className="landing-section" id="api">
+      {/* API + Contact form */}
+      <section className="landing-section" id="contact">
         <div className="landing-container">
-          <h2 className="landing-section-title">REST API</h2>
+          <h2 className="landing-section-title">Get API Access</h2>
           <p className="landing-section-sub">
             Programmatic access to the full dataset. Query by state, operator, date range, or channel.
           </p>
           <div className="landing-code">
-            <pre><code>{`curl "https://yjrfmlcfvogsfodgmcfw.supabase.co/rest/v1/monthly_data
+            <pre><code>{`curl "https://api.osbdata.com/rest/v1/monthly_data
   ?state_code=eq.NY
   &period_type=eq.monthly
   &order=period_end.desc
   &limit=10"
   -H "apikey: YOUR_API_KEY"`}</code></pre>
           </div>
-          <div className="landing-api-actions">
+
+          <div className="landing-contact-form-wrapper">
+            <form className="landing-contact-form" onSubmit={handleSubmit}>
+              <div className="landing-form-row">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={formData.name}
+                  onChange={e => setFormData({ ...formData, name: e.target.value })}
+                />
+                <input
+                  type="email"
+                  placeholder="Email *"
+                  required
+                  value={formData.email}
+                  onChange={e => setFormData({ ...formData, email: e.target.value })}
+                />
+              </div>
+              <div className="landing-form-row">
+                <input
+                  type="text"
+                  placeholder="Company"
+                  value={formData.company}
+                  onChange={e => setFormData({ ...formData, company: e.target.value })}
+                />
+              </div>
+              <textarea
+                placeholder="Tell us about your use case..."
+                rows={3}
+                value={formData.message}
+                onChange={e => setFormData({ ...formData, message: e.target.value })}
+              />
+              <button type="submit" className="landing-cta" disabled={formStatus === 'sending'}>
+                {formStatus === 'sending' ? 'Sending...' : formStatus === 'sent' ? 'Sent!' : (
+                  <>Request Access <Send size={16} /></>
+                )}
+              </button>
+              {formStatus === 'sent' && (
+                <p className="landing-form-success">Thanks! We'll be in touch shortly.</p>
+              )}
+              {formStatus === 'error' && (
+                <p className="landing-form-error">Something went wrong. Email us at nosherzapoo@gmail.com</p>
+              )}
+            </form>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: 'var(--space-4)' }}>
             <Link to="/app" className="landing-cta-secondary" onClick={() => {
-              // Navigate to docs tab
               setTimeout(() => {
                 const docsBtn = document.querySelector('button[aria-label="API Docs"]');
                 if (docsBtn) docsBtn.click();
               }, 500);
             }}>
-              View API Docs
+              View Full API Documentation
             </Link>
-            <a href="mailto:nosherzapoo@gmail.com?subject=OSB%20Tracker%20API%20Access" className="landing-cta">
-              Request API Access <ArrowRight size={18} />
-            </a>
           </div>
         </div>
       </section>
@@ -194,11 +243,11 @@ export default function LandingPage() {
         <div className="landing-container">
           <div className="landing-footer-brand">
             <strong>OSB Tracker</strong>
-            <span>US Sports Betting Data Intelligence</span>
+            <span>US Sports Betting Data Intelligence Platform</span>
           </div>
           <div className="landing-footer-links">
             <Link to="/app">Dashboard</Link>
-            <a href="https://github.com/khimor/osbdata" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="#contact">API Access</a>
             <a href="mailto:nosherzapoo@gmail.com">Contact</a>
           </div>
         </div>
