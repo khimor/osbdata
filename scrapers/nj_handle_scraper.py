@@ -155,7 +155,7 @@ class NJHandleScraper(BaseStateScraper):
         filename = f"NJ_PR_{year}_{period_info['month']:02d}.pdf"
         save_path = self.raw_dir / filename
 
-        if save_path.exists() and save_path.stat().st_size > 5000:
+        if not self._should_redownload(save_path):
             return save_path
 
         templates = [PR_URL_NEW, PR_URL_OLD] if year >= 2021 else [PR_URL_OLD, PR_URL_NEW]

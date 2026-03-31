@@ -80,6 +80,20 @@ class BaseStateScraper(ABC):
         """
         pass
 
+    def _should_redownload(self, save_path: Path, max_age_hours: int = 12) -> bool:
+        """Check if a cached file should be re-downloaded.
+        Returns True if file doesn't exist, is too small, or is older than max_age_hours.
+        """
+        if not save_path.exists():
+            return True
+        if save_path.stat().st_size < 1000:
+            return True
+        import time
+        age_hours = (time.time() - save_path.stat().st_mtime) / 3600
+        if age_hours > max_age_hours:
+            return True
+        return False
+
     @abstractmethod
     def parse_report(self, file_path: Path, period_info: dict) -> pd.DataFrame:
         """

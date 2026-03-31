@@ -171,7 +171,7 @@ class COScraper(BaseStateScraper):
 
     def _download_pdf(self, url: str, filename: str) -> Path | None:
         save_path = self.raw_dir / filename
-        if save_path.exists() and save_path.stat().st_size > 1000:
+        if not self._should_redownload(save_path):
             return save_path
 
         try:

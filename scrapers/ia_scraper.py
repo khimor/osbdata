@@ -168,7 +168,7 @@ class IAScraper(BaseStateScraper):
             filename = f"IA_{pe.year}_{pe.month:02d}.pdf"
 
         save_path = self.raw_dir / filename
-        if save_path.exists() and save_path.stat().st_size > 5000:
+        if not self._should_redownload(save_path):
             return save_path
 
         resp = requests.get(url, headers=HEADERS, timeout=120, allow_redirects=True)

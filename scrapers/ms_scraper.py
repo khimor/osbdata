@@ -83,8 +83,8 @@ class MSScraper(BaseStateScraper):
             url = f"{MS_BASE_URL}/{filename}"
             save_path = self.raw_dir / filename
 
-            if save_path.exists() and save_path.stat().st_size > 1000:
-                return save_path
+            if not self._should_redownload(save_path):
+            return save_path
 
             try:
                 resp = fetch_with_retry(url, headers={"User-Agent": USER_AGENT})

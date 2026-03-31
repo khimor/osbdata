@@ -110,7 +110,7 @@ class OHScraper(BaseStateScraper):
         filename = f"OH_{year}_sports.pdf"
         save_path = self.raw_dir / filename
 
-        if save_path.exists() and save_path.stat().st_size > 5000:
+        if not self._should_redownload(save_path):
             return save_path
 
         resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=60)

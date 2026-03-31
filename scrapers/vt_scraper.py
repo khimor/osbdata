@@ -218,7 +218,7 @@ class VTScraper(BaseStateScraper):
         filename = f"VT_{year}_{month:02d}.pdf"
         save_path = self.raw_dir / filename
 
-        if save_path.exists() and save_path.stat().st_size > 500:
+        if not self._should_redownload(save_path):
             return save_path
 
         # Try discovered URL first

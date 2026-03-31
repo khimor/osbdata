@@ -262,7 +262,7 @@ class NJScraper(BaseStateScraper):
         filename = f"NJ_{year}_{period_info['month']:02d}.pdf"
         save_path = self.raw_dir / filename
 
-        if save_path.exists() and save_path.stat().st_size > 5000:
+        if not self._should_redownload(save_path):
             return save_path
 
         url = NJ_TAX_URL.format(year=year, month_name=month_name)
