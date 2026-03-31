@@ -32,7 +32,7 @@ USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
 
 # Known PDF paths (relative to rilot.com)
 RI_KNOWN_PDFS = {
-    2026: "/content/dam/interactive/ilottery/pdfs/financial/Jan_SportsbookWebsiteData.pdf",
+    2026: "/content/dam/interactive/ilottery/pdfs/financial/Feb_SportsbookWebsiteData.pdf",
     2025: "/content/dam/interactive/ilottery/pdfs/financial/SportsbookWebsiteDataJun.pdf",
     2024: "/content/dam/interactive/ilottery/pdfs/financial/SportsbookWebsiteData06.2024.pdf",
     2023: "/content/dam/interactive/ilottery/pdfs/financial/SportsBookSummaryFY2023.pdf",
