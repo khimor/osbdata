@@ -48,12 +48,17 @@ def save_watermarks(wm):
 
 
 def get_latest_period(state_code):
+    """Get latest period_end, excluding aggregated-from-weekly partial months."""
     csv_path = PROCESSED_DIR / f"{state_code}.csv"
     if not csv_path.exists():
         return None
     try:
-        df = pd.read_csv(csv_path, usecols=['period_end'], low_memory=False)
-        return str(df['period_end'].max()) if not df.empty else None
+        df = pd.read_csv(csv_path, usecols=['period_end', 'source_file'], low_memory=False)
+        # Exclude aggregated partial months - only count real source data
+        real = df[df['source_file'] != 'aggregated_from_weekly']
+        if real.empty:
+            real = df
+        return str(real['period_end'].max()) if not real.empty else None
     except Exception:
         return None
 
