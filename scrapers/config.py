@@ -110,7 +110,7 @@ STATE_REGISTRY = {
     'AZ': {
         'name': 'Arizona',
         'regulatory_body': 'Arizona Department of Gaming',
-        'source_url': 'https://gaming.az.gov/resources/reports',
+        'source_url': 'https://gaming.az.gov/blog-terms/event-wagering-revenue-reports',
         'frequency': 'monthly',
         'format': 'pdf',
         'has_operator_breakdown': True,
@@ -122,7 +122,7 @@ STATE_REGISTRY = {
         'promo_deduction_allowed': True,
         'promo_notes': 'Sliding scale: Yrs 1-2: 20%, Yr 3: 15%, Yrs 4-5: 10%, Yr 6+: 0%',
         'launch_date': '2021-09-09',
-        'tier': 2,
+        'tier': 4,
         'ggr_definition': 'Adjusted Gross EW Receipts (Handle − Payouts − Federal Excise Tax, before promo deductions)',
         'standard_ggr_notes': (
             'AZ reports "Adjusted Gross Event Wagering Receipts" = Handle − Payouts − '
