@@ -128,19 +128,36 @@ class AZScraper(BaseStateScraper):
     def discover_periods(self) -> list[dict]:
         """
         Discover AZ event wagering report periods by crawling the paginated
-        blog listing at gaming.az.gov. Each listing page links to an individual
-        report page (e.g. /resources/reports/event-wagering-revenue-report-january-2024).
-        We extract month/year from the URL and then find the PDF link on that page.
+        blog listing at gaming.az.gov. Only visits individual report pages
+        for periods that don't already have a cached PDF locally.
         """
         report_pages = self._discover_report_page_links()
         self.logger.info(f"  Found {len(report_pages)} report page links from listing")
 
         periods = []
+        skipped = 0
         for url, month_num, year in report_pages:
             last_day = calendar.monthrange(year, month_num)[1]
             period_end = date(year, month_num, last_day)
 
-            # Try to find the PDF URL from the report page
+            # Skip visiting the report page if we already have a valid cached PDF
+            filename = f"AZ_{year}_{month_num:02d}.pdf"
+            cached_path = self.raw_dir / filename
+            if cached_path.exists() and cached_path.stat().st_size > 1000:
+                # Already have the PDF - no need to crawl the report page
+                periods.append({
+                    "period_end": period_end,
+                    "period_type": "monthly",
+                    "year": year,
+                    "month": month_num,
+                    "month_name": MONTH_NUM_TO_NAME[month_num].capitalize(),
+                    "report_page_url": url,
+                    "download_url": None,  # Not needed, will use cached file
+                })
+                skipped += 1
+                continue
+
+            # New period - visit the report page to find the PDF URL
             pdf_url = self._find_pdf_on_report_page(url)
 
             periods.append({
@@ -158,7 +175,8 @@ class AZScraper(BaseStateScraper):
 
         self.logger.info(
             f"  Discovered {len(periods)} periods, "
-            f"{sum(1 for p in periods if p.get('download_url'))} with direct PDF URLs"
+            f"{skipped} cached, "
+            f"{sum(1 for p in periods if p.get('download_url'))} need PDF lookup"
         )
         return periods
 
@@ -261,10 +279,15 @@ class AZScraper(BaseStateScraper):
 
         download_url = period_info.get("download_url")
         if not download_url:
-            raise FileNotFoundError(
-                f"No PDF URL discovered for {period_info['month_name']} {year}. "
-                f"Report page: {period_info.get('report_page_url', 'unknown')}"
-            )
+            # PDF URL wasn't looked up during discovery (cached period) - fetch it now
+            report_page_url = period_info.get("report_page_url")
+            if report_page_url:
+                download_url = self._find_pdf_on_report_page(report_page_url)
+            if not download_url:
+                raise FileNotFoundError(
+                    f"No PDF URL discovered for {period_info['month_name']} {year}. "
+                    f"Report page: {period_info.get('report_page_url', 'unknown')}"
+                )
 
         try:
             self._ensure_browser()
