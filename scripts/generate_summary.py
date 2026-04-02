@@ -86,10 +86,18 @@ def get_state_summary(state_code):
             if yoy_handle > 0:
                 yoy_pct = (handle - yoy_handle) / abs(yoy_handle)
 
+    # Determine period type from latest rows
+    period_type = 'monthly'
+    if 'period_type' in latest.columns:
+        pt = latest['period_type'].dropna().unique()
+        if len(pt) > 0:
+            period_type = pt[0]
+
     return {
         'state': state_code,
         'name': STATE_REGISTRY.get(state_code, {}).get('name', state_code),
         'period': latest_period,
+        'period_type': period_type,
         'handle': handle,
         'ggr': ggr,
         'hold': hold,
@@ -163,6 +171,7 @@ def main():
         json_data["states"][sc] = {
             "name": s['name'],
             "period": s['period'],
+            "period_type": s.get('period_type', 'monthly'),
             "handle": s['handle'],
             "handle_formatted": format_dollars(s['handle']),
             "ggr": s['ggr'],

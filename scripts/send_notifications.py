@@ -104,6 +104,20 @@ def filter_summary_for_subscriber(summary, subscriber):
     return filtered
 
 
+def _format_period(period_str, period_type=None):
+    """Format a period string like '2026-02-28' into 'Feb 2026' or 'Week of Mar 22'."""
+    if not period_str:
+        return "-"
+    try:
+        from datetime import datetime
+        d = datetime.strptime(str(period_str)[:10], '%Y-%m-%d')
+        if period_type == 'weekly':
+            return f"Wk {d.strftime('%b %d')}"
+        return d.strftime('%b %Y')
+    except Exception:
+        return str(period_str)[:10]
+
+
 def render_html_email(summary, subscriber_name=None):
     subscriber_name = subscriber_name if subscriber_name and subscriber_name != 'None' else 'there'
     """Render an HTML email from summary data."""
@@ -122,6 +136,7 @@ def render_html_email(summary, subscriber_name=None):
     table_rows = ""
     for sc in sorted(states.keys()):
         s = states[sc]
+        period_label = _format_period(s.get('period'), s.get('period_type'))
         hold = f"{s['hold_pct']*100:.1f}%" if s.get('hold_pct') else "-"
         yoy = f"{s['yoy_handle_pct']*100:+.1f}%" if s.get('yoy_handle_pct') is not None else "-"
         yoy_color = "#2dd4a0" if s.get('yoy_handle_pct') and s['yoy_handle_pct'] >= 0 else "#f06060"
@@ -130,6 +145,7 @@ def render_html_email(summary, subscriber_name=None):
         <tr style="border-bottom: 1px solid #1a1a28;">
           <td style="padding: 10px 12px; color: #e4e4ec; font-weight: 500;">{sc}</td>
           <td style="padding: 10px 12px; color: #8b8b9e; font-size: 13px;">{s.get('name', sc)}</td>
+          <td style="padding: 10px 12px; color: #55556a; font-size: 12px;">{period_label}</td>
           <td style="padding: 10px 12px; color: #e4e4ec; text-align: right; font-family: 'JetBrains Mono', monospace;">{s.get('handle_formatted', '-')}</td>
           <td style="padding: 10px 12px; color: #e4e4ec; text-align: right; font-family: 'JetBrains Mono', monospace;">{s.get('ggr_formatted', '-')}</td>
           <td style="padding: 10px 12px; color: #e4e4ec; text-align: right; font-family: 'JetBrains Mono', monospace;">{hold}</td>
@@ -179,6 +195,7 @@ def render_html_email(summary, subscriber_name=None):
           <tr style="border-bottom: 1px solid #2a2a3c;">
             <th style="padding: 10px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #55556a; font-weight: 500;">State</th>
             <th style="padding: 10px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #55556a; font-weight: 500;">Name</th>
+            <th style="padding: 10px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #55556a; font-weight: 500;">Period</th>
             <th style="padding: 10px 12px; text-align: right; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #55556a; font-weight: 500;">Handle</th>
             <th style="padding: 10px 12px; text-align: right; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #55556a; font-weight: 500;">GGR</th>
             <th style="padding: 10px 12px; text-align: right; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #55556a; font-weight: 500;">Hold</th>

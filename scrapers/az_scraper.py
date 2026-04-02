@@ -4,17 +4,16 @@ Source: gaming.az.gov monthly PDF reports
 Format: PDF (operator-level data with retail/mobile split)
 Launch: September 2021
 Tax: 8% retail, 10% online on adjusted gross event wagering receipts
-Note: Uses cloudscraper to bypass Cloudflare 403 protection on gaming.az.gov.
-      Discovers reports via paginated blog listing, then follows links to individual
-      report pages to find PDF download URLs. PDF parsing splits on '$' signs to
-      extract operator names and financial values.
+Note: Uses Playwright with stealth settings to bypass Cloudflare protection on
+      gaming.az.gov. Discovers reports via paginated blog listing, then follows
+      links to individual report pages to find PDF download URLs. PDF parsing
+      splits on '$' signs to extract operator names and financial values.
 """
 
 import sys
 import re
 import calendar
 import time
-import warnings
 from pathlib import Path
 from datetime import date
 from urllib.parse import urljoin
@@ -27,18 +26,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from scrapers.base_scraper import BaseStateScraper
 from scrapers.scraper_utils import setup_logger
-
-# Try cloudscraper, fall back to requests
-try:
-    import cloudscraper
-    HAS_CLOUDSCRAPER = True
-except ImportError:
-    import requests
-    HAS_CLOUDSCRAPER = False
-    warnings.warn(
-        "cloudscraper not installed — AZ scraper will likely get 403 errors. "
-        "Install with: pip install cloudscraper"
-    )
 
 # Reports listing URL (paginated: ?page=0 through ?page=6+)
 AZ_REPORTS_INDEX = "https://gaming.az.gov/blog-terms/event-wagering-revenue-reports"
@@ -60,29 +47,80 @@ MONTH_NAMES = {
 MONTH_NUM_TO_NAME = {v: k for k, v in MONTH_NAMES.items()}
 
 
+STEALTH_ARGS = [
+    "--disable-blink-features=AutomationControlled",
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+]
+STEALTH_UA = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/131.0.0.0 Safari/537.36"
+)
+
+
 class AZScraper(BaseStateScraper):
     def __init__(self):
         super().__init__("AZ")
-        self._init_scraper()
+        self._pw = None
+        self._browser = None
+        self._context = None
 
-    def _init_scraper(self):
-        """Initialize the HTTP client (cloudscraper preferred, requests fallback)."""
-        if HAS_CLOUDSCRAPER:
-            self._scraper = cloudscraper.create_scraper(
-                browser={"browser": "chrome", "platform": "darwin", "mobile": False}
-            )
-            self.logger.info("Using cloudscraper for Cloudflare bypass")
-        else:
-            import requests as req
-            self._scraper = req.Session()
-            self._scraper.headers.update({
-                "User-Agent": (
-                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                    "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/131.0.0.0 Safari/537.36"
-                ),
-            })
-            self.logger.warning("cloudscraper not available — using plain requests (may get 403)")
+    def _ensure_browser(self):
+        """Lazily start Playwright browser with stealth settings."""
+        if self._browser is not None:
+            return
+        from playwright.sync_api import sync_playwright
+        self._pw = sync_playwright().start()
+        self._browser = self._pw.chromium.launch(
+            headless=True,
+            args=STEALTH_ARGS,
+        )
+        self._context = self._browser.new_context(
+            user_agent=STEALTH_UA,
+            viewport={"width": 1280, "height": 900},
+            java_script_enabled=True,
+            accept_downloads=True,
+        )
+        self.logger.info("Started Playwright browser with stealth settings")
+
+    def _close_browser(self):
+        """Close Playwright browser and stop the instance."""
+        if self._browser:
+            try:
+                self._browser.close()
+            except Exception:
+                pass
+            self._browser = None
+            self._context = None
+        if self._pw:
+            try:
+                self._pw.stop()
+            except Exception:
+                pass
+            self._pw = None
+
+    def _fetch_page_html(self, url: str, wait_ms: int = 2000) -> str | None:
+        """Fetch a page's HTML using the stealth Playwright browser."""
+        self._ensure_browser()
+        page = self._context.new_page()
+        try:
+            page.goto(url, timeout=30000, wait_until="domcontentloaded")
+            page.wait_for_timeout(wait_ms)
+            html = page.content()
+            return html
+        except Exception as e:
+            self.logger.warning(f"  Playwright failed to load {url}: {e}")
+            return None
+        finally:
+            page.close()
+
+    def run(self, backfill: bool = False) -> pd.DataFrame:
+        """Override run to ensure Playwright browser is cleaned up."""
+        try:
+            return super().run(backfill=backfill)
+        finally:
+            self._close_browser()
 
     # ------------------------------------------------------------------
     # discover_periods
@@ -128,32 +166,24 @@ class AZScraper(BaseStateScraper):
         """
         Crawl paginated listing pages (?page=0 .. ?page=N) to find links to
         individual report pages. Returns list of (url, month_num, year).
+        Uses Playwright to bypass Cloudflare.
         """
         results = []
         seen_urls = set()
 
         for page_num in range(AZ_MAX_PAGES):
             url = f"{AZ_REPORTS_INDEX}?page={page_num}"
-            try:
-                resp = self._scraper.get(url, timeout=30)
-                if resp.status_code == 404:
-                    self.logger.info(f"  Pagination ended at page {page_num} (404)")
-                    break
-                if resp.status_code == 403:
-                    self.logger.warning(f"  403 on listing page {page_num}")
-                    continue
-                resp.raise_for_status()
-            except Exception as e:
-                self.logger.warning(f"  Failed to fetch listing page {page_num}: {e}")
+            html = self._fetch_page_html(url)
+
+            if html is None:
+                self.logger.warning(f"  Failed to fetch listing page {page_num}")
                 break
 
-            soup = BeautifulSoup(resp.text, "html.parser")
+            soup = BeautifulSoup(html, "html.parser")
             links_found_on_page = 0
 
             for link in soup.find_all("a", href=True):
                 href = link["href"]
-                # Match report page URLs like:
-                # /resources/reports/event-wagering-revenue-report-january-2024
                 match = re.search(
                     r'/(?:resources/reports/)?event-wagering-revenue-report-'
                     r'(\w+)-(\d{4})',
@@ -178,11 +208,9 @@ class AZScraper(BaseStateScraper):
 
             self.logger.info(f"  Page {page_num}: found {links_found_on_page} report links")
 
-            # If no links were found on this page, we may have hit the end
             if links_found_on_page == 0 and page_num > 0:
                 break
 
-            # Be polite
             time.sleep(0.5)
 
         return results
@@ -191,20 +219,13 @@ class AZScraper(BaseStateScraper):
         """
         Fetch an individual report page and find the PDF download link.
         Returns the full PDF URL, or None if not found.
+        Uses Playwright to bypass Cloudflare.
         """
-        try:
-            resp = self._scraper.get(report_page_url, timeout=30)
-            if resp.status_code != 200:
-                self.logger.warning(
-                    f"  Could not fetch report page {report_page_url} "
-                    f"(status {resp.status_code})"
-                )
-                return None
-        except Exception as e:
-            self.logger.warning(f"  Failed to fetch report page {report_page_url}: {e}")
+        html = self._fetch_page_html(report_page_url)
+        if html is None:
             return None
 
-        soup = BeautifulSoup(resp.text, "html.parser")
+        soup = BeautifulSoup(html, "html.parser")
 
         for link in soup.find_all("a", href=True):
             href = link["href"]
@@ -219,14 +240,14 @@ class AZScraper(BaseStateScraper):
     # download_report
     # ------------------------------------------------------------------
     def download_report(self, period_info: dict) -> Path:
-        """Download AZ event wagering PDF for a month."""
+        """Download AZ event wagering PDF for a month using Playwright."""
         year = period_info["year"]
         month = period_info["month"]
         filename = f"AZ_{year}_{month:02d}.pdf"
         save_path = self.raw_dir / filename
 
-        if save_path.exists() and save_path.stat().st_size > 1000:
-            # Validate that the cached file is actually a PDF, not an HTML error page
+        if not self._should_redownload(save_path):
+            # Validate that cached file is actually a PDF
             with open(save_path, "rb") as f:
                 header = f.read(5)
             if header == b"%PDF-":
@@ -246,23 +267,33 @@ class AZScraper(BaseStateScraper):
             )
 
         try:
-            resp = self._scraper.get(download_url, timeout=60)
-            resp.raise_for_status()
+            self._ensure_browser()
+            # Playwright triggers a download for PDF URLs; use expect_download
+            # with evaluate() to avoid goto's "Download is starting" error
+            page = self._context.new_page()
+            try:
+                with page.expect_download(timeout=60000) as download_info:
+                    page.evaluate("url => window.location.href = url", download_url)
+                download = download_info.value
+                download.save_as(save_path)
+                content = save_path.read_bytes()
+            finally:
+                page.close()
 
-            if len(resp.content) < 1000:
+            if len(content) < 1000:
                 raise ValueError(
-                    f"PDF too small ({len(resp.content)} bytes) — "
+                    f"PDF too small ({len(content)} bytes) - "
                     f"likely an error page, not a real PDF"
                 )
 
-            if not resp.content[:5] == b"%PDF-":
+            if not content[:5] == b"%PDF-":
                 raise ValueError(
                     f"Downloaded content is not a PDF "
-                    f"(starts with {resp.content[:20]!r})"
+                    f"(starts with {content[:20]!r})"
                 )
 
             with open(save_path, "wb") as f:
-                f.write(resp.content)
+                f.write(content)
 
             self.logger.info(
                 f"  Downloaded: {filename} ({save_path.stat().st_size:,} bytes) "

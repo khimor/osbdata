@@ -11,3 +11,6 @@ tabula-py
 lxml
 tenacity
 cloudscraper
+PyMuPDF
+pytesseract
+Pillow

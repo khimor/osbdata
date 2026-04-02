@@ -84,7 +84,7 @@ class MSScraper(BaseStateScraper):
             save_path = self.raw_dir / filename
 
             if not self._should_redownload(save_path):
-            return save_path
+                return save_path
 
             try:
                 resp = fetch_with_retry(url, headers={"User-Agent": USER_AGENT})

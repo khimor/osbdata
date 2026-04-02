@@ -23,6 +23,9 @@ jobs:
           python-version: '3.11'
           cache: 'pip'
 
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 
@@ -30,6 +33,7 @@ jobs:
         run: playwright install chromium
 
       - name: Run all scrapers with backfill
+        id: scrape
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
@@ -39,7 +43,8 @@ jobs:
         run: python scripts/sync_to_dashboard.py
 
       - name: Generate summary
-        run: python scripts/generate_summary.py
+        if: steps.scrape.outputs.new_data == 'true'
+        run: python scripts/generate_summary.py ${{ steps.scrape.outputs.changed_states }}
 
       - name: Commit and push
         run: |
@@ -49,6 +54,7 @@ jobs:
           git diff --cached --quiet || (git commit -m "data: weekly full sweep $(date +%Y-%m-%d)" && git pull --rebase origin main && git push)
 
       - name: Send email notifications
+        if: steps.scrape.outputs.new_data == 'true'
         env:
           EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
