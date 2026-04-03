@@ -117,6 +117,7 @@ class AZScraper(BaseStateScraper):
 
     def run(self, backfill: bool = False) -> pd.DataFrame:
         """Override run to ensure Playwright browser is cleaned up."""
+        self._backfill = backfill
         try:
             return super().run(backfill=backfill)
         finally:
@@ -142,7 +143,7 @@ class AZScraper(BaseStateScraper):
         Stops paginating once all found periods already exist in our data.
         Only visits individual report pages for new periods we don't have yet.
         """
-        existing = self._get_existing_periods()
+        existing = set() if getattr(self, '_backfill', False) else self._get_existing_periods()
         report_pages = self._discover_report_page_links(existing)
         self.logger.info(f"  Found {len(report_pages)} report page links")
 
