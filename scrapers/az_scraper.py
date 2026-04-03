@@ -125,26 +125,35 @@ class AZScraper(BaseStateScraper):
     # ------------------------------------------------------------------
     # discover_periods
     # ------------------------------------------------------------------
+    def _get_existing_periods(self) -> set:
+        """Read the CSV to find which periods we already have data for."""
+        csv_path = Path("data/processed") / f"{self.state_code}.csv"
+        if not csv_path.exists():
+            return set()
+        try:
+            df = pd.read_csv(csv_path, usecols=['period_end'], low_memory=False)
+            return set(df['period_end'].unique())
+        except Exception:
+            return set()
+
     def discover_periods(self) -> list[dict]:
         """
-        Discover AZ event wagering report periods by crawling the paginated
-        blog listing at gaming.az.gov. Only visits individual report pages
-        for periods that don't already have a cached PDF locally.
+        Discover AZ report periods. Only crawls listing page 0 (newest first).
+        Stops paginating once all found periods already exist in our data.
+        Only visits individual report pages for new periods we don't have yet.
         """
-        report_pages = self._discover_report_page_links()
-        self.logger.info(f"  Found {len(report_pages)} report page links from listing")
+        existing = self._get_existing_periods()
+        report_pages = self._discover_report_page_links(existing)
+        self.logger.info(f"  Found {len(report_pages)} report page links")
 
         periods = []
-        skipped = 0
         for url, month_num, year in report_pages:
             last_day = calendar.monthrange(year, month_num)[1]
             period_end = date(year, month_num, last_day)
+            period_str = str(period_end)
 
-            # Skip visiting the report page if we already have a valid cached PDF
-            filename = f"AZ_{year}_{month_num:02d}.pdf"
-            cached_path = self.raw_dir / filename
-            if cached_path.exists() and cached_path.stat().st_size > 1000:
-                # Already have the PDF - no need to crawl the report page
+            if period_str in existing:
+                # Already have this period - no need to visit report page
                 periods.append({
                     "period_end": period_end,
                     "period_type": "monthly",
@@ -152,14 +161,12 @@ class AZScraper(BaseStateScraper):
                     "month": month_num,
                     "month_name": MONTH_NUM_TO_NAME[month_num].capitalize(),
                     "report_page_url": url,
-                    "download_url": None,  # Not needed, will use cached file
+                    "download_url": None,
                 })
-                skipped += 1
                 continue
 
-            # New period - visit the report page to find the PDF URL
+            # New period - visit report page to find PDF URL
             pdf_url = self._find_pdf_on_report_page(url)
-
             periods.append({
                 "period_end": period_end,
                 "period_type": "monthly",
@@ -170,20 +177,15 @@ class AZScraper(BaseStateScraper):
                 "download_url": pdf_url,
             })
 
-        # Sort by period_end ascending
         periods.sort(key=lambda p: p["period_end"])
-
-        self.logger.info(
-            f"  Discovered {len(periods)} periods, "
-            f"{skipped} cached, "
-            f"{sum(1 for p in periods if p.get('download_url'))} need PDF lookup"
-        )
+        new_count = sum(1 for p in periods if p.get('download_url'))
+        self.logger.info(f"  {len(periods)} total periods, {new_count} new")
         return periods
 
-    def _discover_report_page_links(self) -> list[tuple]:
+    def _discover_report_page_links(self, existing_periods: set) -> list[tuple]:
         """
-        Crawl paginated listing pages (?page=0 .. ?page=N) to find links to
-        individual report pages. Returns list of (url, month_num, year).
+        Crawl listing pages to find report links. Starts from page 0 (newest).
+        Stops paginating once a full page of results are all already in our data.
         Uses Playwright to bypass Cloudflare.
         """
         results = []
@@ -198,7 +200,8 @@ class AZScraper(BaseStateScraper):
                 break
 
             soup = BeautifulSoup(html, "html.parser")
-            links_found_on_page = 0
+            links_found = 0
+            all_existing = True
 
             for link in soup.find_all("a", href=True):
                 href = link["href"]
@@ -222,11 +225,22 @@ class AZScraper(BaseStateScraper):
                 if full_url not in seen_urls:
                     seen_urls.add(full_url)
                     results.append((full_url, month_num, year))
-                    links_found_on_page += 1
+                    links_found += 1
 
-            self.logger.info(f"  Page {page_num}: found {links_found_on_page} report links")
+                    # Check if this period already exists
+                    last_day = calendar.monthrange(year, month_num)[1]
+                    period_str = str(date(year, month_num, last_day))
+                    if period_str not in existing_periods:
+                        all_existing = False
 
-            if links_found_on_page == 0 and page_num > 0:
+            self.logger.info(f"  Page {page_num}: {links_found} links")
+
+            if links_found == 0 and page_num > 0:
+                break
+
+            # Stop paginating if everything on this page already exists
+            if all_existing and links_found > 0 and page_num > 0:
+                self.logger.info(f"  All periods on page {page_num} already exist, stopping")
                 break
 
             time.sleep(0.5)
