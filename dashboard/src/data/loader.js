@@ -848,7 +848,11 @@ export async function getStateTimeSeries(stateCode, periodType = 'monthly', chan
       _hasTotalHandle: false, _totalHandle: 0,
       _hasTotalGgr: false, _totalGgr: 0,
       _hasTotalTax: false, _totalTax: 0,
+      isAggregatedFromWeekly: false,
     };
+    if (row.source_file === 'aggregated_from_weekly') {
+      byPeriod[pe].isAggregatedFromWeekly = true;
+    }
 
     const isTotalRow = ['TOTAL', 'ALL'].includes(row.operator_standard);
 
@@ -1196,5 +1200,8 @@ export async function getStateOperatorTable(stateCode, targetPeriod = null, chan
     }))
     .sort((a, b) => b.handle - a.handle);
 
-  return { operators, period: latestPeriod, availablePeriods: periods };
+  // Check if this period's data is aggregated from weekly reports
+  const isAggregatedFromWeekly = latest.some(r => r.source_file === 'aggregated_from_weekly');
+
+  return { operators, period: latestPeriod, availablePeriods: periods, isAggregatedFromWeekly };
 }

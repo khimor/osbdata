@@ -136,6 +136,7 @@ export default function StateDeepDive({ stateCode: initialState }) {
       yoyGgr: formatChange(current.standard_ggr, yoyRow?.standard_ggr),
       yoyTax: formatChange(current.tax_paid, yoyRow?.tax_paid),
       yoyHoldBps,
+      isAggregatedFromWeekly: current.isAggregatedFromWeekly,
     };
   }, [timeSeries, selectedPeriod]);
 
@@ -319,6 +320,12 @@ export default function StateDeepDive({ stateCode: initialState }) {
         </div>
       )}
 
+      {summary?.isAggregatedFromWeekly && (
+        <div style={{ padding: '8px 12px', background: 'var(--surface-2)', border: '1px solid var(--border)', borderRadius: '6px', marginBottom: 'var(--space-3)', fontSize: '12px', color: 'var(--text-tertiary)' }}>
+          Data for {formatDate(summary.period, periodType)} is aggregated from weekly filings. Official monthly report not yet published.
+        </div>
+      )}
+
       {!loading && (
         <>
           <div className="charts-row">
@@ -480,7 +487,14 @@ export default function StateDeepDive({ stateCode: initialState }) {
           {opTableData?.operators?.length > 0 && (
             <div className="card" style={{ marginBottom: 'var(--space-4)' }}>
               <div className="card-header">
-                <div className="card-title">{opTableTitle}</div>
+                <div className="card-title">
+                  {opTableTitle}
+                  {opTableData?.isAggregatedFromWeekly && (
+                    <span style={{ fontSize: '12px', color: 'var(--text-tertiary)', fontWeight: 400, marginLeft: '8px' }}>
+                      (aggregated from weekly filings)
+                    </span>
+                  )}
+                </div>
                 <ExportButton data={opTableData.operators} filename={`${stateCode.toLowerCase()}_operators`} />
               </div>
               <div className="data-table-wrapper">
