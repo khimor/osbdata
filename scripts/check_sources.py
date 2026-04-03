@@ -33,8 +33,8 @@ PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
 MONTHLY_COLD = 16      # < 16 days: just reported, skip
 MONTHLY_WARM = 25      # 16-24 days: approaching due
 MONTHLY_HOT = 25       # >= 25 days: overdue, check every run
-WEEKLY_COLD = 4         # < 4 days: just reported
-WEEKLY_HOT = 4          # >= 4 days: overdue
+WEEKLY_COLD = 2         # < 2 days: just reported
+WEEKLY_HOT = 2          # >= 2 days: overdue, check every run
 WARM_THROTTLE_HOURS = 2 # WARM states: check at most every 2 hours
 
 TIER_MAP = {
